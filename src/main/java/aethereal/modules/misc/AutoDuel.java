@@ -70,7 +70,7 @@ public class AutoDuel extends Module {
             this.field1195 = field0796.field_1724.method_23317();
             this.field0870 = field0796.field_1724.method_23318();
             this.field0825 = field0796.field_1724.method_23321();
-            List var8 = this.method1729();
+            List<String> var8 = this.method1729();
             if (this.field1719.method0612(800.0 * Math.max(1, var8.size()))) {
                this.field1644.clear();
                this.field1719.method0578();

@@ -70,7 +70,7 @@ public class AuctionHelper extends Module {
             IHandledScreen var4 = (IHandledScreen)var2;
             int var5 = var4.daamky$getX();
             int var6 = var4.daamky$getY();
-            List var7 = field0796.field_1724.field_7512.field_7761;
+            List<class_1735> var7 = field0796.field_1724.field_7512.field_7761;
             class_1735 var8 = null;
             int var9 = Integer.MAX_VALUE;
 
@@ -183,7 +183,7 @@ public class AuctionHelper extends Module {
    }
 
    private int method0268(class_1799 var1) {
-      List var2 = this.method2156(var1);
+      List<class_1735> var2 = this.method2156(var1);
       int var3 = Math.max(1, var1.method_7947());
       long var4 = -1L;
       long var6 = -1L;
@@ -229,7 +229,7 @@ public class AuctionHelper extends Module {
 
    private List<String> method2156(class_1799 var1) {
       ArrayList var2 = new ArrayList<>();
-      List var3 = this.method1860(var1);
+      List<class_1735> var3 = this.method1860(var1);
       if (var3 != null) {
          for (class_2561 var5 : var3) {
             var2.add(var5.getString());

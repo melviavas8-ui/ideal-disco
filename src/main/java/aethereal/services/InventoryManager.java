@@ -27,7 +27,7 @@ import ua.patch.daamky.api.mixins.accessors.IClientPlayerInteractionManager;
 public final class InventoryManager implements MinecraftAccess {
    private static final DelayedAction field0999 = new DelayedAction();
    public static final int field0567 = 0;
-   public static final int field0004 = 8;
+   public static  int field0004 = 8;
    public static final int field1411 = 35;
 
    public static DelayedAction method0544() {
@@ -107,7 +107,7 @@ public final class InventoryManager implements MinecraftAccess {
          field0796.field_1724.method_5728(false);
       }
 
-      field0004 = Math.max(Sprint.field0004, 1);
+      Sprint.field0004 = Math.max(Sprint.field0004, 1);
    }
 
    private static void method0430() {

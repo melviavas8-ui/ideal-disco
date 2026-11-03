@@ -154,7 +154,7 @@ extends class_742 {
     @ModifyExpressionValue(method={"tickMovement"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z")})
     private boolean usingItemHook(boolean original) {
         if (original) {
-            ItemUseEvent event = new ItemUseEvent(1);
+            ItemUseEvent event = new ItemUseEvent((byte)1);
             DaamkyClient.method2004().method2072().post((Object)event);
             if (event.method2079()) {
                 return false;

@@ -1228,7 +1228,7 @@ public class AuraDebug extends Module {
    }
 
    private List<String[]> method0792(Aura var1) {
-      List var2 = new ArrayList<>();
+      List<AuraDebug.DebugBox> var2 = new ArrayList<>();
       boolean var3 = var1 != null && var1.method2195();
       var2.add(new String[]{"aura", var3 ? "ON" : "OFF"});
       var2.add(new String[]{"collecting", this.method2030() ? "yes" : "no"});
@@ -1273,7 +1273,7 @@ public class AuraDebug extends Module {
    }
 
    private List<AuraDebug.DebugPoint> method0396() {
-      List var1 = new ArrayList<>();
+      List<AuraDebug.DebugBox> var1 = new ArrayList<>();
       Iterator var2 = this.field1584.descendingIterator();
 
       while (var2.hasNext()) {

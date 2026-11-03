@@ -236,7 +236,7 @@ public class BlockESP extends Module {
       }
 
       Set var9 = new LinkedHashSet<>(this.field1563.values());
-      List var10 = new ArrayList<>(var9.size());
+      List<class_2338> var10 = new ArrayList<>(var9.size());
 
       for (class_2248 var7 : var9) {
          class_1799 var8 = new class_1799(var7.method_8389());

@@ -138,7 +138,7 @@ public class NameTags extends Module {
          class_243 var11 = field0796.field_1773.method_19418().method_19326();
          boolean var12 = field0796.field_1690.method_31044().method_31034();
          double var13 = this.field1553.method0492().doubleValue();
-         List var15 = new ArrayList<>();
+         List<class_1297> var15 = new ArrayList<>();
          if (var2 || var3) {
             for (class_1657 var17 : field0796.field_1687.method_18456()) {
                if ((var17 == field0796.field_1724 ? var2 && !var12 : var3 && (var7 || !var17.method_5767()))
@@ -207,7 +207,7 @@ public class NameTags extends Module {
          class_4587 var10 = var9.method_51448();
          class_243 var11 = field0796.field_1773.method_19418().method_19326();
          boolean var12 = field0796.field_1690.method_31044().method_31034();
-         List var13 = new ArrayList<>();
+         List<class_1297> var13 = new ArrayList<>();
          if (var2 || var3) {
             for (class_1657 var15 : field0796.field_1687.method_18456()) {
                if ((var15 == field0796.field_1724 ? var2 && !var12 : var3 && (var7 || !var15.method_5767())) && !var15.method_29504()) {
@@ -595,7 +595,7 @@ public class NameTags extends Module {
    }
 
    private List<class_1799> method1180(class_1657 var1) {
-      List var2 = new ArrayList<>();
+      List<class_1799> var2 = new ArrayList<>();
       var2.add((class_1799)var1.method_31548().field_7548.get(3));
       var2.add((class_1799)var1.method_31548().field_7548.get(2));
       var2.add((class_1799)var1.method_31548().field_7548.get(1));
@@ -605,7 +605,7 @@ public class NameTags extends Module {
    }
 
    private List<class_1799> method0249(class_1657 var1) {
-      List var2 = new ArrayList<>();
+      List<class_1799> var2 = new ArrayList<>();
       class_1799 var3 = var1.method_6047();
       class_1799 var4 = var1.method_6079();
       if (!var4.method_7960()) {

@@ -157,7 +157,7 @@ public class Arrows extends Module {
             float var38 = ScreenLayoutHelper.method2047() / 2.0F;
             float var39 = ScreenLayoutHelper.method1762() / 2.0F;
             float var40 = field0796.field_1724.field_5982 + (field0796.field_1724.method_36454() - field0796.field_1724.field_5982) * var35;
-            List var41 = new ArrayList<>();
+            List<class_1657> var14 = new ArrayList<>();
             List var42 = new ArrayList<>();
             AntiBot var43 = AntiBot.method1700();
 

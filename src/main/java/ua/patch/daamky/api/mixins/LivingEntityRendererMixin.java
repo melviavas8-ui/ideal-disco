@@ -156,7 +156,7 @@ EntityModelRenderHook {
         matrixStack.method_22905(-1.0f, -1.0f, 1.0f);
         this.method_4042((S)livingEntityRenderState, matrixStack);
         matrixStack.method_46416(0.0f, -1.501f, 0.0f);
-        this.field_4737.method_2819((class_10017)(Object)livingEntityRenderState);
+        this.daamky$setAngles(livingEntityRenderState);
         boolean bl = this.method_4056((S)livingEntityRenderState);
         boolean bl2 = !bl && !livingEntityRenderState.field_53461;
         class_1921 renderLayer = this.method_24302((S)livingEntityRenderState, bl, bl2, livingEntityRenderState.field_53462);
@@ -188,7 +188,7 @@ EntityModelRenderHook {
         matrices.method_22905(-1.0f, -1.0f, 1.0f);
         this.method_4042((S)state, matrices);
         matrices.method_46416(0.0f, -1.501f, 0.0f);
-        this.field_4737.method_2819((class_10017)(Object)state);
+        this.daamky$setAngles(state);
         out.put("headTop", this.daamky$joint(matrices, biped.field_3398, 0.0f, -0.5f, 0.0f));
         out.put("neck", this.daamky$joint(matrices, biped.field_3398, 0.0f, 0.0f, 0.0f));
         out.put("pelvis", this.daamky$joint(matrices, biped.field_3391, 0.0f, 0.75f, 0.0f));
@@ -211,6 +211,11 @@ EntityModelRenderHook {
         matrices.method_23760().method_23761().transformPosition(v);
         matrices.method_22909();
         return v;
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private void daamky$setAngles(class_10042 state) {
+        this.field_4737.method_2819(state);
     }
 }
 

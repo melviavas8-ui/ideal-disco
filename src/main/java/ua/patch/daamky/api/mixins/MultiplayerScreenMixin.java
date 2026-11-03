@@ -41,7 +41,8 @@ extends class_437 {
         ProxyEntry active = ProxyStorage.method1786().method0547();
         String base = ProxyAddressHelper.method1044("Proxy", "\u041f\u0440\u043e\u043a\u0441\u0438");
         String label = active == null ? base : base + ": " + active.method2060().method0557();
-        this.method_37063((class_364)class_4185.method_46430((class_2561)class_2561.method_43470((String)label), btn -> this.field_22787.method_1507((class_437)new ProxyScreen((class_437)self))).method_46434(5, 5, 85, 20).method_46431());
+        class_4185 btn = class_4185.method_46430((class_2561)class_2561.method_43470((String)label), b -> this.field_22787.method_1507((class_437)new ProxyScreen((class_437)self))).method_46434(5, 5, 85, 20).method_46431();
+        this.method_37063(btn);
     }
 }
 

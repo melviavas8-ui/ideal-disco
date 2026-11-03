@@ -361,7 +361,7 @@ public class Ambience extends Module {
    }
 
    private Ambience.SkyObjectType method0463() {
-      List var1 = new ArrayList<>();
+      List<?> var1 = new ArrayList<>();
       var1.add(Ambience.SkyObjectType.field0006);
       var1.add(Ambience.SkyObjectType.field0006);
       var1.add(Ambience.SkyObjectType.field0006);
@@ -973,7 +973,7 @@ public class Ambience extends Module {
          var1.field1409 + 0.0600000020991191,
          var1.field0956 + 0.0600000020991191
       );
-      List var3 = field0796.field_1687.method_8390(class_1309.class, var2, var0 -> var0 != field0796.field_1724 && var0.method_5805());
+      List<?> var3 = field0796.field_1687.method_8390(class_1309.class, var2, var0 -> var0 != field0796.field_1724 && var0.method_5805());
       return !var3.isEmpty();
    }
 
@@ -995,7 +995,7 @@ public class Ambience extends Module {
          this.field1191.add(new Ambience.SkyAnimation(var9, var13, var11, var16, var18, var20, 300, false, true));
       }
 
-      List var22 = new ArrayList<>();
+      List<?> var22 = new ArrayList<>();
       Iterator var23 = this.field1191.iterator();
 
       while (var23.hasNext()) {
@@ -1266,7 +1266,7 @@ public class Ambience extends Module {
                   float var72 = (float)Math.sin(var42.field1539 * 0.15F + var42.field1293 * 1.7F) * 0.2F + 0.85F;
                   int var86 = Math.max(0, Math.min(255, (int)(var14 * var44 * var72)));
                   int var98 = var86 << 24 | var13;
-                  List var107 = this.field1354.computeIfAbsent(var42.field1293, var0 -> new ArrayList<>());
+                  List<?> var107 = this.field1354.computeIfAbsent(var42.field1293, var0 -> new ArrayList<>());
                   this.method1086(var107, var3, var45, var46, var47, var42.field1087, var98, var35, var36, var37, var38, var39, var40, var42.field0871);
                   int var114 = Math.max(0, Math.min(255, (int)(var14 * var44 * 0.35F)));
                   int var120 = var114 << 24 | var13;
@@ -1350,7 +1350,7 @@ public class Ambience extends Module {
                   float var67 = (float)Math.sin(var42.field1539 * 0.3F + var42.field0871 * 4.0F) * 0.25F + 0.85F;
                   int var81 = Math.max(0, Math.min(255, (int)(var22 * var44 * var67)));
                   int var94 = var81 << 24 | var21;
-                  List var103 = this.field1354.computeIfAbsent(var42.field1293, var0 -> new ArrayList<>());
+                  List<?> var103 = this.field1354.computeIfAbsent(var42.field1293, var0 -> new ArrayList<>());
                   this.method1086(var103, var3, var45, var46, var47, var42.field1087, var94, var35, var36, var37, var38, var39, var40, var42.field0871);
                   int var111 = Math.max(0, Math.min(255, (int)(var22 * var44 * 0.4F)));
                   this.method1085(
@@ -1706,7 +1706,7 @@ public class Ambience extends Module {
       RenderSystem.setShader(class_10142.field_53880);
 
       for (Entry var2 : this.field1354.entrySet()) {
-         List var3 = var2.getValue();
+         List<?> var3 = var2.getValue();
          if (!var3.isEmpty()) {
             RenderSystem.setShaderTexture(0, field0416[var2.getKey()]);
             class_287 var4 = RenderSystem.renderThreadTesselator().method_60827(class_5596.field_27382, class_290.field_1575);

@@ -144,7 +144,7 @@ public class AutoWeb extends Module {
    }
 
    private AutoWeb.PlacementCandidate method1259(class_2338 var1) {
-      List var2 = new ArrayList<>();
+      List<class_2338> var2 = new ArrayList<>();
       switch ((AutoWeb.PlacementMode)this.field0984.method0492()) {
          case field0596:
             var2.add(var1);

@@ -66,7 +66,7 @@ public class GappleIndicator extends Module {
             }
          }
 
-         Iterator var7 = this.field0488.iterator();
+         Iterator<GappleIndicator.IndicatorState> var7 = this.field0488.iterator();
 
          while (var7.hasNext()) {
             GappleIndicator.IndicatorState var8 = var7.next();

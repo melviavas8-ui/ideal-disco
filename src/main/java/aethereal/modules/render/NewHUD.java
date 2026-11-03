@@ -875,7 +875,7 @@ public class NewHUD extends Module {
                }
             }
 
-            for (Map.Entry<Integer, class_1293> var28 : var12.entrySet()) {
+            for (Map.Entry<String, class_1293> var28 : var12.entrySet()) {
                if (!this.field0414.contains(var28.getKey())) {
                   class_1293 var33 = var28.getValue();
                   class_2960 var36 = this.method0232(var33);

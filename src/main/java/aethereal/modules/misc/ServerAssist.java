@@ -591,7 +591,7 @@ public class ServerAssist extends Module {
          long var1 = System.currentTimeMillis();
          boolean var3 = "minecraft:overworld".equals(WaypointManager.method1619());
          String var4 = WaypointManager.method1791();
-         Iterator var5 = this.field1323.iterator();
+         Iterator<?> var5 = this.field1323.iterator();
 
          while (var5.hasNext()) {
             ServerAssist.TrackedItem var6 = var5.next();
@@ -849,9 +849,9 @@ public class ServerAssist extends Module {
                         return 0;
                      }
 
-                     int[] var2 = new int[]{0};
-                     potions.method_59714().forEach(var1x -> var2[0]++);
-                     return var2[0];
+                     int[] potCount = new int[]{0};
+                     potions.method_59714().forEach(var1x -> potCount[0]++);
+                     return potCount[0];
                   })
                );
                if (var15 != null) {
@@ -864,7 +864,7 @@ public class ServerAssist extends Module {
                      .method0765(
                         0,
                         () -> {
-                           List var2 = new ArrayList<>();
+                           List<Integer> moved = new ArrayList<>();
                            InventorySearch.method0562()
                               .forEach(
                                  var2x -> {
@@ -873,7 +873,7 @@ public class ServerAssist extends Module {
                                           && var4.getValue().equals(var2x.method_7677().method_7909())
                                           && var4.getKey() == var2x.field_7874) {
                                           InventorySearch.method1209(var2x, 0, class_1713.field_7794, false);
-                                          var2.add(var2x.field_7874);
+                                          moved.add(var2x.field_7874);
                                        }
                                     }
                                  }
@@ -1038,7 +1038,7 @@ public class ServerAssist extends Module {
    }
 
    @EventHandler
-   public void onPopTotem(TotemPopEvent event) {
+   public void onPopTotem(TotemPopEvent var1) {
       if (!method1974()) {
          if (this.method2247()) {
             if (this.field0852 != null && var1.method1800() != null) {
@@ -1422,7 +1422,7 @@ public class ServerAssist extends Module {
    }
 
    @EventHandler
-   public void onRender2D(HudRenderEvent event) {
+   public void onRender2D(HudRenderEvent var1) {
       if (!method1974()) {
          if (!(field0796.field_1755 instanceof class_408)) {
             this.method1400(var1.method1806());
@@ -1636,7 +1636,7 @@ public class ServerAssist extends Module {
                         ? ("До конца: " + MathHelper.method0614(var29, var29 < 30.0 ? 0.10000000745064033 : 1.0) + "с").replace(".0", "")
                         : "Конец ивента!"
                   );
-               List var17 = new ArrayList<>();
+               List<?> var17 = new ArrayList<>();
                var17.add(var25.name + var15);
                if (var25.owner != null) {
                   var17.add("Призван: " + class_124.field_1065 + var25.owner);

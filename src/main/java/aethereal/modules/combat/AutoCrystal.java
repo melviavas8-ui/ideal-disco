@@ -699,15 +699,15 @@ public class AutoCrystal extends Module {
                            int var9 = var3;
                            int var10 = var4;
                            this.field0950 = () -> {
-                              boolean var4 = false;
+                              boolean didSwitch = false;
                               if (field0796.field_1724.method_6047().method_7909() != class_1802.field_8301
                                  && field0796.field_1724.method_6079().method_7909() != class_1802.field_8301) {
                                  this.method0738(var9, var10);
-                                 var4 = true;
+                                 didSwitch = true;
                               }
 
                               this.method0278(var8);
-                              if (var4) {
+                              if (didSwitch) {
                                  this.method0148(var9, var10);
                               }
 
@@ -891,7 +891,7 @@ public class AutoCrystal extends Module {
                || field0796.field_1724.method_6047().method_7909() == class_1802.field_8301
                || field0796.field_1724.method_6079().method_7909() == class_1802.field_8301
          )) {
-         List var2 = this.method2041();
+         List<class_1657> var2 = this.method2041();
          if (var2.isEmpty()) {
             return null;
          }
@@ -932,7 +932,7 @@ public class AutoCrystal extends Module {
                List var15 = field0796.field_1687
                   .method_8335(null, new class_238(var13.method_10069(0, 1, 0)))
                   .stream()
-                  .filter(var1x -> var1x instanceof class_1511 var2 && var2.field_6012 >= 20 - var14 + 15)
+                  .filter(var1x -> var1x instanceof class_1511 crystal && crystal.field_6012 >= 20 - var14 + 15)
                   .toList();
                Suicide var16 = Suicide.method1721();
                if (var16 == null || !var16.method2195()) {
@@ -1136,19 +1136,19 @@ public class AutoCrystal extends Module {
             .method_8335(null, new class_238(var1.method_24515()).method_1014(1.0))
             .stream()
             .anyMatch(
-               var2x -> var2x instanceof class_1542 var3
-                  && var3.method_6983().method_7909() == class_1802.field_8281
-                  && var3.method_6983().method_7947() >= 8
-                  && var3.field_6012 <= 2 + var4 + (20 - var3)
+               var2x -> var2x instanceof class_1542 ep
+                  && ep.method_6983().method_7909() == class_1802.field_8281
+                  && ep.method_6983().method_7947() >= 8
+                  && ep.field_6012 <= 2 + var4 + 20
             );
          boolean var6 = field0796.field_1687
             .method_8335(null, new class_238(field0796.field_1724.method_24515()).method_1014(1.0))
             .stream()
             .anyMatch(
-               var2x -> var2x instanceof class_1542 var3
-                  && var3.method_6983().method_7909() == class_1802.field_8281
-                  && var3.method_6983().method_7947() >= 8
-                  && var3.field_6012 <= 2 + var4 + (20 - var3)
+               var2x -> var2x instanceof class_1542 ep
+                  && ep.method_6983().method_7909() == class_1802.field_8281
+                  && ep.method_6983().method_7947() >= 8
+                  && ep.field_6012 <= 2 + var4 + 20
             );
          if (var5 && !var6) {
             return 2.0F;
