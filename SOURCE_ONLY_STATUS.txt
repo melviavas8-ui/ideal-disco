@@ -1,0 +1,11 @@
+Daamky source-only project status
+
+- Removed libs/recovered-bytecode.jar.
+- Removed the recovered-bytecode JAR from Gradle dependencies and jar embedding.
+- Gradle compiles the Java source tree under src/main/java.
+- Baritone integration uses the official Fabric API artifact for Minecraft 1.21.4 (Baritone 1.13.1), not the standalone artifact.
+- Place the official Baritone 1.13.1 Fabric API JAR for Minecraft 1.21.4 at libs/baritone-api-fabric-1.13.1.jar.
+- build.gradle does not download Baritone automatically; the verifyBaritoneApi task checks the local JAR and required public API classes before Java compilation.
+- Nether Pathfinder remains a runtime-only local dependency.
+
+Build status: not yet verified in this environment. The build requires the user-provided Baritone API JAR in libs/ before Java compilation.

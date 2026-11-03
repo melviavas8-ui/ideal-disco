@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "daamky",
+  "version": "${version}",
+  "name": "daamky",
+  "description": "Recovered offline source tree for daamky",
+  "authors": [
+    "skidname"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "accessWidener": "daamky.accesswidener",
+  "entrypoints": {
+    "main": [
+      "ua.patch.daamky.api.Proxy"
+    ]
+  },
+  "mixins": [
+    "daamky.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "\u003e\u003d0.16.14",
+    "fabric": "*",
+    "minecraft": "1.21.4",
+    "mixinextras": "\u003e\u003d0.4.0"
+  }
+}
