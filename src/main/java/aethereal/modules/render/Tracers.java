@@ -68,9 +68,7 @@ extends Module {
             class_243 to = Tracers.method1188(player, tickDelta);
             boolean bl = isFriend = (Boolean)this.field1432.method0492() != false && friends != null && friends.method2135(player.method_5477().getString());
             if (isFriend) {
-                Color color2;
-                color = color2;
-                color2 = new Color(66, 245, 149, baseColor.getAlpha());
+                color = new Color(66, 245, 149, baseColor.getAlpha());
             } else {
                 color = baseColor;
             }
