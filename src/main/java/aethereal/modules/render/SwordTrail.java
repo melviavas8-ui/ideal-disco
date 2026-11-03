@@ -278,58 +278,30 @@ extends Module {
         this.field1594.method0665(event.method1603());
     }
 
-    public static final class ItemFilter
-    extends Enum<ItemFilter>
-    implements DisplayNamed {
-        public static final /* enum */ ItemFilter field0694 = new ItemFilter("None");
-        public static final /* enum */ ItemFilter field0118 = new ItemFilter("Swords Only");
-        public static final /* enum */ ItemFilter field1489 = new ItemFilter("Tools");
-        public static final /* enum */ ItemFilter field1018 = new ItemFilter("Any");
-        private final String field0791;
-        private static final /* synthetic */ ItemFilter[] field1287;
+    public static enum ItemFilter implements DisplayNamed {
+        field0694("None"),
+        field0118("Swords Only"),
+        field1489("Tools"),
+        field1018("Any");
 
-        public static ItemFilter[] values() {
-            return (ItemFilter[])field1287.clone();
-        }
-
-        public static ItemFilter valueOf(String name) {
-            return Enum.valueOf(ItemFilter.class, name);
-        }
+        private final String name;
 
         private ItemFilter(String n2) {
-            this.field0791 = n2;
+            this.name = n2;
         }
 
         @Override
         public String method0557() {
-            return this.field0791;
-        }
-
-        private static /* synthetic */ ItemFilter[] method0089() {
-            return new ItemFilter[]{field0694, field0118, field1489, field1018};
-        }
-
-        static {
-            field1287 = ItemFilter.method0089();
+            return this.name;
         }
     }
 
-    public static final class GradientMode
-    extends Enum<GradientMode>
-    implements DisplayNamed {
-        public static final /* enum */ GradientMode field0696 = new GradientMode("Solid");
-        public static final /* enum */ GradientMode field0120 = new GradientMode("Gradient");
-        public static final /* enum */ GradientMode field1490 = new GradientMode("Rainbow");
+    public static enum GradientMode implements DisplayNamed {
+        field0696("Solid"),
+        field0120("Gradient"),
+        field1490("Rainbow");
+
         private final String field1030;
-        private static final /* synthetic */ GradientMode[] field0821;
-
-        public static GradientMode[] values() {
-            return (GradientMode[])field0821.clone();
-        }
-
-        public static GradientMode valueOf(String name) {
-            return Enum.valueOf(GradientMode.class, name);
-        }
 
         private GradientMode(String n2) {
             this.field1030 = n2;
@@ -339,31 +311,13 @@ extends Module {
         public String method0557() {
             return this.field1030;
         }
-
-        private static /* synthetic */ GradientMode[] method0091() {
-            return new GradientMode[]{field0696, field0120, field1490};
-        }
-
-        static {
-            field0821 = GradientMode.method0091();
-        }
     }
 
-    public static final class FadeMode
-    extends Enum<FadeMode>
-    implements DisplayNamed {
-        public static final /* enum */ FadeMode field0695 = new FadeMode("Linear");
-        public static final /* enum */ FadeMode field0119 = new FadeMode("EaseOut");
+    public static enum FadeMode implements DisplayNamed {
+        field0695("Linear"),
+        field0119("EaseOut");
+
         private final String field1504;
-        private static final /* synthetic */ FadeMode[] field1081;
-
-        public static FadeMode[] values() {
-            return (FadeMode[])field1081.clone();
-        }
-
-        public static FadeMode valueOf(String name) {
-            return Enum.valueOf(FadeMode.class, name);
-        }
 
         private FadeMode(String n2) {
             this.field1504 = n2;
@@ -373,14 +327,5 @@ extends Module {
         public String method0557() {
             return this.field1504;
         }
-
-        private static /* synthetic */ FadeMode[] method0090() {
-            return new FadeMode[]{field0695, field0119};
-        }
-
-        static {
-            field1081 = FadeMode.method0090();
-        }
     }
 }
-

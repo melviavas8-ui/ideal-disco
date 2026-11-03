@@ -298,22 +298,12 @@ extends Module {
         return field0268;
     }
 
-    public static final class Mode
-    extends Enum<Mode>
-    implements DisplayNamed {
-        public static final /* enum */ Mode field0686 = new Mode("Fill");
-        public static final /* enum */ Mode field0110 = new Mode("Outline");
-        public static final /* enum */ Mode field1485 = new Mode("Both");
+    public static enum Mode implements DisplayNamed {
+        field0686("Fill"),
+        field0110("Outline"),
+        field1485("Both");
+
         private final String field1030;
-        private static final /* synthetic */ Mode[] field0819;
-
-        public static Mode[] values() {
-            return (Mode[])field0819.clone();
-        }
-
-        public static Mode valueOf(String name) {
-            return Enum.valueOf(Mode.class, name);
-        }
 
         private Mode(String name) {
             this.field1030 = name;
@@ -323,14 +313,5 @@ extends Module {
         public String method0557() {
             return this.field1030;
         }
-
-        private static /* synthetic */ Mode[] method0082() {
-            return new Mode[]{field0686, field0110, field1485};
-        }
-
-        static {
-            field0819 = Mode.method0082();
-        }
     }
 }
-

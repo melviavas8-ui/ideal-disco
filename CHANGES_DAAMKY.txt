@@ -20,3 +20,9 @@ Daamky — исправления (без recovered-bytecode.jar в libs)
   ./gradlew build --no-daemon --stacktrace
 
 Если упало — пришли новый лог compileJava.
+
+=== Update v2 ===
+- Added Event001.java (from recovered bytecode)
+- Added Shaders.java module (from recovered bytecode, ArbuzClient→DaamkyClient)
+- These were the only 2 remaining compile errors after previous fixes
+
