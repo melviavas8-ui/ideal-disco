@@ -31,11 +31,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ArmorFeatureRendererMixin<S extends class_10034, M extends class_572<S>, A extends class_572<S>> {
     @Inject(method={"render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/state/BipedEntityRenderState;FF)V"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderArmor(class_4587 matrixStack, class_4597 vertexConsumerProvider, int light, S bipedEntityRenderState, float limbAngle, float limbDistance, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0411()) {
             ci.cancel();
         }

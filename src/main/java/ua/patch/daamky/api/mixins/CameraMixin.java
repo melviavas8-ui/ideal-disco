@@ -66,11 +66,11 @@ implements MinecraftAccess {
 
     @Inject(method={"clipToSpace"}, at={@At(value="HEAD")}, cancellable=true)
     private void daamky$noCameraClip(float desiredCameraDistance, CallbackInfoReturnable<Float> cir) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method2203()) {
             cir.setReturnValue(Float.valueOf(desiredCameraDistance));
         }

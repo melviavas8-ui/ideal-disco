@@ -52,8 +52,8 @@ implements MinecraftAccess {
     private void render$renderFire(class_898 instance, class_4587 matrices, class_4597 vertexConsumers, class_10017 renderState, Quaternionf rotation, Operation<Void> original) {
         Shaders shaders;
         class_4597 vcp = vertexConsumers;
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz != null && arbuz.method1783() != null && (shaders = arbuz.method1783().method0976(Shaders.class)) != null && shaders.method2195()) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client != null && client.method1783() != null && (shaders = client.method1783().method0976(Shaders.class)) != null && shaders.method2195()) {
             vcp = field0796.method_22940().method_23000();
         }
         original.call(new Object[]{instance, matrices, vcp, renderState, rotation});

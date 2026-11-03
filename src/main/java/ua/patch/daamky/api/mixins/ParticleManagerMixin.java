@@ -29,11 +29,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ParticleManagerMixin {
     @Inject(method={"addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)Lnet/minecraft/client/particle/Particle;"}, at={@At(value="HEAD")}, cancellable=true)
     private void onAddParticle(class_2394 parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ, CallbackInfoReturnable<class_703> cir) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0522() && (parameters.method_10295() == class_2398.field_11236 || parameters.method_10295() == class_2398.field_11221)) {
             cir.setReturnValue(null);
         }

@@ -92,8 +92,8 @@ public abstract class WorldRendererMixin {
     private void render$blockOverlay(class_761 instance, class_9909 frameGraphBuilder, class_4604 frustum, class_4184 camera, Matrix4f positionMatrix, Matrix4f projectionMatrix, class_9958 fog, boolean renderBlockOutline, boolean hasEntitiesToRender, class_9779 renderTickCounter, class_3695 profiler) {
         BlockOverlay blockOverlay;
         boolean drawOutline = renderBlockOutline;
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz != null && arbuz.method1783() != null && (blockOverlay = arbuz.method1783().method0976(BlockOverlay.class)) != null && blockOverlay.method2195()) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client != null && client.method1783() != null && (blockOverlay = client.method1783().method0976(BlockOverlay.class)) != null && blockOverlay.method2195()) {
             drawOutline = false;
         }
         this.method_62202(frameGraphBuilder, frustum, camera, positionMatrix, projectionMatrix, fog, drawOutline, hasEntitiesToRender, renderTickCounter, profiler);
@@ -108,8 +108,8 @@ public abstract class WorldRendererMixin {
     @WrapOperation(method={"renderEntity"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/render/entity/EntityRenderDispatcher;render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V")})
     private <E extends class_1297> void renderEntity$render(class_898 instance, E entity, double x, double y, double z, float tickDelta, class_4587 matrices, class_4597 vertexConsumers, int light, Operation<Void> original) {
         NoRender noRender;
-        DaamkyClient arbuz;
-        if (entity instanceof class_1533 && (arbuz = DaamkyClient.method2004()) != null && arbuz.method1783() != null && (noRender = arbuz.method1783().method0976(NoRender.class)) != null && noRender.method2208()) {
+        DaamkyClient client;
+        if (entity instanceof class_1533 && (client = DaamkyClient.method2004()) != null && client.method1783() != null && (noRender = client.method1783().method0976(NoRender.class)) != null && noRender.method2208()) {
             return;
         }
         RenderEntityEvent event = new RenderEntityEvent(entity, vertexConsumers, x, y, z, tickDelta, matrices);
@@ -124,11 +124,11 @@ public abstract class WorldRendererMixin {
 
     @Inject(method={"hasBlindnessOrDarkness(Lnet/minecraft/client/render/Camera;)Z"}, at={@At(value="HEAD")}, cancellable=true)
     private void onHasBlindnessOrDarkness(class_4184 camera, CallbackInfoReturnable<Boolean> cir) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0480()) {
             cir.setReturnValue(false);
         }

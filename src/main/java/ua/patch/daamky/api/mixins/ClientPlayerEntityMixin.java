@@ -194,11 +194,11 @@ extends class_742 {
 
     @Inject(method={"tickNausea"}, at={@At(value="HEAD")}, cancellable=true)
     private void onTickNausea(boolean fromPortal, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0406()) {
             this.field_44911 = 0.0f;
             this.field_44912 = 0.0f;
@@ -208,11 +208,11 @@ extends class_742 {
 
     @Inject(method={"pushOutOfBlocks"}, at={@At(value="HEAD")}, cancellable=true)
     public void pushOutOfBlocks(double x, double z, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoPush noPush = arbuz.method1783().method0976(NoPush.class);
+        NoPush noPush = client.method1783().method0976(NoPush.class);
         if (noPush != null && noPush.method2195() && noPush.method1692()) {
             ci.cancel();
         }

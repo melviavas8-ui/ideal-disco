@@ -51,22 +51,22 @@ public abstract class MouseMixin {
         if (self.method_1613()) {
             return true;
         }
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return false;
         }
-        GuiMove guiMove = arbuz.method1783().method0976(GuiMove.class);
+        GuiMove guiMove = client.method1783().method0976(GuiMove.class);
         return guiMove != null && guiMove.method1736();
     }
 
     @Redirect(method={"updateMouse(D)V"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerEntity;changeLookDirection(DD)V"))
     private void daamky$onChangeLookDirection(class_746 player, double deltaX, double deltaY) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             player.method_5872(deltaX, deltaY);
             return;
         }
-        FreeLook freeLook = arbuz.method1783().method0976(FreeLook.class);
+        FreeLook freeLook = client.method1783().method0976(FreeLook.class);
         if (freeLook != null && freeLook.method2195() && freeLook.method0616(deltaX, deltaY)) {
             return;
         }

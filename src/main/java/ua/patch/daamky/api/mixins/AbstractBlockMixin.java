@@ -40,11 +40,11 @@ public abstract class AbstractBlockMixin {
         if (!state.method_27852(class_2246.field_10343)) {
             return;
         }
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoTrace noTrace = arbuz.method1783().method0976(NoTrace.class);
+        NoTrace noTrace = client.method1783().method0976(NoTrace.class);
         if (noTrace == null || !noTrace.method1692()) {
             return;
         }

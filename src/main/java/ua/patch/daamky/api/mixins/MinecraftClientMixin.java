@@ -115,7 +115,7 @@ public class MinecraftClientMixin {
     @ModifyReturnValue(method={"getWindowTitle"}, at={@At(value="RETURN")})
     private String daamky$modifyWindowTitle(String original) {
         ClientContext api = DaamkyClient.method2004().method1744();
-        return "Arbuz 1.21.4 #" + api.method0423() + " | " + api.method0557();
+        return "Daamky 1.21.4 #" + api.method0423() + " | " + api.method0557();
     }
 
     @ModifyExpressionValue(method={"handleBlockBreaking"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z")})
@@ -136,11 +136,11 @@ public class MinecraftClientMixin {
 
     @Unique
     private boolean daamky$isMultiTaskEnabled() {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return false;
         }
-        MultiTask multiTask = arbuz.method1783().method0976(MultiTask.class);
+        MultiTask multiTask = client.method1783().method0976(MultiTask.class);
         return multiTask != null && multiTask.method2195();
     }
 }

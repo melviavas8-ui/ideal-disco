@@ -33,7 +33,7 @@ public abstract class ClientConnectionInitMixin {
         }
         ProxyHandler handler = ProxyChannelFactory.method0906(entry);
         if (handler != null) {
-            channel.pipeline().addFirst("arbuz_proxy", (ChannelHandler)handler);
+            channel.pipeline().addFirst("daamky_proxy", (ChannelHandler)handler);
         }
     }
 }

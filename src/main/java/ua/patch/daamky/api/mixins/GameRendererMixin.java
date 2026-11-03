@@ -156,11 +156,11 @@ implements MinecraftAccess {
         double blockDistSq;
         class_238 box;
         class_239 blockHit;
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoTrace noTrace = arbuz.method1783().method0976(NoTrace.class);
+        NoTrace noTrace = client.method1783().method0976(NoTrace.class);
         if (noTrace == null) {
             return;
         }
@@ -209,11 +209,11 @@ implements MinecraftAccess {
 
     @Inject(method={"tiltViewWhenHurt"}, at={@At(value="HEAD")}, cancellable=true)
     private void onTiltViewWhenHurt(CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method1692()) {
             ci.cancel();
         }

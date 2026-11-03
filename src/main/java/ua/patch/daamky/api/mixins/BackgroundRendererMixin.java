@@ -55,8 +55,8 @@ public class BackgroundRendererMixin {
     @Inject(method={"applyFog"}, at={@At(value="HEAD")}, cancellable=true)
     private static void modifyFog(class_4184 camera, class_758.class_4596 fogType, Vector4f color, float viewDistance, boolean thickenFog, float tickDelta, CallbackInfoReturnable<class_9958> cir) {
         NoRender noRender;
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz != null && arbuz.method1783() != null && (noRender = arbuz.method1783().method0976(NoRender.class)) != null && noRender.method0458() && camera.method_19334() == class_5636.field_27886) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client != null && client.method1783() != null && (noRender = client.method1783().method0976(NoRender.class)) != null && noRender.method0458() && camera.method_19334() == class_5636.field_27886) {
             cir.setReturnValue(new class_9958(0.0f, viewDistance, class_6854.field_36350, color.x, color.y, color.z, color.w));
             return;
         }
@@ -74,11 +74,11 @@ public class BackgroundRendererMixin {
 
     @Inject(method={"getFogModifier"}, at={@At(value="HEAD")}, cancellable=true)
     private static void norender$getFogModifier(class_1297 entity, float tickDelta, CallbackInfoReturnable<class_758.class_7286> cir) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0480()) {
             cir.setReturnValue(null);
         }

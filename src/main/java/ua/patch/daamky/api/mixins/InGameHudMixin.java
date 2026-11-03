@@ -88,8 +88,8 @@ public abstract class InGameHudMixin {
     @Inject(method={"renderStatusEffectOverlay"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderStatusEffectOverlay(class_332 context, class_9779 tickCounter, CallbackInfo ci) {
         NoRender noRender;
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz != null && arbuz.method1783() != null && (noRender = arbuz.method1783().method0976(NoRender.class)) != null && noRender.method2030()) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client != null && client.method1783() != null && (noRender = client.method1783().method0976(NoRender.class)) != null && noRender.method2030()) {
             ci.cancel();
             return;
         }
@@ -110,16 +110,16 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderScoreboardSidebar(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/scoreboard/ScoreboardObjective;)V"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderScoreboardSidebar(class_332 context, class_266 objective, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method2016()) {
             ci.cancel();
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1755()) {
             ci.cancel();
         }
@@ -127,11 +127,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderHotbar"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderHotbar(class_332 context, class_9779 tickCounter, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1736()) {
             ci.cancel();
         }
@@ -139,11 +139,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderExperienceBar"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderExperienceBar(class_332 context, int x, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1736()) {
             ci.cancel();
         }
@@ -151,11 +151,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderExperienceLevel"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderExperienceLevel(class_332 context, class_9779 tickCounter, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1736()) {
             ci.cancel();
         }
@@ -163,11 +163,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderStatusBars"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderStatusBars(class_332 context, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1736()) {
             ci.cancel();
         }
@@ -175,11 +175,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderHeldItemTooltip"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderHeldItemTooltip(class_332 context, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1736()) {
             ci.cancel();
         }
@@ -187,11 +187,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderPortalOverlay"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderPortalOverlay(class_332 context, float nauseaStrength, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0472()) {
             ci.cancel();
         }
@@ -199,11 +199,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderNauseaOverlay"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderNauseaOverlay(class_332 context, float nauseaStrength, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0406()) {
             ci.cancel();
         }
@@ -211,11 +211,11 @@ public abstract class InGameHudMixin {
 
     @Inject(method={"renderVignetteOverlay"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRenderVignetteOverlay(class_332 context, class_1297 entity, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0528()) {
             ci.cancel();
         }
@@ -223,21 +223,21 @@ public abstract class InGameHudMixin {
 
     @WrapWithCondition(method={"renderMiscOverlays"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal=0)})
     private boolean onRenderPumpkinOverlay(class_329 instance, class_332 context, class_2960 texture, float opacity) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return true;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         return noRender == null || !noRender.method2247();
     }
 
     @WrapWithCondition(method={"renderMiscOverlays"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/gui/hud/InGameHud;renderOverlay(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/util/Identifier;F)V", ordinal=1)})
     private boolean onRenderSnowOverlay(class_329 instance, class_332 context, class_2960 texture, float opacity) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return true;
         }
-        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        NoRender noRender = client.method1783().method0976(NoRender.class);
         return noRender == null || !noRender.method2244();
     }
 

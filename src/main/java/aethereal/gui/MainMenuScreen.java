@@ -200,10 +200,7 @@ public class MainMenuScreen extends class_437 {
          float var4 = Math.min(1.0F, (this.field0423 - 0.3F) / 0.4F);
          float var5 = this.method0115(var4);
 
-         try {
-            this.field0915.method2232(var5);
-         } catch (Exception var7) {
-         }
+         // skipped field0915 DarkVeil for performance
 
          this.field0532.method1414(var1, var2, var3, var5);
          this.field0509.method1414(var1, var2, var3, var5);
@@ -291,42 +288,22 @@ public class MainMenuScreen extends class_437 {
    }
 
    private void method2166(class_332 var1) {
-      if (this.field0369) {
-         try {
-            this.field0832.method0578();
-            this.field1297.method0501(1.0F - this.field0423 * 0.5F);
-         } catch (Exception var5) {
-            this.field0369 = false;
+      // Lightweight main-menu background (no DarkVeil / panorama / light pillars).
+      // Solid theme-tinted fill + subtle overlay for mobile performance.
+      int bg = 0xFF0A0A12;
+      try {
+         Color c = this.field0884;
+         if (c != null) {
+            bg = (0xFF << 24) | (c.getRed() << 16) | (c.getGreen() << 8) | c.getBlue();
          }
+      } catch (Exception ignored) {
       }
-
-      if (this.field0423 > 0.1F) {
-         float var2 = this.method0115(Math.min(1.0F, (this.field0423 - 0.1F) / 0.3F));
-         this.field1336.method2098(var2);
+      var1.method_25294(0, 0, this.field_22789, this.field_22790, bg);
+      // soft top vignette
+      int overlay = (int)(80.0F * (1.0F - Math.min(1.0F, this.field0423))) << 24;
+      if (overlay != 0) {
+         var1.method_25294(0, 0, this.field_22789, this.field_22790, overlay);
       }
-
-      int var6 = (int)(64.0F * (1.0F - this.field0423 * 0.3F));
-      var1.method_25294(0, 0, this.field_22789, this.field_22790, var6 << 24);
-      if (this.field0423 > 0.2F) {
-         float var3 = Math.min(1.0F, (this.field0423 - 0.2F) / 0.5F);
-         RenderSystem.enableBlend();
-         RenderSystem.defaultBlendFunc();
-         GuiRenderHelper.method1466(
-            var1.method_51448(),
-            0.0F,
-            0.0F,
-            this.field_22789,
-            this.field_22790,
-            0.0F,
-            field0738,
-            new Color(this.field0884.getRed(), this.field0884.getGreen(), this.field0884.getBlue(), (int)(var3 * 200.0F))
-         );
-         RenderSystem.disableBlend();
-      }
-
-      float var7 = this.method0115(class_3532.method_15363(this.field0423, 0.0F, 1.0F));
-      float var4 = this.field0423 > 0.3F ? this.method0115(Math.min(1.0F, (this.field0423 - 0.3F) / 0.4F)) : 0.0F;
-      this.method1402(var1, var7, var4);
    }
 
    private void method1402(class_332 var1, float var2, float var3) {

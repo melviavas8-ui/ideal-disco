@@ -32,11 +32,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class InventoryScreenMixin {
     @Inject(method={"drawBackground"}, at={@At(value="HEAD")}, cancellable=true)
     private void onDrawBackground(class_332 context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface == null || !iface.method1692()) {
             return;
         }
@@ -53,11 +53,11 @@ public abstract class InventoryScreenMixin {
 
     @Inject(method={"drawForeground"}, at={@At(value="HEAD")}, cancellable=true)
     private void onDrawForeground(class_332 context, int mouseX, int mouseY, CallbackInfo ci) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         if (iface != null && iface.method1692()) {
             ci.cancel();
         }

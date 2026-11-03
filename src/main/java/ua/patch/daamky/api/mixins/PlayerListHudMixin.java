@@ -136,21 +136,21 @@ public abstract class PlayerListHudMixin {
     }
 
     private boolean daamky$tabReplaceEnabled() {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return false;
         }
-        Interface iface = arbuz.method1783().method0976(Interface.class);
+        Interface iface = client.method1783().method0976(Interface.class);
         return iface != null && iface.method2030();
     }
 
     @Inject(method={"collectPlayerEntries"}, at={@At(value="HEAD")}, cancellable=true)
     private void daamky$collectPlayerEntries(CallbackInfoReturnable<List<class_640>> info) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        TabExpert tabExpert = arbuz.method1783().method0976(TabExpert.class);
+        TabExpert tabExpert = client.method1783().method0976(TabExpert.class);
         if (tabExpert == null || !tabExpert.method2195()) {
             return;
         }
@@ -159,8 +159,8 @@ public abstract class PlayerListHudMixin {
 
     @Inject(method={"getPlayerName"}, at={@At(value="HEAD")}, cancellable=true)
     private void daamky$getPlayerName(class_640 entry, CallbackInfoReturnable<class_2561> info) {
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
         String profileName = entry.method_2966().getName();
@@ -171,15 +171,15 @@ public abstract class PlayerListHudMixin {
             info.setReturnValue(this.method_27538(entry, base));
             return;
         }
-        TabExpert tabExpert = arbuz.method1783().method0976(TabExpert.class);
+        TabExpert tabExpert = client.method1783().method0976(TabExpert.class);
         if (tabExpert == null || !tabExpert.method2195() || !((Boolean)tabExpert.field1432.method0492()).booleanValue()) {
             return;
         }
-        if (arbuz.method1608() == null) {
+        if (client.method1608() == null) {
             return;
         }
         String name = entry.method_2966().getName();
-        if (!arbuz.method1608().method2135(name)) {
+        if (!client.method1608().method2135(name)) {
             return;
         }
         class_2561 display = entry.method_2971();

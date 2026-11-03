@@ -45,11 +45,11 @@ implements MinecraftAccess {
         if ((Object)this != EntityMixin.field0796.field_1724) {
             return;
         }
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoPush noPush = arbuz.method1783().method0976(NoPush.class);
+        NoPush noPush = client.method1783().method0976(NoPush.class);
         if (noPush != null && noPush.method2195() && noPush.method1736()) {
             ci.cancel();
         }
@@ -60,11 +60,11 @@ implements MinecraftAccess {
         if ((Object)this != EntityMixin.field0796.field_1724) {
             return;
         }
-        DaamkyClient arbuz = DaamkyClient.method2004();
-        if (arbuz == null || arbuz.method1783() == null) {
+        DaamkyClient client = DaamkyClient.method2004();
+        if (client == null || client.method1783() == null) {
             return;
         }
-        NoPush noPush = arbuz.method1783().method0976(NoPush.class);
+        NoPush noPush = client.method1783().method0976(NoPush.class);
         if (noPush != null && noPush.method2195() && noPush.method1755()) {
             cir.setReturnValue(false);
         }
