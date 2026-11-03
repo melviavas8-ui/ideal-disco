@@ -37,7 +37,7 @@ extends class_437 {
 
     @Inject(method={"init"}, at={@At(value="TAIL")})
     private void onInitAddProxyButton(CallbackInfo ci) {
-        class_500 self = (class_500)this;
+        class_500 self = (class_500)(Object)this;
         ProxyEntry active = ProxyStorage.method1786().method0547();
         String base = ProxyAddressHelper.method1044("Proxy", "\u041f\u0440\u043e\u043a\u0441\u0438");
         String label = active == null ? base : base + ": " + active.method2060().method0557();

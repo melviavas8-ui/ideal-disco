@@ -23,7 +23,7 @@ public class ScoreboardMixin {
     @Inject(method={"removeScoreHolderFromTeam"}, at={@At(value="HEAD")}, cancellable=true)
     private void onRemoveFromTeam(String scoreHolder, class_268 team, CallbackInfo ci) {
         try {
-            class_269 scoreboard = (class_269)this;
+            class_269 scoreboard = (class_269)(Object)this;
             class_268 actualTeam = scoreboard.method_1164(scoreHolder);
             if (actualTeam != team) {
                 ci.cancel();

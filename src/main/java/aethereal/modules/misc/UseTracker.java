@@ -57,7 +57,7 @@ public class UseTracker extends Module {
    }
 
    @EventHandler
-   public void onSpawn(EntitySpawnEvent event) {
+   public void onSpawn(EntitySpawnEvent var1) {
       if (!method1974()) {
          if (this.field0089.method0387("Ender Pearls")) {
             if (var1.method1798() instanceof class_1684 var3) {
@@ -77,7 +77,7 @@ public class UseTracker extends Module {
    }
 
    @EventHandler
-   public void onPopTotem(TotemPopEvent event) {
+   public void onPopTotem(TotemPopEvent var1) {
       if (!method1974()) {
          if (this.field0089.method0387("Totems")) {
             class_1657 var2 = var1.method1800();
@@ -92,7 +92,7 @@ public class UseTracker extends Module {
    }
 
    @EventHandler
-   public void onPlayerTick(PlayerTickEvent event) {
+   public void onPlayerTick(PlayerTickEvent var1) {
       if (!method1974()) {
          this.method1691();
          this.method1754();

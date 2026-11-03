@@ -683,7 +683,7 @@ public class ServerAssist extends Module {
 
    private static String method0441(String var0) {
       String var1s = var0.contains("до активации") ? "до активации" : (var0.contains("через") ? "через" : null);
-      return var1 == null ? "" : StringUtils.substringAfter(var0, var1).replaceFirst("^[\\s:»>]+", "").trim();
+      return var1s == null ? "" : StringUtils.substringAfter(var0, var1s).replaceFirst("^[\\s:»>]+", "").trim();
    }
 
    private static int method0383(String var0) {
@@ -720,7 +720,7 @@ public class ServerAssist extends Module {
    }
 
    @EventHandler
-   public void onTick(PreTickEvent event) {
+   public void onTick(PreTickEvent var1) {
       if (!method1974()) {
          this.method2207();
          this.method0479();
@@ -825,10 +825,10 @@ public class ServerAssist extends Module {
                if (var14 && this.field1115.method0779(5000L)) {
                   class_1735 var18 = InventorySearch.method1104(
                      var0 -> {
-                        class_1799 var1s = var0.method_7677();
-                        class_9279 var2 = (class_9279)var1.method_57824(class_9334.field_49628);
-                        return !field0796.field_1724.method_7357().method_7904(var1)
-                           && var1.method_7909().equals(class_1802.field_8287)
+                        class_1799 stack = var0.method_7677();
+                        class_9279 var2 = (class_9279)stack.method_57824(class_9334.field_49628);
+                        return !field0796.field_1724.method_7357().method_7904(stack)
+                           && stack.method_7909().equals(class_1802.field_8287)
                            && var2 != null
                            && var2.toString().contains("\"text\":\" - при нажатие ПКМ, полностью ремонтирует\"");
                      }
@@ -844,13 +844,13 @@ public class ServerAssist extends Module {
             if (!InventorySearch.method0026() && !this.field1180.isEmpty() && InventoryActionScheduler.field0649.method0026() && this.field1123.method0779(300L)) {
                class_1735 var15 = InventorySearch.method1107(
                   var0 -> var0.method_7677().method_57824(class_9334.field_49622) != null, Comparator.comparingInt(var0 -> {
-                     class_9288 pot = (class_9288)var0.method_7677().method_57825(class_9334.field_49622, null);
-                     if (var1 == null) {
+                     class_9288 potions = (class_9288)var0.method_7677().method_57825(class_9334.field_49622, null);
+                     if (potions == null) {
                         return 0;
                      }
 
                      int[] var2 = new int[]{0};
-                     var1.method_59714().forEach(var1x -> var2[0]++);
+                     potions.method_59714().forEach(var1x -> var2[0]++);
                      return var2[0];
                   })
                );
@@ -1022,7 +1022,7 @@ public class ServerAssist extends Module {
    }
 
    @EventHandler
-   public void onSpawnEntity(EntitySpawnEvent event) {
+   public void onSpawnEntity(EntitySpawnEvent var1) {
       if (!method1974()) {
          if (this.method2247()) {
             if (this.field0852 != null) {
@@ -1193,10 +1193,10 @@ public class ServerAssist extends Module {
          return "использован";
       } else {
          String var1s = var0.trim().toLowerCase();
-         if (var1.isEmpty()) {
+         if (var1s.isEmpty()) {
             return "использован";
          } else {
-            String[] var2 = var1.split("\\s+");
+            String[] var2 = var1s.split("\\s+");
             String var3 = var2[0];
             boolean var4 = var3.endsWith("ый")
                || var3.endsWith("ий")

@@ -62,7 +62,7 @@ public class AutoWeb extends Module {
    }
 
    @EventHandler
-   public void onRotationUpdate(RotationUpdateEvent event) {
+   public void onRotationUpdate(RotationUpdateEvent var1) {
       if (var1.method1760() == 0) {
          if (!method1974()) {
             this.field1157 = this.method2027();

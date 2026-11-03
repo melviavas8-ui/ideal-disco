@@ -31,7 +31,7 @@ public class AutoPilot extends Module {
    }
 
    @EventHandler
-   public void onTick(PlayerTickEvent event) {
+   public void onTick(PlayerTickEvent var1) {
       if (field1045.field_1724 != null && field1045.field_1687 != null && field1045.method_1562() != null) {
          this.field0151 = this.method1690();
          if (this.field0151 != null) {
