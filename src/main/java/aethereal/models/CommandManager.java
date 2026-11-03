@@ -50,7 +50,7 @@ public final class CommandManager {
       if (var2.length != 0 && !var2[0].isEmpty()) {
          String var9 = var2[0];
          String[] var4 = Arrays.copyOfRange(var2, 1, var2.length);
-         Optional var5 = this.method2133(var9);
+         Optional<Command> var5 = this.method2133(var9);
          if (var5.isPresent()) {
             try {
                CommandContext var10 = new CommandContext(var5.get(), var9, var1, var4);

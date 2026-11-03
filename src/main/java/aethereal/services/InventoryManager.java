@@ -83,10 +83,10 @@ public final class InventoryManager implements MinecraftAccess {
       }
 
       field0999.method0765(1, () -> method1973(), var1).method0765(2, () -> new Thread(() -> {
-         float var3 = (float)var3 / var0.size();
+         float delay = (float)var3 / var0.size();
 
-         for (class_2596 var5 : var0) {
-            PacketQueue.method1354(var5);
+         for (class_2596<?> packet : var0) {
+            PacketQueue.method1354(packet);
          }
 
          PacketQueue.method1354(new class_2815(field0796.field_1724.field_7512.field_7763));

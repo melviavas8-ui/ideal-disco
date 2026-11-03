@@ -1,10 +1,27 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  com.llamalad7.mixinextras.injector.ModifyExpressionValue
+ *  net.minecraft.class_1297
+ *  net.minecraft.class_238
+ *  net.minecraft.class_746
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.Shadow
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.ModifyVariable
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
-import aethereal.RotationManager;
 import aethereal.EntityCollisionEvent;
 import aethereal.MinecraftAccess;
 import aethereal.NoPush;
+import aethereal.RotationManager;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.class_1297;
 import net.minecraft.class_238;
@@ -17,62 +34,79 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(class_1297.class)
-public abstract class EntityMixin implements MinecraftAccess {
-   @Shadow
-   private class_238 field_6005;
+@Mixin(value={class_1297.class})
+public abstract class EntityMixin
+implements MinecraftAccess {
+    @Shadow
+    private class_238 field_6005;
 
-   @Inject(method = "pushAwayFrom", at = @At("HEAD"), cancellable = true)
-   public void pushAwayFrom(CallbackInfo var1) {
-      if (this == field0796.field_1724) {
-         DaamkyClient var2 = DaamkyClient.method2004();
-         if (var2 != null && var2.method1783() != null) {
-            NoPush var3 = var2.method1783().method0976(NoPush.class);
-            if (var3 != null && var3.method2195() && var3.method1736()) {
-               var1.cancel();
-            }
-         }
-      }
-   }
+    @Inject(method={"pushAwayFrom"}, at={@At(value="HEAD")}, cancellable=true)
+    public void pushAwayFrom(CallbackInfo ci) {
+        if (this != EntityMixin.field0796.field_1724) {
+            return;
+        }
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoPush noPush = arbuz.method1783().method0976(NoPush.class);
+        if (noPush != null && noPush.method2195() && noPush.method1736()) {
+            ci.cancel();
+        }
+    }
 
-   @Inject(method = "isPushedByFluids", at = @At("RETURN"), cancellable = true)
-   public void isPushedByFluids(CallbackInfoReturnable<Boolean> var1) {
-      if (this == field0796.field_1724) {
-         DaamkyClient var2 = DaamkyClient.method2004();
-         if (var2 != null && var2.method1783() != null) {
-            NoPush var3 = var2.method1783().method0976(NoPush.class);
-            if (var3 != null && var3.method2195() && var3.method1755()) {
-               var1.setReturnValue(false);
-            }
-         }
-      }
-   }
+    @Inject(method={"isPushedByFluids"}, at={@At(value="RETURN")}, cancellable=true)
+    public void isPushedByFluids(CallbackInfoReturnable<Boolean> cir) {
+        if (this != EntityMixin.field0796.field_1724) {
+            return;
+        }
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoPush noPush = arbuz.method1783().method0976(NoPush.class);
+        if (noPush != null && noPush.method2195() && noPush.method1755()) {
+            cir.setReturnValue((Object)false);
+        }
+    }
 
-   @Inject(method = "getBoundingBox", at = @At("HEAD"), cancellable = true)
-   private void getBoundingBox$hitbox(CallbackInfoReturnable<class_238> var1) {
-      class_1297 var2 = (class_1297)this;
-      if (var2 != field0796.field_1724) {
-         if (EntityCollisionEvent.method1813()) {
-            EntityCollisionEvent var3 = new EntityCollisionEvent(this.field_6005, var2);
-            DaamkyClient.method2004().method2072().post(var3);
-            var1.setReturnValue(var3.method1627());
-         }
-      }
-   }
+    @Inject(method={"getBoundingBox"}, at={@At(value="HEAD")}, cancellable=true)
+    private void getBoundingBox$hitbox(CallbackInfoReturnable<class_238> cir) {
+        class_1297 self = (class_1297)this;
+        if (self == EntityMixin.field0796.field_1724) {
+            return;
+        }
+        if (!EntityCollisionEvent.method1813()) {
+            return;
+        }
+        EntityCollisionEvent event = new EntityCollisionEvent(this.field_6005, self);
+        DaamkyClient.method2004().method2072().post((Object)event);
+        cir.setReturnValue((Object)event.method1627());
+    }
 
-   @ModifyVariable(method = "getRotationVector(FF)Lnet/minecraft/util/math/Vec3d;", at = @At("HEAD"), ordinal = 0, argsOnly = true)
-   private float modifyPitch(float var1) {
-      return this instanceof class_746 && RotationManager.field0618.method2219() != null ? RotationManager.field0618.method2219().method1762() : var1;
-   }
+    @ModifyVariable(method={"getRotationVector(FF)Lnet/minecraft/util/math/Vec3d;"}, at=@At(value="HEAD"), ordinal=0, argsOnly=true)
+    private float modifyPitch(float pitch) {
+        if (this instanceof class_746 && RotationManager.field0618.method2219() != null) {
+            return RotationManager.field0618.method2219().method1762();
+        }
+        return pitch;
+    }
 
-   @ModifyExpressionValue(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;isControlledByPlayer()Z"))
-   public boolean isControlledByPlayerHook(boolean var1) {
-      return this == field0796.field_1724 ? false : var1;
-   }
+    @ModifyExpressionValue(method={"move"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;isControlledByPlayer()Z")})
+    public boolean isControlledByPlayerHook(boolean original) {
+        if (this == EntityMixin.field0796.field_1724) {
+            return false;
+        }
+        return original;
+    }
 
-   @ModifyExpressionValue(method = "updateVelocity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getYaw()F"))
-   private float updateVelocityYaw(float var1) {
-      class_1297 var2 = (class_1297)this;
-      return var2 != field0796.field_1724 ? var1 : RotationManager.field0618.method1781().method2047();
-   }
+    @ModifyExpressionValue(method={"updateVelocity"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;getYaw()F")})
+    private float updateVelocityYaw(float original) {
+        class_1297 self = (class_1297)this;
+        if (self != EntityMixin.field0796.field_1724) {
+            return original;
+        }
+        return RotationManager.field0618.method1781().method2047();
+    }
 }
+

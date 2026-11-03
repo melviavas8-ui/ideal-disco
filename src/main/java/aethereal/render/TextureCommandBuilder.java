@@ -46,7 +46,7 @@ public final class TextureCommandBuilder extends RenderCommandBuilder<TextureRen
       return this;
    }
 
-   protected TextureRenderCommand method1789() {
+   protected TextureRenderCommand method2066() {
       return new TextureRenderCommand(
          this.field0680, this.field0050, this.field1481, this.field0957, this.field0758, this.field1242, this.field0314, this.field0177, this.field0459
       );

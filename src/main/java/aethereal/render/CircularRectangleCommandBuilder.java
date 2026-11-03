@@ -26,7 +26,7 @@ public final class CircularRectangleCommandBuilder extends RenderCommandBuilder<
       return this;
    }
 
-   protected CircularRectangleRenderCommand method1769() {
+   protected CircularRectangleRenderCommand method2066() {
       return new CircularRectangleRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957);
    }
 

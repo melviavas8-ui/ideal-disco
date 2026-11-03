@@ -1,3 +1,12 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.class_279
+ *  net.minecraft.class_283
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package ua.patch.daamky.api.mixins.accessors;
 
 import java.util.List;
@@ -6,8 +15,9 @@ import net.minecraft.class_283;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(class_279.class)
+@Mixin(value={class_279.class})
 public interface PostEffectProcessorAccessor {
-   @Accessor("passes")
-   List<class_283> getPasses();
+    @Accessor(value="passes")
+    public List<class_283> getPasses();
 }
+

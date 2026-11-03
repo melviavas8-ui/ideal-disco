@@ -1,3 +1,15 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.class_10151
+ *  net.minecraft.class_10156
+ *  net.minecraft.class_5944
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.ShaderRegistry;
@@ -9,13 +21,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(class_10151.class)
+@Mixin(value={class_10151.class})
 public class ShaderLoaderMixin {
-   @Inject(method = "getOrCreateProgram", at = @At("HEAD"), cancellable = true)
-   private void daamky$intercept(class_10156 var1, CallbackInfoReturnable<class_5944> var2) {
-      class_5944 var3 = ShaderRegistry.method1112(var1);
-      if (var3 != null) {
-         var2.setReturnValue(var3);
-      }
-   }
+    @Inject(method={"getOrCreateProgram"}, at={@At(value="HEAD")}, cancellable=true)
+    private void arbuz$intercept(class_10156 key, CallbackInfoReturnable<class_5944> cir) {
+        class_5944 preloaded = ShaderRegistry.method1112(key);
+        if (preloaded != null) {
+            cir.setReturnValue((Object)preloaded);
+        }
+    }
 }
+

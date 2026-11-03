@@ -11,8 +11,8 @@ public final class SettingWidgetFactory {
 
    public static List<SettingWidget> method0841(ModuleCard var0) {
       Objects.requireNonNull(var0, "module must not be null");
-      List var1 = var0.method1954().method1914();
-      List var2 = new ArrayList<>(var1.size());
+      List<Setting<?>> var1 = var0.method1954().method1914();
+      List<SettingWidget> var2 = new ArrayList<>(var1.size());
 
       for (int var3 = 0; var3 < var1.size(); var3++) {
          SettingWidget var4 = method0866(var0.method0418(), var1.get(var3));

@@ -332,7 +332,7 @@ public final class BlockListEditor extends GuiElement {
    }
 
    private void method1402(class_332 var1, float var2, float var3) {
-      List var4 = this.field0905 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
+      List<class_2248> var4 = this.field0905 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
       int var5 = (var4.size() + 4 - 1) / 4;
       float var6 = var5 == 0 ? 0.0F : var5 * 22.85F + (var5 - 1) * 1.8F;
       float var7 = Math.min(0.0F, 96.8F - var6);
@@ -345,7 +345,7 @@ public final class BlockListEditor extends GuiElement {
          float var11 = var10 ? 1.0F : -1.0F;
          float var12 = var11 * 96.8F * (1.0F - var8);
          float var13 = -var11 * 96.8F * var8;
-         List var14 = this.field0858 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
+         List<class_2248> var14 = this.field0858 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
          this.method1430(var1, var14, var2 + var13, var3, true);
          this.method1430(var1, var4, var2 + var12, var3, false);
       } else {
@@ -495,7 +495,7 @@ public final class BlockListEditor extends GuiElement {
 
          if (!(var1 < var8) && !(var1 > var8 + 96.8F)) {
             this.method1915();
-            List var26 = this.field0905 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
+            List<class_2248> var26 = this.field0905 == BlockListEditor.FilterMode.field0632 ? this.field1224 : this.field1238;
             float var15 = var25 + this.field1119;
             int var16 = (int)Math.floor((var3 - var15) / 24.65F);
             int var17 = (int)Math.floor((var1 - var8) / 24.65F);

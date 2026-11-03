@@ -185,7 +185,7 @@ public final class CrystalPositionHelper {
 
    static {
       class_2338 var0 = class_2338.field_10980;
-      Set var1 = new TreeSet<>(
+      Set<class_2338> var1 = new TreeSet<>(
          (var1x, var2x) -> {
             if (var1x.equals(var2x)) {
                return 0;

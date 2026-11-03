@@ -90,7 +90,7 @@ public final class ConfigCommand extends Command {
    }
 
    private void method0167(CommandContext var1) {
-      List var2 = this.method1607().method2068();
+      List<?> var2 = this.method1607().method2068();
       if (var2.isEmpty()) {
          var1.method0213("No configs found");
       } else {

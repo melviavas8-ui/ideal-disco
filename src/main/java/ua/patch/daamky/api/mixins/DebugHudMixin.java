@@ -1,3 +1,13 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.class_1297
+ *  net.minecraft.class_340
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Redirect
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.RotationManager;
@@ -7,15 +17,16 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(class_340.class)
+@Mixin(value={class_340.class})
 public abstract class DebugHudMixin {
-   @Redirect(method = "getLeftText", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getYaw()F"))
-   private float redirectYaw(class_1297 var1) {
-      return RotationManager.field0618.method0545().method2047();
-   }
+    @Redirect(method={"getLeftText"}, at=@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;getYaw()F"))
+    private float redirectYaw(class_1297 entity) {
+        return RotationManager.field0618.method0545().method2047();
+    }
 
-   @Redirect(method = "getLeftText", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getPitch()F"))
-   private float redirectPitch(class_1297 var1) {
-      return RotationManager.field0618.method0545().method1762();
-   }
+    @Redirect(method={"getLeftText"}, at=@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;getPitch()F"))
+    private float redirectPitch(class_1297 entity) {
+        return RotationManager.field0618.method0545().method1762();
+    }
 }
+

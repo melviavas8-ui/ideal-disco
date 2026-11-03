@@ -45,7 +45,7 @@ public final class SwordTrailGlow {
          }
 
          float var18 = var1.method2273();
-         Iterator var19 = this.field0139.iterator();
+         Iterator<SwordTrailFade> var19 = this.field0139.iterator();
 
          while (var19.hasNext()) {
             SwordTrailFade var20 = var19.next();

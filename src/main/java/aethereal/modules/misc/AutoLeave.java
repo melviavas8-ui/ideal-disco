@@ -48,7 +48,7 @@ public class AutoLeave extends Module {
          }
 
          if (this.method2135("Staff")) {
-            List var2 = NewHUD.method1397(field0796);
+            List<String> var2 = NewHUD.method1397(field0796);
             if (!var2.isEmpty()) {
                this.method1347(class_2561.method_43470("Сотрудник на сервере: " + String.join(", ", var2)));
             }

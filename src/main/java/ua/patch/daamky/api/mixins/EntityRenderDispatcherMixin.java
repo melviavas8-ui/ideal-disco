@@ -1,3 +1,22 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  com.llamalad7.mixinextras.injector.wrapoperation.Operation
+ *  com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation
+ *  net.minecraft.class_10017
+ *  net.minecraft.class_1297
+ *  net.minecraft.class_4587
+ *  net.minecraft.class_4597
+ *  net.minecraft.class_897
+ *  net.minecraft.class_898
+ *  org.joml.Quaternionf
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
@@ -18,48 +37,26 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(class_898.class)
-public class EntityRenderDispatcherMixin implements MinecraftAccess {
-   @Inject(
-      method = "render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/EntityRenderer;)V",
-      at = @At("HEAD"),
-      cancellable = true
-   )
-   private void render$pixelScaleSkip(
-      class_1297 var1,
-      double var2,
-      double var4,
-      double var6,
-      float var8,
-      class_4587 var9,
-      class_4597 var10,
-      int var11,
-      class_897<?, ?> var12,
-      CallbackInfo var13
-   ) {
-      Chams var14 = Chams.method1705();
-      if (var14 != null && var14.method1129(var1)) {
-         var13.cancel();
-      }
-   }
+@Mixin(value={class_898.class})
+public class EntityRenderDispatcherMixin
+implements MinecraftAccess {
+    @Inject(method={"render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/EntityRenderer;)V"}, at={@At(value="HEAD")}, cancellable=true)
+    private void render$pixelScaleSkip(class_1297 entity, double x, double y, double z, float tickDelta, class_4587 matrices, class_4597 vertexConsumers, int light, class_897<?, ?> renderer, CallbackInfo ci) {
+        Chams chams = Chams.method1705();
+        if (chams != null && chams.method1129(entity)) {
+            ci.cancel();
+        }
+    }
 
-   @WrapOperation(
-      method = "render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/EntityRenderer;)V",
-      at = @At(
-         value = "INVOKE",
-         target = "Lnet/minecraft/client/render/entity/EntityRenderDispatcher;renderFire(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/render/entity/state/EntityRenderState;Lorg/joml/Quaternionf;)V"
-      )
-   )
-   private void render$renderFire(class_898 var1, class_4587 var2, class_4597 var3, class_10017 var4, Quaternionf var5, Operation<Void> var6) {
-      class_4597 var7 = var3;
-      DaamkyClient var8 = DaamkyClient.method2004();
-      if (var8 != null && var8.method1783() != null) {
-         Shaders var9 = var8.method1783().method0976(Shaders.class);
-         if (var9 != null && var9.method2195()) {
-            var7 = field0796.method_22940().method_23000();
-         }
-      }
-
-      var6.call(new Object[]{var1, var2, var7, var4, var5});
-   }
+    @WrapOperation(method={"render(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/EntityRenderer;)V"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/render/entity/EntityRenderDispatcher;renderFire(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/render/entity/state/EntityRenderState;Lorg/joml/Quaternionf;)V")})
+    private void render$renderFire(class_898 instance, class_4587 matrices, class_4597 vertexConsumers, class_10017 renderState, Quaternionf rotation, Operation<Void> original) {
+        Shaders shaders;
+        class_4597 vcp = vertexConsumers;
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz != null && arbuz.method1783() != null && (shaders = arbuz.method1783().method0976(Shaders.class)) != null && shaders.method2195()) {
+            vcp = field0796.method_22940().method_23000();
+        }
+        original.call(new Object[]{instance, matrices, vcp, renderState, rotation});
+    }
 }
+

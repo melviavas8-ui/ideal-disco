@@ -1,3 +1,14 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.class_310
+ *  net.minecraft.class_4011
+ *  net.minecraft.class_425
+ *  org.spongepowered.asm.mixin.Final
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.Shadow
+ */
 package ua.patch.daamky.api.mixins;
 
 import java.util.Optional;
@@ -9,24 +20,25 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(class_425.class)
+@Mixin(value={class_425.class})
 public class SplashOverlayMixin {
-   @Shadow
-   @Final
-   private class_310 field_18217;
-   @Shadow
-   @Final
-   private class_4011 field_17767;
-   @Shadow
-   @Final
-   private Consumer<Optional<Throwable>> field_18218;
-   @Shadow
-   @Final
-   private boolean field_18219;
-   @Shadow
-   private float field_17770;
-   @Shadow
-   private long field_18220;
-   @Shadow
-   private long field_17771;
+    @Shadow
+    @Final
+    private class_310 field_18217;
+    @Shadow
+    @Final
+    private class_4011 field_17767;
+    @Shadow
+    @Final
+    private Consumer<Optional<Throwable>> field_18218;
+    @Shadow
+    @Final
+    private boolean field_18219;
+    @Shadow
+    private float field_17770;
+    @Shadow
+    private long field_18220;
+    @Shadow
+    private long field_17771;
 }
+

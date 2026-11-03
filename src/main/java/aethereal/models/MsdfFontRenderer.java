@@ -49,7 +49,7 @@ public final class MsdfFontRenderer {
          int var13 = var3.charAt(var12);
          MsdfGlyphRenderer var14 = this.field0794.get(var13);
          if (var14 != null) {
-            Map var15 = this.field1270.get(var11);
+            Map<Integer, Float> var15 = this.field1270.get(var11);
             if (var15 != null) {
                var7 += var15.getOrDefault(var13, 0.0F) * var4;
             }
@@ -68,7 +68,7 @@ public final class MsdfFontRenderer {
          int var6 = var1.charAt(var5);
          MsdfGlyphRenderer var7 = this.field0794.get(var6);
          if (var7 != null) {
-            Map var8 = this.field1270.get(var3);
+            Map<Integer, Float> var8 = this.field1270.get(var3);
             if (var8 != null) {
                var4 += var8.getOrDefault(var6, 0.0F) * var2;
             }
@@ -89,7 +89,7 @@ public final class MsdfFontRenderer {
          int var7 = var1.charAt(var6);
          MsdfGlyphRenderer var8 = this.field0794.get(var7);
          if (var8 != null) {
-            Map var9 = this.field1270.get(var4);
+            Map<Integer, Float> var9 = this.field1270.get(var4);
             if (var9 != null) {
                var5 += var9.getOrDefault(var7, 0.0F) * var2;
             }
@@ -157,16 +157,16 @@ public final class MsdfFontRenderer {
          RenderSystem.recordRenderCall(() -> var2.method_4527(true, false));
          float var3 = var1.method0541().method0002();
          float var4 = var1.method0541().method2047();
-         Map var5 = var1.method2068().stream().collect(Collectors.toMap(var0 -> var0.method0531(), var2x -> new MsdfGlyphRenderer(var2x, var3, var4)));
-         Map var6 = new HashMap<>();
+         Map<Integer, MsdfGlyphRenderer> var5 = var1.method2068().stream().collect(Collectors.toMap(var0 -> var0.method0531(), var2x -> new MsdfGlyphRenderer(var2x, var3, var4)));
+         Map<Integer, Map<Integer, Float>> var6 = new HashMap<>();
          var1.method1793().forEach(var1x -> {
-            Map var2 = var6.get(var1x.method0531());
-            if (var2 == null) {
-               var2 = new HashMap<>();
-               var6.put(var1x.method0531(), var2);
+            Map<Integer, Float> var2a = var6.get(var1x.method0531());
+            if (var2a == null) {
+               var2a = new HashMap<>();
+               var6.put(var1x.method0531(), var2a);
             }
 
-            var2.put(var1x.method0003(), var1x.method2047());
+            var2a.put(var1x.method0003(), var1x.method2047());
          });
          return new MsdfFontRenderer(this.field0715, var2, var1.method0541(), var1.method0009(), var5, var6);
       }

@@ -46,7 +46,7 @@ public final class CircularTextureCommandBuilder extends RenderCommandBuilder<Ci
       return this;
    }
 
-   protected CircularTextureRenderCommand method1770() {
+   protected CircularTextureRenderCommand method2066() {
       return new CircularTextureRenderCommand(
          this.field0680, this.field0050, this.field1481, this.field0957, this.field0758, this.field1242, this.field0314, this.field0177, this.field0459
       );

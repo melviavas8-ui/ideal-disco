@@ -85,7 +85,7 @@ public class SwordTrailBuffer {
    }
 
    public void method0782(long var1, long var3) {
-      Iterator var5 = this.field0718.iterator();
+      Iterator<SwordTrailSample> var5 = this.field0718.iterator();
 
       while (var5.hasNext()) {
          SwordTrailSample var6 = var5.next();

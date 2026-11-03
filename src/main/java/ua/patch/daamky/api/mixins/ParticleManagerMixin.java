@@ -1,3 +1,17 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  net.minecraft.class_2394
+ *  net.minecraft.class_2398
+ *  net.minecraft.class_702
+ *  net.minecraft.class_703
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
@@ -11,18 +25,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(class_702.class)
+@Mixin(value={class_702.class})
 public abstract class ParticleManagerMixin {
-   @Inject(method = "addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)Lnet/minecraft/client/particle/Particle;", at = @At("HEAD"), cancellable = true)
-   private void onAddParticle(
-      class_2394 var1, double var2, double var4, double var6, double var8, double var10, double var12, CallbackInfoReturnable<class_703> var14
-   ) {
-      DaamkyClient var15 = DaamkyClient.method2004();
-      if (var15 != null && var15.method1783() != null) {
-         NoRender var16 = var15.method1783().method0976(NoRender.class);
-         if (var16 != null && var16.method0522() && (var1.method_10295() == class_2398.field_11236 || var1.method_10295() == class_2398.field_11221)) {
-            var14.setReturnValue(null);
-         }
-      }
-   }
+    @Inject(method={"addParticle(Lnet/minecraft/particle/ParticleEffect;DDDDDD)Lnet/minecraft/client/particle/Particle;"}, at={@At(value="HEAD")}, cancellable=true)
+    private void onAddParticle(class_2394 parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ, CallbackInfoReturnable<class_703> cir) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        if (noRender != null && noRender.method0522() && (parameters.method_10295() == class_2398.field_11236 || parameters.method_10295() == class_2398.field_11221)) {
+            cir.setReturnValue(null);
+        }
+    }
 }
+

@@ -34,7 +34,7 @@ public final class BorderCommandBuilder extends RenderCommandBuilder<BorderRende
       return this;
    }
 
-   protected BorderRenderCommand method1766() {
+   protected BorderRenderCommand method2066() {
       return new BorderRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957, this.field0758, this.field1242);
    }
 

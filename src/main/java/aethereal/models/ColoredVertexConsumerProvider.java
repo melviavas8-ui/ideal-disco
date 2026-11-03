@@ -27,7 +27,7 @@ public class ColoredVertexConsumerProvider implements class_4597 {
          return new ColoredVertexConsumerProvider.ColoredVertexConsumer(var6, this.field1411, this.field0958, this.field0759, this.field1243);
       } else {
          class_4588 var2 = this.field0744.getBuffer(var1);
-         Optional var3 = var1.method_23289();
+         Optional<class_1921> var3 = var1.method_23289();
          if (var3.isPresent()) {
             class_4588 var4 = this.field0164.getBuffer(var3.get());
             ColoredVertexConsumerProvider.ColoredVertexConsumer var5 = new ColoredVertexConsumerProvider.ColoredVertexConsumer(var4, this.field1411, this.field0958, this.field0759, this.field1243);

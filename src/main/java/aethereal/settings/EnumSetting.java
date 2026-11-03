@@ -22,7 +22,7 @@ public class EnumSetting<Value extends Enum<?>> extends Setting<Value> {
    public void method0442(String var1) {
       for (Enum var5 : (Enum[])this.field0714.getClass().getEnumConstants()) {
          if (((DisplayNamed)var5).method0557().equalsIgnoreCase(var1)) {
-            this.method0206(var5);
+            this.method0206((Value) var5);
             break;
          }
       }

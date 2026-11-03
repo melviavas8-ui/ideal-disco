@@ -280,11 +280,11 @@ public class OutlineShaderRenderer implements MinecraftAccess {
       return var4x -> {
          class_4588 var5 = var1.getBuffer(var4x);
          if (var4x instanceof class_4687
-            && ((RenderLayerMultiPhaseParametersAccessor)((RenderLayerMultiPhaseAccessor)var4x).invokeGetPhases()).getOutlineMode() != class_4750.field_21853) {
+            && ((RenderLayerMultiPhaseParametersAccessor)(Object)((RenderLayerMultiPhaseAccessor)var4x).invokeGetPhases()).getOutlineMode() != class_4750.field_21853) {
             this.field0650.method0749(var2.getRed(), var2.getGreen(), var2.getBlue(), var4);
             class_4588 var6 = this.field0650
                .getBuffer(
-                  this.field1035.apply(((RenderLayerMultiPhaseParametersAccessor)((RenderLayerMultiPhaseAccessor)var4x).invokeGetPhases()).getTexture())
+                  this.field1035.apply(((RenderLayerMultiPhaseParametersAccessor)(Object)((RenderLayerMultiPhaseAccessor)var4x).invokeGetPhases()).getTexture())
                );
             return var6 != null ? class_4720.method_24037(var6, var5) : var5;
          } else {
@@ -297,7 +297,7 @@ public class OutlineShaderRenderer implements MinecraftAccess {
       return new Function<class_5939, class_1921>() {
          private final Map<class_2960, class_1921> field0140 = new HashMap<>();
 
-         public class_1921 method1521(class_5939 var1x) {
+         public class_1921 apply(class_5939 var1x) {
             return this.field0140.computeIfAbsent(((RenderPhaseTextureBaseAccessor)var1x).invokeGetId().get(), var2 -> var1.apply(var1x));
          }
       };

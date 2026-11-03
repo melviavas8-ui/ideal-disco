@@ -107,7 +107,7 @@ public final class WaypointCommand extends Command implements MinecraftAccess {
 
    private void method2113(CommandContext var1, String[] var2) {
       boolean var3 = var2.length >= 2 && var2[1].equalsIgnoreCase("all");
-      List var4;
+      List<WaypointManager.Waypoint> var4;
       if (var3) {
          var4 = this.method1616().method2192();
       } else {

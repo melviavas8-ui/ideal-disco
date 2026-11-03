@@ -32,7 +32,7 @@ public final class GaussianBlurCommandBuilder extends RenderCommandBuilder<Gauss
       return this;
    }
 
-   protected GaussianBlurRenderCommand method1774() {
+   protected GaussianBlurRenderCommand method2066() {
       return new GaussianBlurRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957, this.field0758);
    }
 

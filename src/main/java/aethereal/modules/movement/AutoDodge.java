@@ -77,7 +77,7 @@ public class AutoDodge extends Module {
    }
 
    private void method1735() {
-      List var1 = StreamSupport.<class_1297>stream(field0796.field_1687.method_18112().spliterator(), false)
+      List<class_1686> var1 = StreamSupport.<class_1297>stream(field0796.field_1687.method_18112().spliterator(), false)
          .filter(class_1686.class::isInstance)
          .map(class_1686.class::cast)
          .filter(var0 -> var0.method_24921() != field0796.field_1724)
@@ -102,7 +102,7 @@ public class AutoDodge extends Module {
 
    private <T extends class_1297> void method0977(Class<T> var1) {
       if (!this.field1527) {
-         List var2 = StreamSupport.<class_1297>stream(field0796.field_1687.method_18112().spliterator(), false)
+         List<T> var2 = StreamSupport.<class_1297>stream(field0796.field_1687.method_18112().spliterator(), false)
             .filter(var1::isInstance)
             .map(var1::cast)
             .toList();

@@ -1,3 +1,18 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  net.minecraft.class_1058
+ *  net.minecraft.class_310
+ *  net.minecraft.class_4587
+ *  net.minecraft.class_4597
+ *  net.minecraft.class_4603
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
@@ -12,38 +27,42 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(class_4603.class)
+@Mixin(value={class_4603.class})
 public abstract class InGameOverlayRendererMixin {
-   @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
-   private static void onRenderFireOverlay(CallbackInfo var0) {
-      DaamkyClient var1 = DaamkyClient.method2004();
-      if (var1 != null && var1.method1783() != null) {
-         NoRender var2 = var1.method1783().method0976(NoRender.class);
-         if (var2 != null && var2.method1736()) {
-            var0.cancel();
-         }
-      }
-   }
+    @Inject(method={"renderFireOverlay"}, at={@At(value="HEAD")}, cancellable=true)
+    private static void onRenderFireOverlay(CallbackInfo ci) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        if (noRender != null && noRender.method1736()) {
+            ci.cancel();
+        }
+    }
 
-   @Inject(method = "renderUnderwaterOverlay", at = @At("HEAD"), cancellable = true)
-   private static void onRenderUnderwaterOverlay(class_310 var0, class_4587 var1, class_4597 var2, CallbackInfo var3) {
-      DaamkyClient var4 = DaamkyClient.method2004();
-      if (var4 != null && var4.method1783() != null) {
-         NoRender var5 = var4.method1783().method0976(NoRender.class);
-         if (var5 != null && var5.method0458()) {
-            var3.cancel();
-         }
-      }
-   }
+    @Inject(method={"renderUnderwaterOverlay"}, at={@At(value="HEAD")}, cancellable=true)
+    private static void onRenderUnderwaterOverlay(class_310 client, class_4587 matrices, class_4597 vertexConsumers, CallbackInfo ci) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        if (noRender != null && noRender.method0458()) {
+            ci.cancel();
+        }
+    }
 
-   @Inject(method = "renderInWallOverlay", at = @At("HEAD"), cancellable = true)
-   private static void onRenderInWallOverlay(class_1058 var0, class_4587 var1, class_4597 var2, CallbackInfo var3) {
-      DaamkyClient var4 = DaamkyClient.method2004();
-      if (var4 != null && var4.method1783() != null) {
-         NoRender var5 = var4.method1783().method0976(NoRender.class);
-         if (var5 != null && var5.method0399()) {
-            var3.cancel();
-         }
-      }
-   }
+    @Inject(method={"renderInWallOverlay"}, at={@At(value="HEAD")}, cancellable=true)
+    private static void onRenderInWallOverlay(class_1058 sprite, class_4587 matrices, class_4597 vertexConsumers, CallbackInfo ci) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        if (noRender != null && noRender.method0399()) {
+            ci.cancel();
+        }
+    }
 }
+

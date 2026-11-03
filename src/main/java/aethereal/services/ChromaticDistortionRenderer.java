@@ -64,12 +64,12 @@ public class ChromaticDistortionRenderer implements MinecraftAccess {
             return;
          }
 
-         List var2 = ((PostEffectProcessorAccessor)var1).getPasses();
+         List<?> var2 = ((PostEffectProcessorAccessor)var1).getPasses();
          if (var2 == null || var2.isEmpty()) {
             return;
          }
 
-         class_5944 var3 = var2.getFirst().method_62922();
+         class_5944 var3 = ((net.minecraft.class_283) var2.getFirst()).method_62922();
          if (var3 == null) {
             return;
          }

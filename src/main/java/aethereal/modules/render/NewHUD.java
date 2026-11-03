@@ -853,7 +853,7 @@ public class NewHUD extends Module {
 
          this.field1392.keySet().retainAll(var3);
          if (field0796.field_1724 != null) {
-            Map var12 = new HashMap<>();
+            Map<Integer, class_1293> var12 = new HashMap<>();
 
             for (class_1293 var19 : field0796.field_1724.method_6088().values()) {
                String var26 = class_1074.method_4662(((class_1291)var19.method_5579().comp_349()).method_5567(), new Object[0]);
@@ -875,7 +875,7 @@ public class NewHUD extends Module {
                }
             }
 
-            for (Entry var28 : var12.entrySet()) {
+            for (Map.Entry<Integer, class_1293> var28 : var12.entrySet()) {
                if (!this.field0414.contains(var28.getKey())) {
                   class_1293 var33 = var28.getValue();
                   class_2960 var36 = this.method0232(var33);
@@ -893,7 +893,7 @@ public class NewHUD extends Module {
          }
 
          if (field0796.field_1687 != null && field0796.field_1724 != null) {
-            Map var13 = new HashMap<>();
+            Map<Integer, Float> var13 = new HashMap<>();
 
             for (class_1657 var22 : field0796.field_1687.method_18456()) {
                if (var22 != field0796.field_1724 && !(var22.method_5858(field0796.field_1724) > 2500.0)) {
@@ -912,7 +912,7 @@ public class NewHUD extends Module {
          }
 
          if (field0796.field_1687 != null) {
-            List var14 = this.method0404();
+            List<NewHUD.NotificationEntry> var14 = this.method0404();
             Set var18 = new HashSet<>();
 
             for (NewHUD.NotificationEntry var30 : var14) {
@@ -950,10 +950,10 @@ public class NewHUD extends Module {
             this.field1669 = true;
             this.field1668.clear();
             this.field1668.addAll(var18);
-            Iterator var25 = this.field0563.entrySet().iterator();
+            Iterator<Map.Entry<String, Animation>> var25 = this.field0563.entrySet().iterator();
 
             while (var25.hasNext()) {
-               Entry var32 = var25.next();
+               Map.Entry<String, Animation> var32 = var25.next();
                if (!var18.contains(var32.getKey())) {
                   var32.getValue().method1570(false);
                   if (var32.getValue().method0346(false)) {
@@ -1767,7 +1767,7 @@ public class NewHUD extends Module {
 
    private void method0437(HudRenderEvent var1) {
       float var2 = this.field0248.method0002();
-      List var3 = this.field1323;
+      List<Module> var3 = this.field1323;
       HudWidgetState var4 = HudWidgetManager.method1605().method1002("NewKeyBinds");
       if (var4 != null) {
          class_4587 var5 = var1.method1806().method_51448();
@@ -1891,8 +1891,8 @@ public class NewHUD extends Module {
          float var21 = 3.0F;
          float var22 = 10.0F;
          float var23 = 6.0F;
-         List var24 = this.field1318;
-         List var25 = this.field1327;
+         List<class_1293> var24 = this.field1318;
+         List<class_1293> var25 = this.field1327;
          float var26 = var12;
          if (!var24.isEmpty()) {
             var26 += 1.0F + var13 * 2.0F + var24.size() * (var14 + var15) - var15;
@@ -1905,7 +1905,7 @@ public class NewHUD extends Module {
          float var27 = 6.0F;
          float var28 = var18 + 4.0F + var16 + 4.0F + var6.method0998("Potions");
 
-         for (List var30 : List.of(var24, var25)) {
+         for (List<class_1293> var30 : List.of(var24, var25)) {
             for (class_1293 var32 : var30) {
                float var33 = var32.method_5578() > 0 ? var27 + var7.method0998(String.valueOf(var32.method_5578() + 1)) : 0.0F;
                float var34 = var20 + var8.method0998(this.method0142(var32.method_5584())) + 3.0F + var23 + var20;
@@ -2293,7 +2293,7 @@ public class NewHUD extends Module {
                   GuiRenderHelper.method1400(var1.method1806());
                   var5.method_22909();
                   Color var83 = ThemeColorManager.method1908().method2063();
-                  Iterator var85 = this.field0520.iterator();
+                  Iterator<float[]> var85 = this.field0520.iterator();
 
                   while (var85.hasNext()) {
                      float[] var87 = var85.next();
@@ -2334,7 +2334,7 @@ public class NewHUD extends Module {
          Color var14 = this.method0964(field0436, var2);
          boolean var15 = this.field1131.method0492() == NewHUD.NotificationDirection.field0092;
          float var16 = var3.method0413();
-         List var17 = new ArrayList<>(field1588);
+         List<NewHUD.HudEntry> var17 = new ArrayList<>(field1588);
          boolean var18 = field0796.field_1755 instanceof class_408 && var17.isEmpty();
          if (!var18) {
             for (NewHUD.HudEntry var20 : var17) {
@@ -2515,7 +2515,7 @@ public class NewHUD extends Module {
          float var13 = 8.0F;
          float var14 = 2.5F;
          float var15 = 7.0F;
-         List var16 = new ArrayList<>();
+         List<String> var16 = new ArrayList<>();
 
          for (String var18 : this.field1667) {
             if (this.field1685.containsKey(var18)) {
@@ -2640,17 +2640,17 @@ public class NewHUD extends Module {
    }
 
    private List<NewHUD.NotificationEntry> method0404() {
-      List var1 = new ArrayList<>();
-      Set var2 = new HashSet<>();
+      List<NewHUD.NotificationEntry> var1 = new ArrayList<>();
+      Set<String> var2 = new HashSet<>();
       if (field0796.field_1687 == null) {
          return var1;
       }
 
-      List var3 = new ArrayList<>(field0796.field_1687.method_8428().method_1159());
+      List<class_268> var3 = new ArrayList<>(field0796.field_1687.method_8428().method_1159());
       var3.sort(Comparator.comparing(class_268::method_1197));
 
       for (class_268 var5 : var3) {
-         Collection var6 = var5.method_1204();
+         Collection<String> var6 = var5.method_1204();
          if (!var6.isEmpty()) {
             class_2561 var7 = var5.method_1144();
             String var8 = var7 != null ? var7.getString() : "";
@@ -2697,10 +2697,10 @@ public class NewHUD extends Module {
    }
 
    public static List<String> method1397(class_310 var0) {
-      List var1 = new ArrayList<>();
+      List<String> var1 = new ArrayList<>();
       if (var0 != null && var0.field_1687 != null) {
          for (class_268 var3 : var0.field_1687.method_8428().method_1159()) {
-            Collection var4 = var3.method_1204();
+            Collection<String> var4 = var3.method_1204();
             if (!var4.isEmpty()) {
                class_2561 var5 = var3.method_1144();
                String var6 = var5 != null ? var5.getString() : "";

@@ -62,7 +62,7 @@ public final class MsdfTextCommandBuilder extends RenderCommandBuilder<MsdfTextR
       return this;
    }
 
-   protected MsdfTextRenderCommand method1784() {
+   protected MsdfTextRenderCommand method2066() {
       return new MsdfTextRenderCommand(
          this.field0646, this.field0136, this.field1410, this.field0957, this.field0759, this.field1242, this.field0314, this.field0178, this.field0458
       );

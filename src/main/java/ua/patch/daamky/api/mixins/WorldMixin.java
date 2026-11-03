@@ -1,3 +1,15 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  net.minecraft.class_1937
+ *  net.minecraft.class_638
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.Ambience;
@@ -9,30 +21,35 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(class_1937.class)
+@Mixin(value={class_1937.class})
 public abstract class WorldMixin {
-   @Inject(method = "getTimeOfDay", at = @At("HEAD"), cancellable = true)
-   private void onGetTimeOfDay(CallbackInfoReturnable<Long> var1) {
-      if (this instanceof class_638) {
-         if (DaamkyClient.method2004() != null && DaamkyClient.method2004().method1783() != null) {
-            Ambience var2 = DaamkyClient.method2004().method1783().method0976(Ambience.class);
-            if (var2 != null && var2.method1736()) {
-               var1.setReturnValue(var2.method1681());
-            }
-         }
-      }
-   }
+    @Inject(method={"getTimeOfDay"}, at={@At(value="HEAD")}, cancellable=true)
+    private void onGetTimeOfDay(CallbackInfoReturnable<Long> cir) {
+        if (!(this instanceof class_638)) {
+            return;
+        }
+        if (DaamkyClient.method2004() == null || DaamkyClient.method2004().method1783() == null) {
+            return;
+        }
+        Ambience ambience = DaamkyClient.method2004().method1783().method0976(Ambience.class);
+        if (ambience != null && ambience.method1736()) {
+            cir.setReturnValue((Object)ambience.method1681());
+        }
+    }
 
-   @Inject(method = "getSkyAngleRadians", at = @At("HEAD"), cancellable = true)
-   private void onGetSkyAngleRadians(float var1, CallbackInfoReturnable<Float> var2) {
-      if (this instanceof class_638) {
-         if (DaamkyClient.method2004() != null && DaamkyClient.method2004().method1783() != null) {
-            Ambience var3 = DaamkyClient.method2004().method1783().method0976(Ambience.class);
-            if (var3 != null && var3.method1736()) {
-               float var4 = (float)(var3.method1681() % 24000L) / 24000.0F;
-               var2.setReturnValue(var4 * (float) (Math.PI * 2));
-            }
-         }
-      }
-   }
+    @Inject(method={"getSkyAngleRadians"}, at={@At(value="HEAD")}, cancellable=true)
+    private void onGetSkyAngleRadians(float tickDelta, CallbackInfoReturnable<Float> cir) {
+        if (!(this instanceof class_638)) {
+            return;
+        }
+        if (DaamkyClient.method2004() == null || DaamkyClient.method2004().method1783() == null) {
+            return;
+        }
+        Ambience ambience = DaamkyClient.method2004().method1783().method0976(Ambience.class);
+        if (ambience != null && ambience.method1736()) {
+            float angle = (float)(ambience.method1681() % 24000L) / 24000.0f;
+            cir.setReturnValue((Object)Float.valueOf(angle * ((float)Math.PI * 2)));
+        }
+    }
 }
+

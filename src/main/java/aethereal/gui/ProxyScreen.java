@@ -201,7 +201,7 @@ public class ProxyScreen extends class_437 {
       float var6 = 344.0F;
       float var7 = 194.0F;
       GuiRenderHelper.method1404(var1, var4, var5, var6, var7);
-      List var8 = ProxyStorage.method1786().method1620();
+      List<ProxyEntry> var8 = ProxyStorage.method1786().method1620();
       if (var8.isEmpty()) {
          FontSize var9 = Fonts.field0075.method0654(6.5F);
          String var10 = ProxyAddressHelper.method1044("No proxies yet. Click ", "Прокси пока нет. Нажмите ");
@@ -647,7 +647,7 @@ public class ProxyScreen extends class_437 {
       float var6 = this.field1087 + 8.0F;
       float var7 = this.field1196 + 44.0F;
       float var8 = 344.0F;
-      List var9 = ProxyStorage.method1786().method1620();
+      List<ProxyEntry> var9 = ProxyStorage.method1786().method1620();
       float var10 = var7 - this.field0871;
 
       for (int var11 = 0; var11 < var9.size(); var11++) {
@@ -858,7 +858,7 @@ public class ProxyScreen extends class_437 {
 
    public boolean method_25401(double var1, double var3, double var5, double var7) {
       if (!this.field0931) {
-         List var9 = ProxyStorage.method1786().method1620();
+         List<ProxyEntry> var9 = ProxyStorage.method1786().method1620();
          if (var9.isEmpty()) {
             this.field0826 = 0.0F;
             return true;

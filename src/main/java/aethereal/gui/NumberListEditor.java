@@ -115,7 +115,7 @@ public final class NumberListEditor extends GuiElement {
 
    private List<NumberListSetting.NumberEntry> method2263() {
       String var1 = this.field0535.toString().toLowerCase(Locale.ROOT);
-      List var2 = new ArrayList<>();
+      List<NumberListSetting.NumberEntry> var2 = new ArrayList<>();
 
       for (NumberListSetting.NumberEntry var4 : this.field0267.method1889()) {
          if (var4.method0026()) {
@@ -190,7 +190,7 @@ public final class NumberListEditor extends GuiElement {
          GuiRenderHelper.method1491(var1.method_51448(), field1375, var39, var36, var37, ThemePalette.field0334);
       }
 
-      List var40 = this.method2263();
+      List<NumberListSetting.NumberEntry> var40 = this.method2263();
       float var42 = var27 + 12.0F + 3.0F;
       float var43 = 112.0F;
       GuiRenderHelper.method1404(var1, var5, var42, var7, var43);
@@ -306,7 +306,7 @@ public final class NumberListEditor extends GuiElement {
          float var26 = var24 + 12.0F + 3.0F;
          float var28 = 112.0F;
          if (!(var3 < var26) && !(var3 > var26 + var28)) {
-            List var29 = this.method2263();
+            List<NumberListSetting.NumberEntry> var29 = this.method2263();
             float var30 = var26 + this.field0547;
             int var19 = (int)Math.floor((var3 - var30) / 16.0);
             if (var19 >= 0 && var19 < var29.size()) {
@@ -361,7 +361,7 @@ public final class NumberListEditor extends GuiElement {
       float var12 = var11 + 12.0F + 3.0F;
       float var13 = 112.0F;
       if (var3 >= var12 && var3 <= var12 + var13) {
-         List var14 = this.method2263();
+         List<NumberListSetting.NumberEntry> var14 = this.method2263();
          float var15 = var12 + this.field0547;
          int var16 = (int)Math.floor((var3 - var15) / 16.0);
          if (var16 >= 0 && var16 < var14.size()) {

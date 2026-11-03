@@ -26,7 +26,7 @@ public final class RectangleCommandBuilder extends RenderCommandBuilder<Rectangl
       return this;
    }
 
-   protected RectangleRenderCommand method1787() {
+   protected RectangleRenderCommand method2066() {
       return new RectangleRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957);
    }
 

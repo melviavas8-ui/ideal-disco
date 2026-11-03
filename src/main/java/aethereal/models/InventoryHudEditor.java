@@ -149,7 +149,7 @@ public class InventoryHudEditor {
    private void method1634() {
       NewHUD var1 = this.method1955();
       if (var1 != null) {
-         List var2 = var1.method1751();
+         List<BooleanSetting> var2 = var1.method1751();
 
          for (int var3 = 0; var3 < Math.min(var2.size(), this.field0405.length); var3++) {
             this.field0405[var3].method1570(var2.get(var3).method0492());
@@ -206,7 +206,7 @@ public class InventoryHudEditor {
             if (var22 == null) {
                var7.method_22909();
             } else {
-               List var23 = var22.method1751();
+               List<BooleanSetting> var23 = var22.method1751();
                FontSize var24 = Fonts.field0075.method0654(5.5F);
                FontSize var25 = Fonts.field0075.method0654(5.0F);
                FontSize var26 = Fonts.field0774.method0654(5.5F);
@@ -312,7 +312,7 @@ public class InventoryHudEditor {
             return true;
          }
 
-         List var11 = var10.method1751();
+         List<BooleanSetting> var11 = var10.method1751();
          FontSize var12 = Fonts.field0075.method0654(5.0F);
          float var13 = this.field1369 + 19.0F + 6.0F;
 

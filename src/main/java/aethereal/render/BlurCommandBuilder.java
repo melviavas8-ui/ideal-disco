@@ -32,7 +32,7 @@ public final class BlurCommandBuilder extends RenderCommandBuilder<BlurRenderCom
       return this;
    }
 
-   protected BlurRenderCommand method1765() {
+   protected BlurRenderCommand method2066() {
       return new BlurRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957, this.field0758);
    }
 

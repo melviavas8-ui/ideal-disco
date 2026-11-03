@@ -66,7 +66,7 @@ public final class InventorySlotHelper implements MinecraftAccess {
          return -1;
       }
 
-      Optional var0 = field0796.field_1724
+      Optional<class_1735> var0 = field0796.field_1724
          .field_7498
          .field_7761
          .stream()

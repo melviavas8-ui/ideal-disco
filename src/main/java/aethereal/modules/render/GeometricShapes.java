@@ -105,7 +105,7 @@ public class GeometricShapes extends Module {
 
    private void method1691() {
       if (!method1974()) {
-         List var1 = this.field0089.method1889();
+         List<BooleanSetting> var1 = this.field0089.method1889();
          if (!var1.isEmpty()) {
             BooleanSetting var2 = var1.get(this.field0929.nextInt(var1.size()));
             String var3 = var2.method1888() != null ? var2.method1888() : var2.method0423();

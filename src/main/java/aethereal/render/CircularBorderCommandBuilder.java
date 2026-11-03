@@ -34,7 +34,7 @@ public final class CircularBorderCommandBuilder extends RenderCommandBuilder<Cir
       return this;
    }
 
-   protected CircularBorderRenderCommand method1768() {
+   protected CircularBorderRenderCommand method2066() {
       return new CircularBorderRenderCommand(this.field0680, this.field0050, this.field1481, this.field0957, this.field0758, this.field1242);
    }
 

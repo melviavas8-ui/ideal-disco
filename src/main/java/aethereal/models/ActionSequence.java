@@ -237,7 +237,8 @@ public class ActionSequence {
          this.field0958 = var4;
       }
 
-      public int method0855(ActionSequence.ScheduledStep var1) {
+      @Override
+      public int compareTo(ActionSequence.ScheduledStep var1) {
          return Integer.compare(var1.method1763(), this.method1763());
       }
 
@@ -299,7 +300,8 @@ public class ActionSequence {
          this.field0958 = var4;
       }
 
-      public int method0857(ActionSequence.RepeatingStep var1) {
+      @Override
+      public int compareTo(ActionSequence.RepeatingStep var1) {
          return Integer.compare(var1.method1604(), this.method1604());
       }
 

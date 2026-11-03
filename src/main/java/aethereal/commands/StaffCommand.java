@@ -71,7 +71,7 @@ public final class StaffCommand extends Command implements MinecraftAccess {
    }
 
    private void method0167(CommandContext var1) {
-      List var2 = this.method1614().method0019();
+      List<StaffManager.StaffEntry> var2 = this.method1614().method0019();
       if (var2.isEmpty()) {
          var1.method2134(method1813() ? "стафф-лист пуст" : "Manual staff list is empty");
       } else {

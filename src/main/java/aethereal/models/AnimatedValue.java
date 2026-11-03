@@ -11,7 +11,7 @@ public class AnimatedValue<T> {
    public void method0862(AnimatedValue.ValueState<T> var1) {
       this.field0719.removeIf(var1x -> var1x.field1469 == var1.field1469);
       this.field0719.add(var1);
-      this.field0719.sort(Comparator.comparingInt(AnimatedValue.ValueState::method2048).reversed());
+      this.field0719.sort(Comparator.<AnimatedValue.ValueState<T>>comparingInt(AnimatedValue.ValueState::method2048).reversed());
    }
 
    public T method0555() {

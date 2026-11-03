@@ -33,7 +33,7 @@ public class DelayedAction {
    public void method2078() {
       if (this.field1527) {
          this.field0004++;
-         List var1 = this.field0722.get(this.field0004);
+         List<DelayedAction.ScheduledAction> var1 = this.field0722.get(this.field0004);
          if (var1 != null) {
             var1.sort(Comparator.comparingInt(var0 -> var0.priority));
 

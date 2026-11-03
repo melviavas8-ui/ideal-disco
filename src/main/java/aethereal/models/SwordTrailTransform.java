@@ -16,7 +16,7 @@ public final class SwordTrailTransform {
    public static void method1452(class_4587 var0) {
       SwordTrail var1 = DaamkyClient.method2004().method1783().method0976(SwordTrail.class);
       if (var1 != null && var1.method0480()) {
-         List var2 = new ArrayList<>();
+         List<SwordTrailSample> var2 = new ArrayList<>();
 
          for (SwordTrailSample var4 : var1.method1712().method2065()) {
             var2.add(var4);

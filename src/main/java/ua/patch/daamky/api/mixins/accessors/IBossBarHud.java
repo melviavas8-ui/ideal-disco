@@ -1,3 +1,12 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.class_337
+ *  net.minecraft.class_345
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.gen.Accessor
+ */
 package ua.patch.daamky.api.mixins.accessors;
 
 import java.util.Map;
@@ -7,8 +16,9 @@ import net.minecraft.class_345;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(class_337.class)
+@Mixin(value={class_337.class})
 public interface IBossBarHud {
-   @Accessor("bossBars")
-   Map<UUID, class_345> getBossBars();
+    @Accessor(value="bossBars")
+    public Map<UUID, class_345> getBossBars();
 }
+

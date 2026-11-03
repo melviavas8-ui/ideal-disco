@@ -1,3 +1,18 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  net.minecraft.class_10529
+ *  net.minecraft.class_2338
+ *  net.minecraft.class_4587
+ *  net.minecraft.class_4597
+ *  net.minecraft.class_8242
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
@@ -12,16 +27,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(class_10529.class)
+@Mixin(value={class_10529.class})
 public abstract class SignBlockEntityRendererMixin {
-   @Inject(method = "renderText", at = @At("HEAD"), cancellable = true, require = 0)
-   private void onRenderText(class_2338 var1, class_8242 var2, class_4587 var3, class_4597 var4, int var5, int var6, int var7, boolean var8, CallbackInfo var9) {
-      DaamkyClient var10 = DaamkyClient.method2004();
-      if (var10 != null && var10.method1783() != null) {
-         NoRender var11 = var10.method1783().method0976(NoRender.class);
-         if (var11 != null && var11.method0517()) {
-            var9.cancel();
-         }
-      }
-   }
+    @Inject(method={"renderText"}, at={@At(value="HEAD")}, cancellable=true, require=0)
+    private void onRenderText(class_2338 pos, class_8242 signText, class_4587 matrices, class_4597 vertexConsumers, int light, int lineHeight, int lineWidth, boolean front, CallbackInfo ci) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            return;
+        }
+        NoRender noRender = arbuz.method1783().method0976(NoRender.class);
+        if (noRender != null && noRender.method0517()) {
+            ci.cancel();
+        }
+    }
 }
+

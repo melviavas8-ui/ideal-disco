@@ -31,7 +31,7 @@ public final class FirstPersonTrailRenderer {
       SwordTrail var12 = DaamkyClient.method2004().method1783().method0976(SwordTrail.class);
       if (var12 != null && var12.method2030()) {
          if (!var12.method1755() || var4 == class_1268.field_5808) {
-            List var13 = var12.method1924();
+            List<SwordTrailAnimation> var13 = var12.method1924();
             if (!var13.isEmpty()) {
                Shaders var14 = DaamkyClient.method2004().method1783().method0976(Shaders.class);
                boolean var15 = var14 != null && var14.method2195() && var14.method1755();

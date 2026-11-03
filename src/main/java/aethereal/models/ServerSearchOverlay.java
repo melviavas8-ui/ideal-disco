@@ -327,7 +327,7 @@ public class ServerSearchOverlay {
             if (this.field0558) {
                NewHUD var59 = this.method1955();
                if (var59 != null) {
-                  List var60 = var59.method2025();
+                  List<String> var60 = var59.method2025();
                   if (!this.field0300.isEmpty()) {
                      GuiRenderHelper.method1463(var7, this.field0826 + 6.0F, var37 - 2.0F, 92.0F, 0.5F, 0.0F, method0964(field1153, var6));
                   }
@@ -476,7 +476,7 @@ public class ServerSearchOverlay {
    private void method0430() {
       NewHUD var1 = this.method1955();
       if (var1 != null) {
-         List var2 = var1.method2025();
+         List<String> var2 = var1.method2025();
          if (this.field1672 >= 0 && this.field1672 < var2.size()) {
             float var3 = this.method2047();
             float var4 = this.field1688 - this.field1657 + 5.0F;

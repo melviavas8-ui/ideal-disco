@@ -51,12 +51,12 @@ public class PanoramaHatRenderer implements MinecraftAccess {
                return;
             }
 
-            List var3 = ((PostEffectProcessorAccessor)var2).getPasses();
+            List<?> var3 = ((PostEffectProcessorAccessor)var2).getPasses();
             if (var3 == null || var3.isEmpty()) {
                return;
             }
 
-            class_5944 var4 = var3.getFirst().method_62922();
+            class_5944 var4 = ((net.minecraft.class_283) var3.getFirst()).method_62922();
             if (var4 == null) {
                return;
             }

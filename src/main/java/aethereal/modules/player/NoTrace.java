@@ -19,11 +19,13 @@ import net.minecraft.class_3959.class_3960;
 public class NoTrace extends Module {
    private final MultiSelectSetting field0089 = new MultiSelectSetting(
          "notrace.modes",
-         new BooleanSetting("notrace.player", false).method1007("Player").method0210("Hit through entities").method2130("Бить сквозь сущности"),
-         new BooleanSetting("notrace.web", true)
-            .method1007("Web")
-            .method0210("Interact through cobwebs as if invisible")
-            .method2130("Взаимодействовать сквозь паутину как если её нет")
+         new BooleanSetting[]{
+            new BooleanSetting("notrace.player", false).method1007("Player").method0210("Hit through entities").method2130("Бить сквозь сущности"),
+            new BooleanSetting("notrace.web", true)
+               .method1007("Web")
+               .method0210("Interact through cobwebs as if invisible")
+               .method2130("Взаимодействовать сквозь паутину как если её нет")
+         }
       )
       .method1007("Modes")
       .method0210("What to ignore when targeting")
@@ -64,41 +66,41 @@ public class NoTrace extends Module {
          var6,
          var8,
          var11,
-         (var2x, var3) -> {
-            class_2680 var4 = var10.method_8320(var3);
-            if (var4.method_27852(class_2246.field_10343)) {
+         (ctx, pos) -> {
+            class_2680 state = var10.method_8320(pos);
+            if (state.method_27852(class_2246.field_10343)) {
                if (var12[0] == null) {
-                  class_265 var16 = var2x.method_17748(var4, var10, var3);
-                  class_3965 var17 = var10.method_17745(var2x.method_17750(), var2x.method_17747(), var3, var16, var4);
-                  if (var17 != null) {
-                     var12[0] = var17;
+                  class_265 shape = ctx.method_17748(state, var10, pos);
+                  class_3965 hit = var10.method_17745(ctx.method_17750(), ctx.method_17747(), pos, shape, state);
+                  if (hit != null) {
+                     var12[0] = hit;
                   }
                }
 
                return null;
             } else {
-               class_3610 var5 = var10.method_8316(var3);
-               class_243 var6 = var2x.method_17750();
-               class_243 var7 = var2x.method_17747();
-               class_265 var8 = var2x.method_17748(var4, var10, var3);
-               class_3965 var9 = var10.method_17745(var6, var7, var3, var8, var4);
-               class_265 var10 = var2x.method_17749(var5, var10, var3);
-               class_3965 var11 = var10.method_1092(var6, var7, var3);
-               double var12 = var9 == null ? 1.7976922776554363E308 : var6.method_1025(var9.method_17784());
-               double var14 = var11 == null ? 1.7976922776554363E308 : var6.method_1025(var11.method_17784());
-               return var12 <= var14 ? var9 : var11;
+               class_3610 fluid = var10.method_8316(pos);
+               class_243 start = ctx.method_17750();
+               class_243 end = ctx.method_17747();
+               class_265 shape = ctx.method_17748(state, var10, pos);
+               class_3965 blockHit = var10.method_17745(start, end, pos, shape, state);
+               class_265 fluidShape = ctx.method_17749(fluid, var10, pos);
+               class_3965 fluidHit = fluidShape.method_1092(start, end, pos);
+               double blockDist = blockHit == null ? 1.7976922776554363E308 : start.method_1025(blockHit.method_17784());
+               double fluidDist = fluidHit == null ? 1.7976922776554363E308 : start.method_1025(fluidHit.method_17784());
+               return blockDist <= fluidDist ? blockHit : fluidHit;
             }
          },
-         var1x -> {
+         ctx -> {
             if (var12[0] != null) {
                return var12[0];
             }
 
-            class_243 var2 = var1x.method_17750().method_1020(var1x.method_17747());
+            class_243 dir = ctx.method_17750().method_1020(ctx.method_17747());
             return class_3965.method_17778(
-               var1x.method_17747(),
-               class_2350.method_10147((float)var2.field_1352, (float)var2.field_1351, (float)var2.field_1350),
-               class_2338.method_49638(var1x.method_17747())
+               ctx.method_17747(),
+               class_2350.method_10147((float)dir.field_1352, (float)dir.field_1351, (float)dir.field_1350),
+               class_2338.method_49638(ctx.method_17747())
             );
          }
       );

@@ -6,7 +6,7 @@ public abstract class RenderCommandBuilder<T> {
    }
 
    public final T method0555() {
-      Object var1 = this.method2066();
+      T var1 = this.method2066();
       this.method0025();
       return var1;
    }

@@ -128,7 +128,7 @@ public class RectangleLayout {
    private void method1638(float var1) {
       float var2 = (float)System.currentTimeMillis() * 0.001F;
       float var3 = this.field0177 * 0.1F;
-      Iterator var4 = this.field1728.iterator();
+      Iterator<RectangleLayout.VerticalBounds> var4 = this.field1728.iterator();
 
       while (var4.hasNext()) {
          RectangleLayout.VerticalBounds var5 = var4.next();
@@ -147,7 +147,7 @@ public class RectangleLayout {
    }
 
    private void method1977(float var1) {
-      Iterator var2 = this.field1155.iterator();
+      Iterator<RectangleLayout.HorizontalBounds> var2 = this.field1155.iterator();
 
       while (var2.hasNext()) {
          RectangleLayout.HorizontalBounds var3 = var2.next();

@@ -1,3 +1,19 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  aethereal.DaamkyClient
+ *  net.minecraft.class_310
+ *  net.minecraft.class_312
+ *  net.minecraft.class_746
+ *  org.spongepowered.asm.mixin.Final
+ *  org.spongepowered.asm.mixin.Mixin
+ *  org.spongepowered.asm.mixin.Shadow
+ *  org.spongepowered.asm.mixin.injection.At
+ *  org.spongepowered.asm.mixin.injection.Inject
+ *  org.spongepowered.asm.mixin.injection.Redirect
+ *  org.spongepowered.asm.mixin.injection.callback.CallbackInfo
+ */
 package ua.patch.daamky.api.mixins;
 
 import aethereal.DaamkyClient;
@@ -15,46 +31,46 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(class_312.class)
+@Mixin(value={class_312.class})
 public abstract class MouseMixin {
-   @Shadow
-   @Final
-   private class_310 field_1779;
+    @Shadow
+    @Final
+    private class_310 field_1779;
 
-   @Inject(method = "onMouseButton", at = @At("HEAD"), cancellable = true)
-   public void onMouseButton(long var1, int var3, int var4, int var5, CallbackInfo var6) {
-      MouseEvent var7 = new MouseEvent(var3, var4);
-      DaamkyClient.method2004().method2072().post(var7);
-      if (var7.method2079()) {
-         var6.cancel();
-      }
-   }
+    @Inject(method={"onMouseButton"}, at={@At(value="HEAD")}, cancellable=true)
+    public void onMouseButton(long window, int button, int action, int mods, CallbackInfo ci) {
+        MouseEvent event = new MouseEvent(button, action);
+        DaamkyClient.method2004().method2072().post((Object)event);
+        if (event.method2079()) {
+            ci.cancel();
+        }
+    }
 
-   @Redirect(method = "tick()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Mouse;isCursorLocked()Z"))
-   private boolean daamky$shouldDriveCamera(class_312 var1) {
-      if (var1.method_1613()) {
-         return true;
-      } else {
-         DaamkyClient var2 = DaamkyClient.method2004();
-         if (var2 != null && var2.method1783() != null) {
-            GuiMove var3 = var2.method1783().method0976(GuiMove.class);
-            return var3 != null && var3.method1736();
-         } else {
+    @Redirect(method={"tick()V"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/Mouse;isCursorLocked()Z"))
+    private boolean daamky$shouldDriveCamera(class_312 self) {
+        if (self.method_1613()) {
+            return true;
+        }
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
             return false;
-         }
-      }
-   }
+        }
+        GuiMove guiMove = arbuz.method1783().method0976(GuiMove.class);
+        return guiMove != null && guiMove.method1736();
+    }
 
-   @Redirect(method = "updateMouse(D)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/ClientPlayerEntity;changeLookDirection(DD)V"))
-   private void daamky$onChangeLookDirection(class_746 var1, double var2, double var4) {
-      DaamkyClient var6 = DaamkyClient.method2004();
-      if (var6 != null && var6.method1783() != null) {
-         FreeLook var7 = var6.method1783().method0976(FreeLook.class);
-         if (var7 == null || !var7.method2195() || !var7.method0616(var2, var4)) {
-            var1.method_5872(var2, var4);
-         }
-      } else {
-         var1.method_5872(var2, var4);
-      }
-   }
+    @Redirect(method={"updateMouse(D)V"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerEntity;changeLookDirection(DD)V"))
+    private void daamky$onChangeLookDirection(class_746 player, double deltaX, double deltaY) {
+        DaamkyClient arbuz = DaamkyClient.method2004();
+        if (arbuz == null || arbuz.method1783() == null) {
+            player.method_5872(deltaX, deltaY);
+            return;
+        }
+        FreeLook freeLook = arbuz.method1783().method0976(FreeLook.class);
+        if (freeLook != null && freeLook.method2195() && freeLook.method0616(deltaX, deltaY)) {
+            return;
+        }
+        player.method_5872(deltaX, deltaY);
+    }
 }
+

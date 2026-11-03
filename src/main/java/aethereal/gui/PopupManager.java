@@ -24,8 +24,8 @@ public class PopupManager extends GuiElement {
       if (!this.method1620().isEmpty()) {
          super.method1414(var1, var2, var3, var4);
          this.method1620().removeIf(var0 -> {
-            PopupPanel var1 = (PopupPanel)var0;
-            return var1.method1891() ? false : var1.method2267();
+            PopupPanel panel = (PopupPanel)var0;
+            return panel.method1891() ? false : panel.method2267();
          });
       }
    }
@@ -35,8 +35,8 @@ public class PopupManager extends GuiElement {
       boolean var6 = super.method0627(var1, var3, var5);
       if (!var6) {
          this.method1620().removeIf(var4 -> {
-            PopupPanel var5 = (PopupPanel)var4;
-            return var5.method1891() && !var5.method1825((float)var1, (float)var3);
+            PopupPanel panel = (PopupPanel)var4;
+            return panel.method1891() && !panel.method1825((float)var1, (float)var3);
          });
       }
 

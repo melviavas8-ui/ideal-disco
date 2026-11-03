@@ -458,8 +458,8 @@ public class ChatCommandSuggestions {
 
             for (Command var8 : DaamkyClient.method2004().method2257().method0018()) {
                if (var8.method0214(var5)) {
-                  List var9 = var8.method1593(var6);
-                  Map var10 = var8.method0351(var6);
+                  List<String> var9 = var8.method1593(var6);
+                  Map<String, String> var10 = var8.method0351(var6);
                   StringBuilder var11 = new StringBuilder(var1).append(var5);
 
                   for (int var12 = 0; var12 < var6.length - 1; var12++) {
@@ -540,7 +540,7 @@ public class ChatCommandSuggestions {
 
          for (Command var9 : DaamkyClient.method2004().method2257().method0018()) {
             if (var9.method0214(var5)) {
-               List var10 = var9.method1593(var6);
+               List<String> var10 = var9.method1593(var6);
                if (!var10.isEmpty()) {
                   String var11 = var10.get(0);
                   if (var11.toLowerCase().startsWith(var7.toLowerCase()) && !var11.equalsIgnoreCase(var7)) {

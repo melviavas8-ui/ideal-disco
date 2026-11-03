@@ -67,6 +67,7 @@ public class ModuleManager implements MinecraftAccess {
          new NameTags(),
          new NoRender(),
          new Trails(),
+         new SwordTrail(),
          new PopChams(),
          new Shaders(),
          new ItemChams(),

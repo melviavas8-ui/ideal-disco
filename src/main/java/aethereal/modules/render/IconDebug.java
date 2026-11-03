@@ -18,7 +18,7 @@ public class IconDebug extends Module {
 
    public IconDebug() {
       super("IconDebug", ModuleCategory.field1004, "Shows every daamkyicons glyph with its char label");
-      this.method1013("Показывает все глифы ARBUZICONS");
+      this.method1013("Показывает все глифы DAAMKYICONS");
    }
 
    @EventHandler

@@ -126,7 +126,7 @@ public final class KeyBindListEditor extends GuiElement {
 
    private List<KeyBindListSetting.KeyBindEntry> method1914() {
       String var1 = this.field1695.method1792().toString().toLowerCase(Locale.ROOT);
-      List var2 = new ArrayList<>();
+      List<KeyBindListSetting.KeyBindEntry> var2 = new ArrayList<>();
 
       for (KeyBindListSetting.KeyBindEntry var4 : this.field0511.method1889()) {
          if (var4.method2079()) {
@@ -154,7 +154,7 @@ public final class KeyBindListEditor extends GuiElement {
       this.method1406(var1, var5, var6, var7, var2, var3);
       float var8 = var6 + 10.0F + 3.0F;
       this.method2168(var1, var5, var8, var7, var2, var3);
-      List var9 = this.method1914();
+      List<KeyBindListSetting.KeyBindEntry> var9 = this.method1914();
       float var10 = var8 + 15.0F + 3.0F;
       float var11 = 84.0F;
       GuiRenderHelper.method1404(var1, var5, var10, 106.8F, var11);
@@ -407,7 +407,7 @@ public final class KeyBindListEditor extends GuiElement {
             float var16 = var8 + 15.0F + 3.0F;
             float var18 = 84.0F;
             if (!(var3 < var16) && !(var3 > var16 + var18)) {
-               List var19 = this.method1914();
+               List<KeyBindListSetting.KeyBindEntry> var19 = this.method1914();
                float var20 = var16 + this.field1577;
                int var14 = (int)Math.floor((var3 - var20) / 14.0);
                if (var14 >= 0 && var14 < var19.size()) {

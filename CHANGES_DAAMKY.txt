@@ -1,0 +1,22 @@
+Daamky — исправления (без recovered-bytecode.jar в libs)
+
+Что сделано:
+1. Из recovered-bytecode.jar извлечены и ребрендены в исходники:
+   - ua.patch.daamky.api.Proxy
+   - ua.patch.daamky.api.mixins/* (59 mixin-классов)
+   - ua.patch.daamky.api.mixins.accessors/* (16 accessors)
+   - aethereal.modules.render.SwordTrail (полный модуль)
+
+2. Ребрендинг: org.patch.arbuzhack → ua.patch.daamky, ArbuzClient → DaamkyClient
+
+3. Исправлены ошибки компиляции (generics, var shadowing, compareTo, RenderCommandBuilder, NoTrace, NewHUD, editors, и т.д.)
+
+4. libs/ содержит только:
+   - baritone-api-fabric-1.13.1.jar
+   - nether-pathfinder-1.4.1.jar
+   recovered-bytecode.jar НЕ подключён
+
+Как собрать:
+  ./gradlew build --no-daemon --stacktrace
+
+Если упало — пришли новый лог compileJava.

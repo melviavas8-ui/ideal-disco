@@ -70,7 +70,7 @@ public final class FriendCommand extends Command {
    }
 
    private void method0167(CommandContext var1) {
-      List var2 = this.method1608().method0424();
+      List<?> var2 = this.method1608().method0424();
       if (var2.isEmpty()) {
          var1.method2134("Friend list is empty");
       } else {
