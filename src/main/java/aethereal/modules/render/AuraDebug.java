@@ -1194,8 +1194,8 @@ public class AuraDebug extends Module {
             FontSize var3 = Fonts.field0075.method0654(7.0F);
             FontSize var4 = Fonts.field0075.method0654(6.0F);
             Aura var5 = Aura.method1701();
-            List var6 = this.method0792(var5);
-            List var7 = this.method0396();
+            List<String[]> var6 = this.method0792(var5);
+            List<AuraDebug.DebugPoint> var7 = this.method0396();
             float var8 = 6.0F;
             float var9 = 12.0F;
             float var10 = 9.0F;

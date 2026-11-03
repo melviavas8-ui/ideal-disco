@@ -157,14 +157,14 @@ public class Arrows extends Module {
             float var38 = ScreenLayoutHelper.method2047() / 2.0F;
             float var39 = ScreenLayoutHelper.method1762() / 2.0F;
             float var40 = field0796.field_1724.field_5982 + (field0796.field_1724.method_36454() - field0796.field_1724.field_5982) * var35;
-            List<class_1657> var14 = new ArrayList<>();
-            List var42 = new ArrayList<>();
+            List<float[]> var41 = new ArrayList<>();
+            List<Object[]> var42 = new ArrayList<>();
             AntiBot var43 = AntiBot.method1700();
 
-            for (class_1657 var14 : field0796.field_1687.method_18456()) {
-               if (var14 != field0796.field_1724 && !var14.method_5477().getString().isEmpty() && (var43 == null || !var43.method0250(var14))) {
-                  float var15 = method1186(var14, var35) - var40;
-                  UUID var16 = var14.method_5667();
+            for (class_1657 player : field0796.field_1687.method_18456()) {
+               if (player != field0796.field_1724 && !player.method_5477().getString().isEmpty() && (var43 == null || !var43.method0250(var14))) {
+                  float var15 = method1186(player, var35) - var40;
+                  UUID var16 = player.method_5667();
                   float var17 = this.field0271.getOrDefault(var16, var15);
                   float var18 = var15 - var17;
 
@@ -181,18 +181,18 @@ public class Arrows extends Module {
                   float var19 = (float)Math.toRadians(var17);
                   float var20 = this.field0871 * class_3532.method_15374(var19) + var38 + this.field0826;
                   float var21 = -this.field0871 * class_3532.method_15362(var19) + var39 + this.field0910;
-                  boolean var22 = this.field1544.method0492() && DaamkyClient.method2004().method1608().method2135(var14.method_5477().getString());
+                  boolean var22 = this.field1544.method0492() && DaamkyClient.method2004().method1608().method2135(player.method_5477().getString());
                   Color var23 = var22 ? new Color(66, 245, 149, this.field1623.method2036()) : this.field1623.method1726();
                   var41.add(new float[]{var20, var21, var17, Float.intBitsToFloat(var23.getRGB())});
                   if (this.field0464.method0492()) {
-                     double var24 = var14.field_6014
-                        + (var14.method_23317() - var14.field_6014) * var35
+                     double var24 = player.field_6014
+                        + (player.method_23317() - player.field_6014) * var35
                         - (field0796.field_1724.field_6014 + (field0796.field_1724.method_23317() - field0796.field_1724.field_6014) * var35);
-                     double var26 = var14.field_6036
-                        + (var14.method_23318() - var14.field_6036) * var35
+                     double var26 = player.field_6036
+                        + (player.method_23318() - player.field_6036) * var35
                         - (field0796.field_1724.field_6036 + (field0796.field_1724.method_23318() - field0796.field_1724.field_6036) * var35);
-                     double var28 = var14.field_5969
-                        + (var14.method_23321() - var14.field_5969) * var35
+                     double var28 = player.field_5969
+                        + (player.method_23321() - player.field_5969) * var35
                         - (field0796.field_1724.field_5969 + (field0796.field_1724.method_23321() - field0796.field_1724.field_5969) * var35);
                      double var30 = Math.sqrt(var24 * var24 + var28 * var28);
                      var42.add(new Object[]{(double)var20, (double)var21, var30, var23});
