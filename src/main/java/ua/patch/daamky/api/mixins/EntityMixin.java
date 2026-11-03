@@ -86,7 +86,7 @@ implements MinecraftAccess {
 
     @ModifyVariable(method={"getRotationVector(FF)Lnet/minecraft/util/math/Vec3d;"}, at=@At(value="HEAD"), ordinal=0, argsOnly=true)
     private float modifyPitch(float pitch) {
-        if (this instanceof class_746 && RotationManager.field0618.method2219() != null) {
+        if ((Object)this instanceof class_746 && RotationManager.field0618.method2219() != null) {
             return RotationManager.field0618.method2219().method1762();
         }
         return pitch;

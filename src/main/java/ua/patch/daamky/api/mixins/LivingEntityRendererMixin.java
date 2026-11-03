@@ -184,11 +184,11 @@ EntityModelRenderHook {
         }
         float g = state.field_53453;
         matrices.method_22905(g, g, g);
-        this.method_4058(state, matrices, state.field_53446, g);
+        this.method_4058((S)state, matrices, state.field_53446, g);
         matrices.method_22905(-1.0f, -1.0f, 1.0f);
-        this.method_4042(state, matrices);
+        this.method_4042((S)state, matrices);
         matrices.method_46416(0.0f, -1.501f, 0.0f);
-        this.field_4737.method_2819((class_10017)state);
+        this.field_4737.method_2819((class_10017)(Object)state);
         out.put("headTop", this.daamky$joint(matrices, biped.field_3398, 0.0f, -0.5f, 0.0f));
         out.put("neck", this.daamky$joint(matrices, biped.field_3398, 0.0f, 0.0f, 0.0f));
         out.put("pelvis", this.daamky$joint(matrices, biped.field_3391, 0.0f, 0.75f, 0.0f));

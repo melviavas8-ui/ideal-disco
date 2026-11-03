@@ -65,12 +65,12 @@ public class AutoTotem extends Module {
    }
 
    @EventHandler
-   public void onTick(PlayerTickEvent var1) {
+   public void onTick(PlayerTickEvent event) {
       if (!method1974()) {
          this.field1197 = InventoryManager.method1217(class_1802.field_8288);
          this.field1137 = (int)field0796.field_1724.field_7512.field_7761.stream().filter(var0 -> {
-            class_1799 var1 = var0.method_7677();
-            return var1.method_7909() == class_1802.field_8288 && !var1.method_7958() && !method0269(var1);
+            class_1799 stack = var0.method_7677();
+            return stack.method_7909() == class_1802.field_8288 && !stack.method_7958() && !method0269(stack);
          }).count();
          class_1735 var2 = field0796.field_1724
             .field_7512
@@ -114,7 +114,7 @@ public class AutoTotem extends Module {
    }
 
    @EventHandler
-   public void onScreenClose(ScreenCloseEvent var1) {
+   public void onScreenClose(ScreenCloseEvent event) {
       if (!method1974()) {
          if (this.field0931) {
             this.field0931 = false;

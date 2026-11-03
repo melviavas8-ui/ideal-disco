@@ -130,13 +130,12 @@ extends class_437 {
             return;
         }
         if (button == 1) {
-            Object bounds;
             class_310 mcClient = class_310.method_1551();
             NameTags nameTagsModule = DaamkyClient.method2004().method1783().method0976(NameTags.class);
             if (nameTagsModule != null && nameTagsModule.method2195()) {
                 for (Map.Entry<String, float[]> entry : nameTagsModule.method1730().entrySet()) {
-                    bounds = entry.getValue();
-                    if (!MathHelper.method0689(bounds[0], (float)bounds[1], (float)bounds[2], (float)bounds[3], efMouseX, efMouseY)) continue;
+                    float[] bounds = entry.getValue();
+                    if (!MathHelper.method0689(bounds[0], bounds[1], bounds[2], bounds[3], efMouseX, efMouseY)) continue;
                     this.daamky$elementPopup.method0578();
                     this.daamky$hudPanel.method0578();
                     mcClient.method_1507((class_437)new FriendScreen(entry.getKey(), efMouseX, efMouseY));
@@ -146,9 +145,9 @@ extends class_437 {
             }
             boolean altHeld = GLFW.glfwGetKey((long)mcClient.method_22683().method_4490(), (int)342) == 1;
             NewHUD hudModule = DaamkyClient.method2004().method1783().method0976(NewHUD.class);
-            bounds = HudWidgetManager.method1605().method0560().values().iterator();
+            java.util.Iterator<HudWidgetState> bounds = HudWidgetManager.method1605().method0560().values().iterator();
             while (bounds.hasNext()) {
-                HudWidgetState el = (HudWidgetState)bounds.next();
+                HudWidgetState el = bounds.next();
                 if (hudModule != null && !hudModule.method1986(el.method1619()) || !el.method0676(efMouseX, efMouseY) || !this.daamky$elementPopup.method1014(el.method1619())) continue;
                 if (altHeld && el.method1619().equals("NewArmorHUD")) {
                     cir.setReturnValue(true);

@@ -59,7 +59,7 @@ public class AutoDuel extends Module {
    }
 
    @EventHandler
-   public void onTick(PreTickEvent var1) {
+   public void onTick(PreTickEvent event) {
       if (!method1974()) {
          double var2 = this.field1195 - field0796.field_1724.method_23317();
          double var4 = this.field0870 - field0796.field_1724.method_23318();

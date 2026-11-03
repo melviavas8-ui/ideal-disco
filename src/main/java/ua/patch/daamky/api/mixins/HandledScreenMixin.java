@@ -32,7 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class HandledScreenMixin {
     @Inject(method={"render"}, at={@At(value="TAIL")})
     private void daamky$onRender(class_332 context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        Event001 event = new Event001((class_465)this, context, mouseX, mouseY);
+        Event001 event = new Event001((class_465)(Object)this, context, mouseX, mouseY);
         DaamkyClient.method2004().method2072().post((Object)event);
     }
 

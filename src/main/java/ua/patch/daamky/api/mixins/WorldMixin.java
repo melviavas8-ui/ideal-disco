@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class WorldMixin {
     @Inject(method={"getTimeOfDay"}, at={@At(value="HEAD")}, cancellable=true)
     private void onGetTimeOfDay(CallbackInfoReturnable<Long> cir) {
-        if (!(this instanceof class_638)) {
+        if (!((Object)this instanceof class_638)) {
             return;
         }
         if (DaamkyClient.method2004() == null || DaamkyClient.method2004().method1783() == null) {
@@ -39,7 +39,7 @@ public abstract class WorldMixin {
 
     @Inject(method={"getSkyAngleRadians"}, at={@At(value="HEAD")}, cancellable=true)
     private void onGetSkyAngleRadians(float tickDelta, CallbackInfoReturnable<Float> cir) {
-        if (!(this instanceof class_638)) {
+        if (!((Object)this instanceof class_638)) {
             return;
         }
         if (DaamkyClient.method2004() == null || DaamkyClient.method2004().method1783() == null) {

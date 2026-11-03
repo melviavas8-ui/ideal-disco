@@ -25,7 +25,7 @@ public class AutoLeave extends Module {
    }
 
    @EventHandler
-   public void onTick(PreTickEvent var1) {
+   public void onTick(PreTickEvent event) {
       if (!method1974()) {
          if (this.method2135("Players")) {
             field0796.field_1687
@@ -34,8 +34,8 @@ public class AutoLeave extends Module {
                .filter(var0 -> var0 != field0796.field_1724)
                .filter(var1x -> field0796.field_1724.method_5739(var1x) < this.field0985.method0492())
                .filter(var0 -> {
-                  DaamkyClient var1 = DaamkyClient.method2004();
-                  return var1 == null || var1.method1608() == null || !var1.method1608().method2135(var0.method_7334().getName());
+                  DaamkyClient client = DaamkyClient.method2004();
+                  return client == null || client.method1608() == null || !client.method1608().method2135(var0.method_7334().getName());
                })
                .findFirst()
                .ifPresent(

@@ -80,7 +80,7 @@ public class MinecraftClientMixin {
 
     @Inject(method={"<init>"}, at={@At(value="TAIL")})
     private void onInit(class_542 args, CallbackInfo ci) {
-        class_310 self = (class_310)this;
+        class_310 self = (class_310)(Object)this;
         try {
             Thread.sleep(50L);
             WindowIconManager.method0578();
@@ -96,7 +96,7 @@ public class MinecraftClientMixin {
         if (daamky$replacingScreen) {
             return;
         }
-        class_310 self = (class_310)this;
+        class_310 self = (class_310)(Object)this;
         if (screen instanceof class_442) {
             daamky$replacingScreen = true;
             self.method_1507((class_437)new MainMenuScreen());
