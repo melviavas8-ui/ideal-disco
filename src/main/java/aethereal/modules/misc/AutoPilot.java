@@ -63,7 +63,7 @@ public class AutoPilot extends Module {
    }
 
    private class_1542 method1690() {
-      List var1 = field1045.field_1687
+      List<class_1542> var1 = field1045.field_1687
          .method_8390(class_1542.class, field1045.field_1724.method_5829().method_1014(50.0), var1x -> var1x.method_5805() && this.method1176(var1x))
          .stream()
          .sorted(Comparator.comparingDouble(var0 -> field1045.field_1724.method_5858(var0)))

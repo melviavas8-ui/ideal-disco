@@ -334,7 +334,7 @@ public class Ambience extends Module {
             }
          }
 
-         Iterator var16 = this.field1134.iterator();
+         Iterator<Ambience.SkyObject> var16 = this.field1134.iterator();
 
          while (var16.hasNext()) {
             Ambience.SkyObject var17 = var16.next();
@@ -361,7 +361,7 @@ public class Ambience extends Module {
    }
 
    private Ambience.SkyObjectType method0463() {
-      List<?> var1 = new ArrayList<>();
+      List<Ambience.SkyObjectType> var1 = new ArrayList<>();
       var1.add(Ambience.SkyObjectType.field0006);
       var1.add(Ambience.SkyObjectType.field0006);
       var1.add(Ambience.SkyObjectType.field0006);
@@ -996,7 +996,7 @@ public class Ambience extends Module {
       }
 
       List<?> var22 = new ArrayList<>();
-      Iterator var23 = this.field1191.iterator();
+      Iterator<Ambience.SkyAnimation> var23 = this.field1191.iterator();
 
       while (var23.hasNext()) {
          Ambience.SkyAnimation var6 = var23.next();
@@ -1705,8 +1705,8 @@ public class Ambience extends Module {
       RenderSystem.disableCull();
       RenderSystem.setShader(class_10142.field_53880);
 
-      for (Entry var2 : this.field1354.entrySet()) {
-         List<?> var3 = var2.getValue();
+      for (java.util.Map.Entry<Integer, List<Ambience.SkyMesh>> var2 : this.field1354.entrySet()) {
+         List<Ambience.SkyMesh> var3 = var2.getValue();
          if (!var3.isEmpty()) {
             RenderSystem.setShaderTexture(0, field0416[var2.getKey()]);
             class_287 var4 = RenderSystem.renderThreadTesselator().method_60827(class_5596.field_27382, class_290.field_1575);

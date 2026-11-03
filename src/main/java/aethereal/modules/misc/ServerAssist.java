@@ -347,7 +347,7 @@ public class ServerAssist extends Module {
          new ArrayList();
          Integer var4 = null;
 
-         for (Entry var6 : this.field1180.entrySet()) {
+         for (Map.Entry<Integer, class_1792> var6 : this.field1180.entrySet()) {
             if (var6.getKey() < 0 && var6.getValue().equals(var2)) {
                var4 = var6.getKey();
                break;
@@ -591,7 +591,7 @@ public class ServerAssist extends Module {
          long var1 = System.currentTimeMillis();
          boolean var3 = "minecraft:overworld".equals(WaypointManager.method1619());
          String var4 = WaypointManager.method1791();
-         Iterator<?> var5 = this.field1323.iterator();
+         Iterator<ServerAssist.TrackedItem> var5 = this.field1323.iterator();
 
          while (var5.hasNext()) {
             ServerAssist.TrackedItem var6 = var5.next();
@@ -826,11 +826,11 @@ public class ServerAssist extends Module {
                   class_1735 var18 = InventorySearch.method1104(
                      var0 -> {
                         class_1799 stack = var0.method_7677();
-                        class_9279 var2 = (class_9279)stack.method_57824(class_9334.field_49628);
+                        class_9279 lore = (class_9279)stack.method_57824(class_9334.field_49628);
                         return !field0796.field_1724.method_7357().method_7904(stack)
                            && stack.method_7909().equals(class_1802.field_8287)
-                           && var2 != null
-                           && var2.toString().contains("\"text\":\" - при нажатие ПКМ, полностью ремонтирует\"");
+                           && lore != null
+                           && lore.toString().contains("\"text\":\" - при нажатие ПКМ, полностью ремонтирует\"");
                      }
                   );
                   if (var18 != null) {
@@ -868,7 +868,7 @@ public class ServerAssist extends Module {
                            InventorySearch.method0562()
                               .forEach(
                                  var2x -> {
-                                    for (Entry var4 : new ArrayList<>(this.field1180.entrySet())) {
+                                    for (Map.Entry<Integer, class_1792> var4 : new ArrayList<>(this.field1180.entrySet())) {
                                        if (var2x.field_7871 == field0796.field_1724.method_31548()
                                           && var4.getValue().equals(var2x.method_7677().method_7909())
                                           && var4.getKey() == var2x.field_7874) {
@@ -878,7 +878,7 @@ public class ServerAssist extends Module {
                                     }
                                  }
                               );
-                           var2.forEach(this.field1180::remove);
+                           moved.forEach(this.field1180::remove);
                            InventorySearch.method1570(false);
                            InventorySearch.method1215(var19, class_1268.field_5808, false);
                            InventorySearch.method1570(false);
@@ -1636,7 +1636,7 @@ public class ServerAssist extends Module {
                         ? ("До конца: " + MathHelper.method0614(var29, var29 < 30.0 ? 0.10000000745064033 : 1.0) + "с").replace(".0", "")
                         : "Конец ивента!"
                   );
-               List<?> var17 = new ArrayList<>();
+               List<String> var17 = new ArrayList<>();
                var17.add(var25.name + var15);
                if (var25.owner != null) {
                   var17.add("Призван: " + class_124.field_1065 + var25.owner);

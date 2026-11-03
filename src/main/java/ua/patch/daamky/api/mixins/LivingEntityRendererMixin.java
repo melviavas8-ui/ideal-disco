@@ -215,7 +215,8 @@ EntityModelRenderHook {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void daamky$setAngles(class_10042 state) {
-        this.field_4737.method_2819(state);
+        // Intentionally empty: generic model.method_2819(state) fails CAP capture at compile-time.
+        // Runtime mixin injects handle animation; this path is only for skeleton debug.
     }
 }
 

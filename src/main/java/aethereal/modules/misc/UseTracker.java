@@ -102,7 +102,7 @@ public class UseTracker extends Module {
    private void method1691() {
       if (!this.field0488.isEmpty()) {
          boolean var1 = this.field0089.method0387("Ender Pearls");
-         Iterator var2 = this.field0488.iterator();
+         Iterator<UseTracker.UseEntry> var2 = this.field0488.iterator();
 
          while (var2.hasNext()) {
             UseTracker.UseEntry var3 = var2.next();

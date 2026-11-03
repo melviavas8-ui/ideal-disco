@@ -748,7 +748,7 @@ public class AuraDebug extends Module {
       }
 
       int var25 = this.field0234.method0492().intValue();
-      Iterator var17 = this.field1682.descendingIterator();
+      Iterator<AuraDebug.DebugText> var17 = this.field1682.descendingIterator();
       var4.field0381 = new ArrayList<>();
 
       for (int var18 = 0; var17.hasNext() && var18 < var25; var18++) {
@@ -911,7 +911,7 @@ public class AuraDebug extends Module {
       long var1 = System.currentTimeMillis();
       long var3 = this.field0360.method0492().longValue();
       float var5 = this.field0552.method0492();
-      Iterator var6 = this.field1595.iterator();
+      Iterator<AuraDebug.DebugBox> var6 = this.field1595.iterator();
 
       while (var6.hasNext()) {
          AuraDebug.DebugBox var7 = var6.next();
@@ -1228,7 +1228,7 @@ public class AuraDebug extends Module {
    }
 
    private List<String[]> method0792(Aura var1) {
-      List<AuraDebug.DebugBox> var2 = new ArrayList<>();
+      List<String[]> var2 = new ArrayList<>();
       boolean var3 = var1 != null && var1.method2195();
       var2.add(new String[]{"aura", var3 ? "ON" : "OFF"});
       var2.add(new String[]{"collecting", this.method2030() ? "yes" : "no"});
@@ -1273,11 +1273,11 @@ public class AuraDebug extends Module {
    }
 
    private List<AuraDebug.DebugPoint> method0396() {
-      List<AuraDebug.DebugBox> var1 = new ArrayList<>();
+      List<AuraDebug.DebugPoint> var1 = new ArrayList<>();
       Iterator var2 = this.field1584.descendingIterator();
 
       while (var2.hasNext()) {
-         AuraDebug.DebugBox var3 = var2.next();
+         Object var3 = var2.next();
          AuraDebug.DebugPoint var4 = new AuraDebug.DebugPoint();
          var4.field0715 = "[" + var3.field0287 + "]";
          var4.field0134 = method1654(var3.field0287);
