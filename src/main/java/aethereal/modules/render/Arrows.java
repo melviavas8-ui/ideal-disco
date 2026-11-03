@@ -162,7 +162,7 @@ public class Arrows extends Module {
             AntiBot var43 = AntiBot.method1700();
 
             for (class_1657 player : field0796.field_1687.method_18456()) {
-               if (player != field0796.field_1724 && !player.method_5477().getString().isEmpty() && (var43 == null || !var43.method0250(var14))) {
+               if (player != field0796.field_1724 && !player.method_5477().getString().isEmpty() && (var43 == null || !var43.method0250(player))) {
                   float var15 = method1186(player, var35) - var40;
                   UUID var16 = player.method_5667();
                   float var17 = this.field0271.getOrDefault(var16, var15);

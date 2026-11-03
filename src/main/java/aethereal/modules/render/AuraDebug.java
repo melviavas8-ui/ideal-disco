@@ -1274,14 +1274,14 @@ public class AuraDebug extends Module {
 
    private List<AuraDebug.DebugPoint> method0396() {
       List<AuraDebug.DebugPoint> var1 = new ArrayList<>();
-      Iterator var2 = this.field1584.descendingIterator();
+      java.util.Iterator<AuraDebug.DebugBox> var2 = this.field1584.descendingIterator();
 
       while (var2.hasNext()) {
-         Object var3 = var2.next();
+         AuraDebug.DebugBox box = var2.next();
          AuraDebug.DebugPoint var4 = new AuraDebug.DebugPoint();
-         var4.field0715 = "[" + var3.field0287 + "]";
-         var4.field0134 = method1654(var3.field0287);
-         var4.field1504 = method1647(var3);
+         var4.field0715 = "[" + box.field0287 + "]";
+         var4.field0134 = method1654(box.field0287);
+         var4.field1504 = method1647(box);
          var1.add(var4);
       }
 
