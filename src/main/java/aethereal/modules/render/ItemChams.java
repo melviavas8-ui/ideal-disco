@@ -5,7 +5,7 @@ import meteordevelopment.orbit.EventHandler;
 
 public class ItemChams extends Module {
    private final OutlineShaderRenderer field1710 = new OutlineShaderRenderer();
-   public final EnumSetting<ItemChams.RenderMode> field0058 = new EnumSetting<>("itemchams.shape", ItemChams.RenderMode.field1467)
+   public final EnumSetting<ItemChams.Shape> field0058 = new EnumSetting<>("itemchams.shape", ItemChams.Shape.field1467)
       .method1007("Shape")
       .method0210("The portions of the effect that will be rendered")
       .method2130("Тип отрисовки");
@@ -91,8 +91,8 @@ public class ItemChams extends Module {
       int var6 = 3;
       int var7 = this.field1544.method0492() ? 1 : 0;
       if (this.field1448.method0492() == ItemChams.RenderMode.field0084) {
-         int var8 = this.field0058.method0492() == ItemChams.RenderMode.field0656 ? 0 : 2;
-         float var9 = this.field0058.method0492() == ItemChams.RenderMode.field0083 ? 0.0F : var1.getAlpha() / 255.0F;
+         int var8 = this.field0058.method0492() == ItemChams.Shape.field0656 ? 0 : 2;
+         float var9 = this.field0058.method0492() == ItemChams.Shape.field0083 ? 0.0F : var1.getAlpha() / 255.0F;
          this.field1710
             .method0743(
                var8,
@@ -108,7 +108,7 @@ public class ItemChams extends Module {
                var7
             );
       } else {
-         int var10 = switch ((ItemChams.RenderMode)this.field0058.method0492()) {
+         int var10 = switch ((ItemChams.Shape)this.field0058.method0492()) {
             case field0656 -> 0;
             case field0083 -> 1;
             case field1467 -> 2;

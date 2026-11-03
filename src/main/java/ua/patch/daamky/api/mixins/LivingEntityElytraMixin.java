@@ -33,7 +33,7 @@ implements MinecraftAccess {
     protected abstract double method_61426();
 
     @Inject(method={"calcGlidingVelocity"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$fixGlidingVelocity(class_243 oldVelocity, CallbackInfoReturnable<class_243> cir) {
+    private void daamky$fixGlidingVelocity(class_243 oldVelocity, CallbackInfoReturnable<class_243> cir) {
         if (this != LivingEntityElytraMixin.field0796.field_1724) {
             return;
         }

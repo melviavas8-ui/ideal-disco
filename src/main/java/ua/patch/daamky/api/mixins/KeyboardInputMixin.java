@@ -31,8 +31,8 @@ public abstract class KeyboardInputMixin
 extends class_744 {
     @ModifyExpressionValue(method={"tick"}, at={@At(value="NEW", target="(ZZZZZZZ)Lnet/minecraft/util/PlayerInput;")})
     private class_10185 tickHook(class_10185 original) {
-        float rawForward = this.arbuz$getMovementMultiplier(original.comp_3159(), original.comp_3160());
-        float rawStrafe = this.arbuz$getMovementMultiplier(original.comp_3161(), original.comp_3162());
+        float rawForward = this.daamky$getMovementMultiplier(original.comp_3159(), original.comp_3160());
+        float rawStrafe = this.daamky$getMovementMultiplier(original.comp_3161(), original.comp_3162());
         KeyboardEvent keyboardEvent = new KeyboardEvent(rawForward, rawStrafe, original.comp_3163(), original.comp_3164(), original.comp_3165());
         DaamkyClient.method2004().method2072().post((Object)keyboardEvent);
         class_10185 afterKeyboard = keyboardEvent.method2079() ? new class_10185(false, false, false, false, original.comp_3163(), original.comp_3164(), original.comp_3165()) : new class_10185(keyboardEvent.method1762() > 0.0f, keyboardEvent.method1762() < 0.0f, keyboardEvent.method1603() > 0.0f, keyboardEvent.method1603() < 0.0f, keyboardEvent.method1974(), keyboardEvent.method0431(), keyboardEvent.method0376());
@@ -51,7 +51,7 @@ extends class_744 {
     }
 
     @Unique
-    private float arbuz$getMovementMultiplier(boolean positive, boolean negative) {
+    private float daamky$getMovementMultiplier(boolean positive, boolean negative) {
         if (positive == negative) {
             return 0.0f;
         }

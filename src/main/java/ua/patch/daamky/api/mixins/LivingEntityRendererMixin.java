@@ -98,9 +98,9 @@ EntityModelRenderHook {
     }
 
     @ModifyVariable(method={"updateRenderState"}, at=@At(value="HEAD"), argsOnly=true)
-    private float arbuz$staticEntityTickDelta(float tickDelta, class_1309 entity) {
+    private float daamky$staticEntityTickDelta(float tickDelta, class_1309 entity) {
         StaticPlayerEntityAccessor staticEntity;
-        if (entity instanceof StaticPlayerEntityAccessor && (staticEntity = (StaticPlayerEntityAccessor)entity).arbuz$isStaticPlayerEntity()) {
+        if (entity instanceof StaticPlayerEntityAccessor && (staticEntity = (StaticPlayerEntityAccessor)entity).daamky$isStaticPlayerEntity()) {
             return 1.0f;
         }
         return tickDelta;
@@ -142,8 +142,8 @@ EntityModelRenderHook {
         return original;
     }
 
-    @Override
-    public void arbuz$render(class_10042 livingEntityRenderState, class_4587 matrixStack, class_4597 vertexConsumerProvider, int i) {
+    public void daamky$render(class_10042 livingEntityRenderState, class_4587 matrixStack, class_4597 vertexConsumerProvider, int i) {
+        @SuppressWarnings("unchecked") S state = (S) livingEntityRenderState;
         class_2350 direction;
         matrixStack.method_22903();
         if (livingEntityRenderState.method_62613(class_4050.field_18078) && (direction = livingEntityRenderState.field_53463) != null) {
@@ -152,26 +152,25 @@ EntityModelRenderHook {
         }
         float g = livingEntityRenderState.field_53453;
         matrixStack.method_22905(g, g, g);
-        this.method_4058(livingEntityRenderState, matrixStack, livingEntityRenderState.field_53446, g);
+        this.method_4058((S)livingEntityRenderState, matrixStack, livingEntityRenderState.field_53446, g);
         matrixStack.method_22905(-1.0f, -1.0f, 1.0f);
-        this.method_4042(livingEntityRenderState, matrixStack);
+        this.method_4042((S)livingEntityRenderState, matrixStack);
         matrixStack.method_46416(0.0f, -1.501f, 0.0f);
-        this.field_4737.method_2819((class_10017)livingEntityRenderState);
-        boolean bl = this.method_4056(livingEntityRenderState);
+        this.field_4737.method_2819((class_10017)(Object)livingEntityRenderState);
+        boolean bl = this.method_4056((S)livingEntityRenderState);
         boolean bl2 = !bl && !livingEntityRenderState.field_53461;
-        class_1921 renderLayer = this.method_24302(livingEntityRenderState, bl, bl2, livingEntityRenderState.field_53462);
+        class_1921 renderLayer = this.method_24302((S)livingEntityRenderState, bl, bl2, livingEntityRenderState.field_53462);
         if (renderLayer != null) {
             class_4588 vertexConsumer = vertexConsumerProvider.getBuffer(renderLayer);
-            int j = class_922.method_23622((class_10042)livingEntityRenderState, (float)this.method_23185(livingEntityRenderState));
+            int j = class_922.method_23622((class_10042)livingEntityRenderState, (float)this.method_23185((S)livingEntityRenderState));
             int k = bl2 ? 0x26FFFFFF : -1;
-            int l = class_9848.method_61322((int)k, (int)this.method_62484(livingEntityRenderState));
+            int l = class_9848.method_61322((int)k, (int)this.method_62484((S)livingEntityRenderState));
             this.field_4737.method_62100(matrixStack, vertexConsumer, i, j, l);
         }
         matrixStack.method_22909();
     }
 
-    @Override
-    public void arbuz$collectSkeleton(class_10042 state, class_4587 matrices, Map<String, Vector3f> out) {
+    public void daamky$collectSkeleton(class_10042 state, class_4587 matrices, Map<String, Vector3f> out) {
         class_2350 direction;
         M m = this.field_4737;
         if (!(m instanceof class_572)) {
@@ -190,22 +189,22 @@ EntityModelRenderHook {
         this.method_4042(state, matrices);
         matrices.method_46416(0.0f, -1.501f, 0.0f);
         this.field_4737.method_2819((class_10017)state);
-        out.put("headTop", this.arbuz$joint(matrices, biped.field_3398, 0.0f, -0.5f, 0.0f));
-        out.put("neck", this.arbuz$joint(matrices, biped.field_3398, 0.0f, 0.0f, 0.0f));
-        out.put("pelvis", this.arbuz$joint(matrices, biped.field_3391, 0.0f, 0.75f, 0.0f));
-        out.put("shoulderR", this.arbuz$joint(matrices, biped.field_3401, 0.0f, 0.0f, 0.0f));
-        out.put("handR", this.arbuz$joint(matrices, biped.field_3401, 0.0f, 0.625f, 0.0f));
-        out.put("shoulderL", this.arbuz$joint(matrices, biped.field_27433, 0.0f, 0.0f, 0.0f));
-        out.put("handL", this.arbuz$joint(matrices, biped.field_27433, 0.0f, 0.625f, 0.0f));
-        out.put("hipR", this.arbuz$joint(matrices, biped.field_3392, 0.0f, 0.0f, 0.0f));
-        out.put("footR", this.arbuz$joint(matrices, biped.field_3392, 0.0f, 0.75f, 0.0f));
-        out.put("hipL", this.arbuz$joint(matrices, biped.field_3397, 0.0f, 0.0f, 0.0f));
-        out.put("footL", this.arbuz$joint(matrices, biped.field_3397, 0.0f, 0.75f, 0.0f));
+        out.put("headTop", this.daamky$joint(matrices, biped.field_3398, 0.0f, -0.5f, 0.0f));
+        out.put("neck", this.daamky$joint(matrices, biped.field_3398, 0.0f, 0.0f, 0.0f));
+        out.put("pelvis", this.daamky$joint(matrices, biped.field_3391, 0.0f, 0.75f, 0.0f));
+        out.put("shoulderR", this.daamky$joint(matrices, biped.field_3401, 0.0f, 0.0f, 0.0f));
+        out.put("handR", this.daamky$joint(matrices, biped.field_3401, 0.0f, 0.625f, 0.0f));
+        out.put("shoulderL", this.daamky$joint(matrices, biped.field_27433, 0.0f, 0.0f, 0.0f));
+        out.put("handL", this.daamky$joint(matrices, biped.field_27433, 0.0f, 0.625f, 0.0f));
+        out.put("hipR", this.daamky$joint(matrices, biped.field_3392, 0.0f, 0.0f, 0.0f));
+        out.put("footR", this.daamky$joint(matrices, biped.field_3392, 0.0f, 0.75f, 0.0f));
+        out.put("hipL", this.daamky$joint(matrices, biped.field_3397, 0.0f, 0.0f, 0.0f));
+        out.put("footL", this.daamky$joint(matrices, biped.field_3397, 0.0f, 0.75f, 0.0f));
         matrices.method_22909();
     }
 
     @Unique
-    private Vector3f arbuz$joint(class_4587 matrices, class_630 part, float x, float y, float z) {
+    private Vector3f daamky$joint(class_4587 matrices, class_630 part, float x, float y, float z) {
         matrices.method_22903();
         part.method_22703(matrices);
         Vector3f v = new Vector3f(x, y, z);

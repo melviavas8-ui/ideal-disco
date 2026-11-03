@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class LivingEntitySwingMixin
 implements MinecraftAccess {
     @Inject(method={"getHandSwingDuration"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$swingDuration(CallbackInfoReturnable<Integer> cir) {
+    private void daamky$swingDuration(CallbackInfoReturnable<Integer> cir) {
         if (this != LivingEntitySwingMixin.field0796.field_1724) {
             return;
         }

@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value={class_10151.class})
 public class ShaderLoaderMixin {
     @Inject(method={"getOrCreateProgram"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$intercept(class_10156 key, CallbackInfoReturnable<class_5944> cir) {
+    private void daamky$intercept(class_10156 key, CallbackInfoReturnable<class_5944> cir) {
         class_5944 preloaded = ShaderRegistry.method1112(key);
         if (preloaded != null) {
             cir.setReturnValue((Object)preloaded);

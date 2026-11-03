@@ -1286,6 +1286,12 @@ extends Module {
         private Mode(String name) {
             this.field0336 = name;
         }
+    
+
+        @Override
+        public String method0557() {
+            return this.field0336;
+        }
     }
 
     public static enum TextureStyle implements DisplayNamed {
@@ -1296,6 +1302,12 @@ extends Module {
         private final String field1030;
         private TextureStyle(String name) {
             this.field1030 = name;
+        }
+    
+
+        @Override
+        public String method0557() {
+            return this.field1030;
         }
     }
 
@@ -1309,6 +1321,12 @@ extends Module {
         private ShapeType(String name) {
             this.field0791 = name;
         }
+    
+
+        @Override
+        public String method0557() {
+            return this.field0791;
+        }
     }
 
     public static enum AnimationMode implements DisplayNamed {
@@ -1318,6 +1336,12 @@ extends Module {
         private final String field1504;
         private AnimationMode(String name) {
             this.field1504 = name;
+        }
+    
+
+        @Override
+        public String method0557() {
+            return this.field1504;
         }
     }
 

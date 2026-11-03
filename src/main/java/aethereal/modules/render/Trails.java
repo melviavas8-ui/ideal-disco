@@ -421,6 +421,12 @@ extends Module {
         private Mode(String name) {
             this.field1504 = name;
         }
+    
+
+        @Override
+        public String method0557() {
+            return this.field1504;
+        }
     }
 
     private static class TrailParticle {

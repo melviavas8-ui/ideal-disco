@@ -79,8 +79,8 @@ public abstract class PlayerListHudMixin {
     public abstract class_2561 method_1918(class_640 var1);
 
     @Inject(method={"render"}, at={@At(value="HEAD")})
-    private void arbuz$drawTabBg(class_332 context, int scaledWindowWidth, class_269 scoreboard, class_266 objective, CallbackInfo ci) {
-        if (!this.arbuz$tabReplaceEnabled()) {
+    private void daamky$drawTabBg(class_332 context, int scaledWindowWidth, class_269 scoreboard, class_266 objective, CallbackInfo ci) {
+        if (!this.daamky$tabReplaceEnabled()) {
             return;
         }
         if (this.field_2155.field_1724 == null || this.field_2155.field_1724.field_3944 == null) {
@@ -128,14 +128,14 @@ public abstract class PlayerListHudMixin {
     }
 
     @Redirect(method={"render"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V"))
-    private void arbuz$skipVanillaFill(class_332 context, int x1, int y1, int x2, int y2, int color) {
-        if (this.arbuz$tabReplaceEnabled()) {
+    private void daamky$skipVanillaFill(class_332 context, int x1, int y1, int x2, int y2, int color) {
+        if (this.daamky$tabReplaceEnabled()) {
             return;
         }
         context.method_25294(x1, y1, x2, y2, color);
     }
 
-    private boolean arbuz$tabReplaceEnabled() {
+    private boolean daamky$tabReplaceEnabled() {
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz == null || arbuz.method1783() == null) {
             return false;
@@ -145,7 +145,7 @@ public abstract class PlayerListHudMixin {
     }
 
     @Inject(method={"collectPlayerEntries"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$collectPlayerEntries(CallbackInfoReturnable<List<class_640>> info) {
+    private void daamky$collectPlayerEntries(CallbackInfoReturnable<List<class_640>> info) {
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz == null || arbuz.method1783() == null) {
             return;
@@ -158,7 +158,7 @@ public abstract class PlayerListHudMixin {
     }
 
     @Inject(method={"getPlayerName"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$getPlayerName(class_640 entry, CallbackInfoReturnable<class_2561> info) {
+    private void daamky$getPlayerName(class_640 entry, CallbackInfoReturnable<class_2561> info) {
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz == null || arbuz.method1783() == null) {
             return;

@@ -24,7 +24,7 @@ implements RenderLayerParametersAccessor {
     private class_1921.class_4688 field_21403;
 
     @Override
-    public class_1921.class_4688 arbuz$getParameters() {
+    public class_1921.class_4688 daamky$getParameters() {
         return this.field_21403;
     }
 }

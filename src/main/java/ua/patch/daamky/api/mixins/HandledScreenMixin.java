@@ -31,13 +31,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value={class_465.class})
 public abstract class HandledScreenMixin {
     @Inject(method={"render"}, at={@At(value="TAIL")})
-    private void arbuz$onRender(class_332 context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+    private void daamky$onRender(class_332 context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         Event001 event = new Event001((class_465)this, context, mouseX, mouseY);
         DaamkyClient.method2004().method2072().post((Object)event);
     }
 
     @ModifyArg(method={"drawForeground"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;IIIZ)I"), index=1)
-    private class_2561 arbuz$maskTitle(class_2561 title) {
+    private class_2561 daamky$maskTitle(class_2561 title) {
         class_5250 masked = NameProtect.method1346(title);
         return masked != null ? masked : title;
     }

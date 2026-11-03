@@ -41,9 +41,9 @@ public abstract class InventoryScreenMixin {
             return;
         }
         IHandledScreen acc = (IHandledScreen)((Object)this);
-        int x = acc.arbuz$getX();
-        int y = acc.arbuz$getY();
-        iface.method1415(context, x, y, acc.arbuz$getBackgroundWidth(), acc.arbuz$getBackgroundHeight(), "Inventory");
+        int x = acc.daamky$getX();
+        int y = acc.daamky$getY();
+        iface.method1415(context, x, y, acc.daamky$getBackgroundWidth(), acc.daamky$getBackgroundHeight(), "Inventory");
         class_746 player = class_310.method_1551().field_1724;
         if (player != null) {
             class_490.method_2486((class_332)context, (int)(x + 26), (int)(y + 8), (int)(x + 75), (int)(y + 78), (int)30, (float)0.0625f, (float)mouseX, (float)mouseY, (class_1309)player);

@@ -87,7 +87,7 @@ extends class_742 {
     private float prevBodyYaw = 0.0f;
     private boolean initialized = false;
     @Unique
-    private boolean arbuz$wasDead = false;
+    private boolean daamky$wasDead = false;
 
     public ClientPlayerEntityMixin(class_638 world, GameProfile profile) {
         super(world, profile);
@@ -168,11 +168,11 @@ extends class_742 {
     private void onTickPost(CallbackInfo ci) {
         PreTickEvent tickEvent = new PreTickEvent();
         DaamkyClient.method2004().method2072().post((Object)tickEvent);
-        if (((class_746)this).method_6032() <= 0.0f && !this.arbuz$wasDead) {
-            this.arbuz$wasDead = true;
+        if (((class_746)this).method_6032() <= 0.0f && !this.daamky$wasDead) {
+            this.daamky$wasDead = true;
             DaamkyClient.method2004().method2072().post((Object)new PlayerDeathEvent());
         } else if (((class_746)this).method_6032() > 0.0f) {
-            this.arbuz$wasDead = false;
+            this.daamky$wasDead = false;
         }
     }
 

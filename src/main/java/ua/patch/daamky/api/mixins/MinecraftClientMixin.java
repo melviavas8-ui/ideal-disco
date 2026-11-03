@@ -63,7 +63,7 @@ public class MinecraftClientMixin {
     @Final
     public class_757 field_1773;
     @Unique
-    private static boolean arbuz$replacingScreen = false;
+    private static boolean daamky$replacingScreen = false;
 
     @Inject(method={"tick"}, at={@At(value="HEAD")})
     private void onClientTick(CallbackInfo ci) {
@@ -93,49 +93,49 @@ public class MinecraftClientMixin {
 
     @Inject(method={"setScreen"}, at={@At(value="HEAD")}, cancellable=true)
     private void onSetScreen(class_437 screen, CallbackInfo ci) {
-        if (arbuz$replacingScreen) {
+        if (daamky$replacingScreen) {
             return;
         }
         class_310 self = (class_310)this;
         if (screen instanceof class_442) {
-            arbuz$replacingScreen = true;
+            daamky$replacingScreen = true;
             self.method_1507((class_437)new MainMenuScreen());
-            arbuz$replacingScreen = false;
+            daamky$replacingScreen = false;
             ci.cancel();
             return;
         }
         if (screen == null && self.field_1687 == null) {
-            arbuz$replacingScreen = true;
+            daamky$replacingScreen = true;
             self.method_1507((class_437)new MainMenuScreen());
-            arbuz$replacingScreen = false;
+            daamky$replacingScreen = false;
             ci.cancel();
         }
     }
 
     @ModifyReturnValue(method={"getWindowTitle"}, at={@At(value="RETURN")})
-    private String arbuz$modifyWindowTitle(String original) {
+    private String daamky$modifyWindowTitle(String original) {
         ClientContext api = DaamkyClient.method2004().method1744();
         return "Arbuz 1.21.4 #" + api.method0423() + " | " + api.method0557();
     }
 
     @ModifyExpressionValue(method={"handleBlockBreaking"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z")})
-    private boolean arbuz$handleBlockBreaking(boolean original) {
-        if (this.arbuz$isMultiTaskEnabled()) {
+    private boolean daamky$handleBlockBreaking(boolean original) {
+        if (this.daamky$isMultiTaskEnabled()) {
             return false;
         }
         return original;
     }
 
     @ModifyExpressionValue(method={"doItemUse"}, at={@At(value="INVOKE", target="Lnet/minecraft/client/network/ClientPlayerInteractionManager;isBreakingBlock()Z")})
-    private boolean arbuz$doItemUse(boolean original) {
-        if (this.arbuz$isMultiTaskEnabled()) {
+    private boolean daamky$doItemUse(boolean original) {
+        if (this.daamky$isMultiTaskEnabled()) {
             return false;
         }
         return original;
     }
 
     @Unique
-    private boolean arbuz$isMultiTaskEnabled() {
+    private boolean daamky$isMultiTaskEnabled() {
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz == null || arbuz.method1783() == null) {
             return false;

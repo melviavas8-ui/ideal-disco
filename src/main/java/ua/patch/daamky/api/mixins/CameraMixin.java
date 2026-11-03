@@ -52,11 +52,11 @@ implements MinecraftAccess {
     @Shadow
     private float field_18717;
     @Unique
-    private float arbuz$lastTickDelta;
+    private float daamky$lastTickDelta;
     @Unique
-    private float arbuz$currentYaw;
+    private float daamky$currentYaw;
     @Unique
-    private float arbuz$currentPitch;
+    private float daamky$currentPitch;
 
     @Shadow
     protected abstract void method_19322(class_243 var1);
@@ -65,7 +65,7 @@ implements MinecraftAccess {
     protected abstract void method_19325(float var1, float var2);
 
     @Inject(method={"clipToSpace"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$noCameraClip(float desiredCameraDistance, CallbackInfoReturnable<Float> cir) {
+    private void daamky$noCameraClip(float desiredCameraDistance, CallbackInfoReturnable<Float> cir) {
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz == null || arbuz.method1783() == null) {
             return;
@@ -78,7 +78,7 @@ implements MinecraftAccess {
 
     @ModifyArg(method={"update"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/render/Camera;clipToSpace(F)F"), index=0)
     private float modifyCameraDistance(float distance) {
-        CameraEvent event = new CameraEvent((class_4184)this, distance, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, this.arbuz$lastTickDelta);
+        CameraEvent event = new CameraEvent((class_4184)this, distance, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, this.daamky$lastTickDelta);
         DaamkyClient.method2004().method2072().post((Object)event);
         if (event.method2195()) {
             this.method_19325(event.method0483(), event.method2213());
@@ -88,9 +88,9 @@ implements MinecraftAccess {
 
     @Inject(method={"update"}, at={@At(value="HEAD")})
     private void onCameraUpdateHead(class_1922 area, class_1297 focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        this.arbuz$lastTickDelta = tickDelta;
-        this.arbuz$currentYaw = this.field_18718;
-        this.arbuz$currentPitch = this.field_18717;
+        this.daamky$lastTickDelta = tickDelta;
+        this.daamky$currentYaw = this.field_18718;
+        this.daamky$currentPitch = this.field_18717;
     }
 
     @Inject(method={"update"}, at={@At(value="TAIL")})

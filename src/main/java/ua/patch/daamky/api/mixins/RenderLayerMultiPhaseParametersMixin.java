@@ -25,7 +25,7 @@ implements RenderTargetAccessor {
     private class_4668.class_4678 field_21417;
 
     @Override
-    public class_4668.class_4678 arbuz$getTarget() {
+    public class_4668.class_4678 daamky$getTarget() {
         return this.field_21417;
     }
 }

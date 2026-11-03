@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value={class_1799.class})
 public abstract class ItemStackMaxCountMixin {
     @Inject(method={"getMaxCount"}, at={@At(value="HEAD")}, cancellable=true)
-    private void arbuz$reallyWorldPotionStack(CallbackInfoReturnable<Integer> cir) {
+    private void daamky$reallyWorldPotionStack(CallbackInfoReturnable<Integer> cir) {
         ServerAssist sa = ServerAssist.method1717();
         if (sa == null || !sa.method1692()) {
             return;

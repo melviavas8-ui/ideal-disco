@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(value={class_268.class})
 public class TeamMixin {
     @ModifyReturnValue(method={"decorateName(Lnet/minecraft/scoreboard/AbstractTeam;Lnet/minecraft/text/Text;)Lnet/minecraft/text/MutableText;"}, at={@At(value="RETURN")})
-    private static class_5250 arbuz$decorateName(class_5250 original) {
+    private static class_5250 daamky$decorateName(class_5250 original) {
         if (NameProtect.field0090 == null || !NameProtect.field0090.method2195() || original == null) {
             return original;
         }

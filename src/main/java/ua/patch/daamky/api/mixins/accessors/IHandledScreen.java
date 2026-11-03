@@ -24,18 +24,18 @@ public interface IHandledScreen {
     public class_1735 getFocusedSlot();
 
     @Accessor(value="x")
-    public int arbuz$getX();
+    public int daamky$getX();
 
     @Accessor(value="y")
-    public int arbuz$getY();
+    public int daamky$getY();
 
     @Accessor(value="backgroundWidth")
-    public int arbuz$getBackgroundWidth();
+    public int daamky$getBackgroundWidth();
 
     @Accessor(value="backgroundHeight")
-    public int arbuz$getBackgroundHeight();
+    public int daamky$getBackgroundHeight();
 
     @Invoker(value="onMouseClick")
-    public void arbuz$onMouseClick(class_1735 var1, int var2, int var3, class_1713 var4);
+    public void daamky$onMouseClick(class_1735 var1, int var2, int var3, class_1713 var4);
 }
 
