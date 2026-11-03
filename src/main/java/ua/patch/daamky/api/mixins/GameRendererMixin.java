@@ -172,7 +172,7 @@ implements MinecraftAccess {
         double range = Math.max(blockInteractionRange, entityInteractionRange);
         Object object = blockHit = ignoreWeb ? noTrace.method1131(camera, range, tickDelta, false) : camera.method_5745(range, tickDelta, false);
         if (ignoreEntity) {
-            cir.setReturnValue((Object)blockHit);
+            cir.setReturnValue(blockHit);
             return;
         }
         class_243 cameraPos = camera.method_5836(tickDelta);
@@ -180,10 +180,10 @@ implements MinecraftAccess {
         class_243 end = cameraPos.method_1031(look.field_1352 * range, look.field_1351 * range, look.field_1350 * range);
         class_3966 entityHit = class_1675.method_18075((class_1297)camera, (class_243)cameraPos, (class_243)end, (class_238)(box = camera.method_5829().method_18804(look.method_1021(range)).method_1009(1.0, 1.0, 1.0)), e -> !e.method_7325() && e.method_5863(), (double)(blockDistSq = blockHit.method_17783() == class_239.class_240.field_1333 ? range * range : cameraPos.method_1025(blockHit.method_17784())));
         if (entityHit != null && ((entityDistSq = cameraPos.method_1025(entityHit.method_17784())) < blockDistSq || blockHit.method_17783() == class_239.class_240.field_1333)) {
-            cir.setReturnValue((Object)entityHit);
+            cir.setReturnValue(entityHit);
             return;
         }
-        cir.setReturnValue((Object)blockHit);
+        cir.setReturnValue(blockHit);
     }
 
     @Inject(method={"getBasicProjectionMatrix"}, at={@At(value="TAIL")}, cancellable=true)
@@ -199,7 +199,7 @@ implements MinecraftAccess {
             matrix4f.scale(this.field_4005, this.field_4005, 1.0f);
         }
         matrix4f.perspective(fovDegrees * ((float)Math.PI / 180), event.method1762(), 0.05f, this.method_32796());
-        cir.setReturnValue((Object)matrix4f);
+        cir.setReturnValue(matrix4f);
     }
 
     @Inject(method={"renderWorld"}, at={@At(value="TAIL")})

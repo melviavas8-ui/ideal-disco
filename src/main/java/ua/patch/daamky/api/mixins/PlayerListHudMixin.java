@@ -168,7 +168,7 @@ public abstract class PlayerListHudMixin {
         if (!masked.equals(profileName)) {
             class_2561 displayName = entry.method_2971();
             class_5250 base = displayName != null ? NameProtect.method1346(displayName) : class_268.method_1142((class_270)entry.method_2955(), (class_2561)class_2561.method_43470((String)masked));
-            info.setReturnValue((Object)this.method_27538(entry, base));
+            info.setReturnValue(this.method_27538(entry, base));
             return;
         }
         TabExpert tabExpert = arbuz.method1783().method0976(TabExpert.class);
@@ -186,7 +186,7 @@ public abstract class PlayerListHudMixin {
         String fullText = display != null ? display.getString() : name;
         int idx = fullText.indexOf(name);
         if (idx < 0) {
-            info.setReturnValue((Object)this.method_27538(entry, class_268.method_1142((class_270)entry.method_2955(), (class_2561)class_2561.method_43470((String)name).method_27692(class_124.field_1075))));
+            info.setReturnValue(this.method_27538(entry, class_268.method_1142((class_270)entry.method_2955(), (class_2561)class_2561.method_43470((String)name).method_27692(class_124.field_1075))));
             return;
         }
         class_5250 rebuilt = class_2561.method_43473();
@@ -198,7 +198,7 @@ public abstract class PlayerListHudMixin {
         if (after < fullText.length()) {
             rebuilt.method_10852((class_2561)class_2561.method_43470((String)fullText.substring(after)).method_27692(class_124.field_1068));
         }
-        info.setReturnValue((Object)this.method_27538(entry, rebuilt));
+        info.setReturnValue(this.method_27538(entry, rebuilt));
     }
 }
 

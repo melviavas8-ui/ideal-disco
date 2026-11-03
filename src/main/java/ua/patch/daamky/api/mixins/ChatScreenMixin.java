@@ -91,12 +91,12 @@ extends class_437 {
         boolean handled;
         if (keyCode == 256 && this.daamky$elementPopup.method0026()) {
             this.daamky$elementPopup.method0578();
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
             return;
         }
         if (keyCode == 256 && this.daamky$hudPanel.method0026()) {
             this.daamky$hudPanel.method0578();
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
             return;
         }
         if (this.daamky$cmdOverlay.method0579() && (handled = this.daamky$cmdOverlay.method0746(keyCode, scanCode, modifiers))) {
@@ -105,7 +105,7 @@ extends class_437 {
                 this.field_2382.method_25365(true);
                 this.field_2382.method_1852("");
             }
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
         }
     }
 
@@ -122,11 +122,11 @@ extends class_437 {
         float efMouseX = (float)(mouseX / (double)factor);
         float efMouseY = (float)(mouseY / (double)factor);
         if (this.daamky$elementPopup.method0026() && this.daamky$elementPopup.method0627(efMouseX, efMouseY, button)) {
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
             return;
         }
         if (this.daamky$hudPanel.method0026() && this.daamky$hudPanel.method0627(efMouseX, efMouseY, button)) {
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
             return;
         }
         if (button == 1) {
@@ -140,7 +140,7 @@ extends class_437 {
                     this.daamky$elementPopup.method0578();
                     this.daamky$hudPanel.method0578();
                     mcClient.method_1507((class_437)new FriendScreen(entry.getKey(), efMouseX, efMouseY));
-                    cir.setReturnValue((Object)true);
+                    cir.setReturnValue(true);
                     return;
                 }
             }
@@ -151,12 +151,12 @@ extends class_437 {
                 HudWidgetState el = (HudWidgetState)bounds.next();
                 if (hudModule != null && !hudModule.method1986(el.method1619()) || !el.method0676(efMouseX, efMouseY) || !this.daamky$elementPopup.method1014(el.method1619())) continue;
                 if (altHeld && el.method1619().equals("NewArmorHUD")) {
-                    cir.setReturnValue((Object)true);
+                    cir.setReturnValue(true);
                     return;
                 }
                 this.daamky$hudPanel.method0578();
                 this.daamky$elementPopup.method0703(efMouseX, efMouseY, el.method1619());
-                cir.setReturnValue((Object)true);
+                cir.setReturnValue(true);
                 return;
             }
             boolean hoveringElement = false;
@@ -172,7 +172,7 @@ extends class_437 {
                 } else {
                     this.daamky$hudPanel.method0675(efMouseX, efMouseY);
                 }
-                cir.setReturnValue((Object)true);
+                cir.setReturnValue(true);
             }
         }
     }

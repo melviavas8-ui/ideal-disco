@@ -48,7 +48,7 @@ public abstract class AbstractBlockMixin {
         if (noTrace == null || !noTrace.method1692()) {
             return;
         }
-        cir.setReturnValue((Object)class_259.method_1073());
+        cir.setReturnValue(class_259.method_1073());
     }
 }
 

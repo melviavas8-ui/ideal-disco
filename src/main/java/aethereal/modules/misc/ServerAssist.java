@@ -1482,7 +1482,7 @@ public class ServerAssist extends Module {
    private void method1432(class_332 var1, class_4587 var2) {
       HudWidgetState var3 = HudWidgetManager.method1605().method1002("ServerAssist");
       if (var3 != null) {
-         List var4 = new ArrayList<>();
+         List<ServerAssist.TrackedPlayer> var4 = new ArrayList<>();
 
          for (ServerAssist.TrackedPlayer var6 : this.field1347) {
             if (var6.field1014 == this.field1448.method0492() && var6.field1259.method0492().method2048() != -1) {

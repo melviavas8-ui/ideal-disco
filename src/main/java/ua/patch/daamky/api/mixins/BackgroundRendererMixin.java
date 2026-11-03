@@ -48,7 +48,7 @@ public class BackgroundRendererMixin {
             float g = (float)(color >> 8 & 0xFF) / 255.0f;
             float b = (float)(color & 0xFF) / 255.0f;
             float a = (float)(color >> 24 & 0xFF) / 255.0f;
-            cir.setReturnValue((Object)new Vector4f(r, g, b, a));
+            cir.setReturnValue(new Vector4f(r, g, b, a));
         }
     }
 
@@ -57,7 +57,7 @@ public class BackgroundRendererMixin {
         NoRender noRender;
         DaamkyClient arbuz = DaamkyClient.method2004();
         if (arbuz != null && arbuz.method1783() != null && (noRender = arbuz.method1783().method0976(NoRender.class)) != null && noRender.method0458() && camera.method_19334() == class_5636.field_27886) {
-            cir.setReturnValue((Object)new class_9958(0.0f, viewDistance, class_6854.field_36350, color.x, color.y, color.z, color.w));
+            cir.setReturnValue(new class_9958(0.0f, viewDistance, class_6854.field_36350, color.x, color.y, color.z, color.w));
             return;
         }
         FogRenderEvent event = new FogRenderEvent();
@@ -68,7 +68,7 @@ public class BackgroundRendererMixin {
             float g = (float)(color1 >> 8 & 0xFF) / 255.0f;
             float b = (float)(color1 & 0xFF) / 255.0f;
             float a = (float)(color1 >> 24 & 0xFF) / 255.0f;
-            cir.setReturnValue((Object)new class_9958(2.0f, event.method1762(), class_6854.field_36351, r, g, b, a));
+            cir.setReturnValue(new class_9958(2.0f, event.method1762(), class_6854.field_36351, r, g, b, a));
         }
     }
 

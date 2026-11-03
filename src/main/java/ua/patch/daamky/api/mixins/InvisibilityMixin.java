@@ -32,10 +32,10 @@ public class InvisibilityMixin {
         }
         AntiInvisible module = DaamkyClient.method2004().method1783().method0976(AntiInvisible.class);
         if (module != null && module.method2195()) {
-            if (!module.method1736() && this == class_310.method_1551().field_1724) {
+            if (!module.method1736() && (Object)(Object)this == class_310.method_1551().field_1724) {
                 return;
             }
-            cir.setReturnValue((Object)false);
+            cir.setReturnValue(false);
         }
     }
 }

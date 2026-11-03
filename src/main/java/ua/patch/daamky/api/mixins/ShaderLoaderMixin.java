@@ -27,7 +27,7 @@ public class ShaderLoaderMixin {
     private void daamky$intercept(class_10156 key, CallbackInfoReturnable<class_5944> cir) {
         class_5944 preloaded = ShaderRegistry.method1112(key);
         if (preloaded != null) {
-            cir.setReturnValue((Object)preloaded);
+            cir.setReturnValue(preloaded);
         }
     }
 }

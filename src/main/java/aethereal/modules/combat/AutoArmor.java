@@ -37,7 +37,7 @@ public class AutoArmor extends Module {
       if (!method1974()) {
          if (!InventorySearch.method0026()) {
             if (InventoryActionScheduler.field0649.method0026()) {
-               List var2 = new ArrayList<>();
+               List<Runnable> var2 = new ArrayList<>();
 
                for (class_1304 var6 : class_1304.values()) {
                   if (var6.method_5925() == class_1305.field_6178) {

@@ -24,7 +24,7 @@ public class InactivityFpsLimiterMixin {
     private void unlockMenuFps(CallbackInfoReturnable<Integer> cir) {
         class_310 client = class_310.method_1551();
         if (client.field_1755 != null && client.field_1687 == null) {
-            cir.setReturnValue((Object)((Integer)client.field_1690.method_42524().method_41753()));
+            cir.setReturnValue(((Integer)client.field_1690.method_42524().method_41753()));
         }
     }
 }

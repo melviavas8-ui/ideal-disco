@@ -25,7 +25,7 @@ public abstract class LivingEntityJumpMixin
 implements MinecraftAccess {
     @ModifyExpressionValue(method={"jump"}, at={@At(value="NEW", target="(DDD)Lnet/minecraft/util/math/Vec3d;")})
     private class_243 daamky$fixJumpSprintBoost(class_243 original) {
-        if (this != LivingEntityJumpMixin.field0796.field_1724) {
+        if ((Object)this != LivingEntityJumpMixin.field0796.field_1724) {
             return original;
         }
         float yaw = RotationManager.field0618.method1781().method2047() * ((float)Math.PI / 180);

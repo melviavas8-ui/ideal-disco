@@ -29,7 +29,7 @@ public abstract class ItemStackMaxCountMixin {
         }
         class_1799 self = (class_1799)this;
         if (self.method_7909() == class_1802.field_8574 || self.method_7909() == class_1802.field_8436 || self.method_7909() == class_1802.field_8150) {
-            cir.setReturnValue((Object)7);
+            cir.setReturnValue(7);
         }
     }
 }

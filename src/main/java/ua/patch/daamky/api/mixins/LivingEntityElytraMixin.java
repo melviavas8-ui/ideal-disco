@@ -34,7 +34,7 @@ implements MinecraftAccess {
 
     @Inject(method={"calcGlidingVelocity"}, at={@At(value="HEAD")}, cancellable=true)
     private void daamky$fixGlidingVelocity(class_243 oldVelocity, CallbackInfoReturnable<class_243> cir) {
-        if (this != LivingEntityElytraMixin.field0796.field_1724) {
+        if ((Object)this != LivingEntityElytraMixin.field0796.field_1724) {
             return;
         }
         RotationManager handler = RotationManager.field0618;
@@ -67,7 +67,7 @@ implements MinecraftAccess {
             v = v.method_1031((rotationVec.field_1352 / horizontalLength * oldHorizontalLength - v.field_1352) * 0.1, 0.0, (rotationVec.field_1350 / horizontalLength * oldHorizontalLength - v.field_1350) * 0.1);
         }
         v = v.method_18805((double)0.99f, (double)0.98f, (double)0.99f);
-        cir.setReturnValue((Object)v);
+        cir.setReturnValue(v);
     }
 }
 

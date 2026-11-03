@@ -66,7 +66,7 @@ implements MinecraftAccess {
         class_8685 original = (class_8685)cir.getReturnValue();
         class_2960 elytraTexture = original.comp_1628() != null ? original.comp_1628() : DEFAULT_ELYTRA_TEXTURE;
         class_8685 modified = new class_8685(original.comp_1626(), original.comp_1911(), capeTexture, elytraTexture, original.comp_1629(), original.comp_1630());
-        cir.setReturnValue((Object)modified);
+        cir.setReturnValue(modified);
     }
 }
 

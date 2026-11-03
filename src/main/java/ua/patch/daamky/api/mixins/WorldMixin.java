@@ -33,7 +33,7 @@ public abstract class WorldMixin {
         }
         Ambience ambience = DaamkyClient.method2004().method1783().method0976(Ambience.class);
         if (ambience != null && ambience.method1736()) {
-            cir.setReturnValue((Object)ambience.method1681());
+            cir.setReturnValue(ambience.method1681());
         }
     }
 
@@ -48,7 +48,7 @@ public abstract class WorldMixin {
         Ambience ambience = DaamkyClient.method2004().method1783().method0976(Ambience.class);
         if (ambience != null && ambience.method1736()) {
             float angle = (float)(ambience.method1681() % 24000L) / 24000.0f;
-            cir.setReturnValue((Object)Float.valueOf(angle * ((float)Math.PI * 2)));
+            cir.setReturnValue(Float.valueOf(angle * ((float)Math.PI * 2)));
         }
     }
 }

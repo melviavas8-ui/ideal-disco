@@ -130,7 +130,7 @@ public abstract class WorldRendererMixin {
         }
         NoRender noRender = arbuz.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method0480()) {
-            cir.setReturnValue((Object)false);
+            cir.setReturnValue(false);
         }
     }
 }

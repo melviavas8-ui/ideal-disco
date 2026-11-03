@@ -96,7 +96,7 @@ public class ClientPlayerInteractionManagerMixin {
             return;
         }
         if (noInteract.method1253(MinecraftAccess.field0796.field_1687.method_8320(hit.method_17777()).method_26204())) {
-            cir.setReturnValue((Object)class_1269.field_5811);
+            cir.setReturnValue(class_1269.field_5811);
         }
     }
 
@@ -104,7 +104,7 @@ public class ClientPlayerInteractionManagerMixin {
     private void daamky$onInteractEntity(class_1657 player, class_1297 entity, class_1268 hand, CallbackInfoReturnable<class_1269> cir) {
         NoInteract noInteract = DaamkyClient.method2004().method1783().method0976(NoInteract.class);
         if (noInteract != null && noInteract.method1129(entity)) {
-            cir.setReturnValue((Object)class_1269.field_5811);
+            cir.setReturnValue(class_1269.field_5811);
         }
     }
 
@@ -112,7 +112,7 @@ public class ClientPlayerInteractionManagerMixin {
     private void daamky$onInteractEntityAtLocation(class_1657 player, class_1297 entity, class_3966 hit, class_1268 hand, CallbackInfoReturnable<class_1269> cir) {
         NoInteract noInteract = DaamkyClient.method2004().method1783().method0976(NoInteract.class);
         if (noInteract != null && noInteract.method1129(entity)) {
-            cir.setReturnValue((Object)class_1269.field_5811);
+            cir.setReturnValue(class_1269.field_5811);
         }
     }
 
@@ -121,7 +121,7 @@ public class ClientPlayerInteractionManagerMixin {
         BlockInteractEvent event = new BlockInteractEvent(pos, direction);
         DaamkyClient.method2004().method2072().post((Object)event);
         if (event.method2079()) {
-            cir.setReturnValue((Object)true);
+            cir.setReturnValue(true);
         }
     }
 

@@ -853,7 +853,7 @@ public class NewHUD extends Module {
 
          this.field1392.keySet().retainAll(var3);
          if (field0796.field_1724 != null) {
-            Map<Integer, class_1293> var12 = new HashMap<>();
+            Map<String, class_1293> var12 = new HashMap<>();
 
             for (class_1293 var19 : field0796.field_1724.method_6088().values()) {
                String var26 = class_1074.method_4662(((class_1291)var19.method_5579().comp_349()).method_5567(), new Object[0]);

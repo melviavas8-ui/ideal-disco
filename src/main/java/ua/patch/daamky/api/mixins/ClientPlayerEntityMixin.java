@@ -168,10 +168,10 @@ extends class_742 {
     private void onTickPost(CallbackInfo ci) {
         PreTickEvent tickEvent = new PreTickEvent();
         DaamkyClient.method2004().method2072().post((Object)tickEvent);
-        if (((class_746)this).method_6032() <= 0.0f && !this.daamky$wasDead) {
+        if (((class_746)(Object)this).method_6032() <= 0.0f && !this.daamky$wasDead) {
             this.daamky$wasDead = true;
             DaamkyClient.method2004().method2072().post((Object)new PlayerDeathEvent());
-        } else if (((class_746)this).method_6032() > 0.0f) {
+        } else if (((class_746)(Object)this).method_6032() > 0.0f) {
             this.daamky$wasDead = false;
         }
     }
@@ -260,7 +260,7 @@ extends class_742 {
         Sprint sprint = Sprint.method1720();
         NoSlow noSlow = NoSlow.method1715();
         if (sprint != null && sprint.method2195() && noSlow != null && noSlow.method2195()) {
-            cir.setReturnValue((Object)false);
+            cir.setReturnValue(false);
         }
     }
 
@@ -269,7 +269,7 @@ extends class_742 {
         Sprint sprint = Sprint.method1720();
         NoSlow noSlow = NoSlow.method1715();
         if (sprint != null && sprint.method2195() && noSlow != null && noSlow.method2195()) {
-            cir.setReturnValue((Object)false);
+            cir.setReturnValue(false);
         }
     }
 

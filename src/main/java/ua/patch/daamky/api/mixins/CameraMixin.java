@@ -72,13 +72,13 @@ implements MinecraftAccess {
         }
         NoRender noRender = arbuz.method1783().method0976(NoRender.class);
         if (noRender != null && noRender.method2203()) {
-            cir.setReturnValue((Object)Float.valueOf(desiredCameraDistance));
+            cir.setReturnValue(Float.valueOf(desiredCameraDistance));
         }
     }
 
     @ModifyArg(method={"update"}, at=@At(value="INVOKE", target="Lnet/minecraft/client/render/Camera;clipToSpace(F)F"), index=0)
     private float modifyCameraDistance(float distance) {
-        CameraEvent event = new CameraEvent((class_4184)this, distance, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, this.daamky$lastTickDelta);
+        CameraEvent event = new CameraEvent((class_4184)(Object)this, distance, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, this.daamky$lastTickDelta);
         DaamkyClient.method2004().method2072().post((Object)event);
         if (event.method2195()) {
             this.method_19325(event.method0483(), event.method2213());
@@ -95,7 +95,7 @@ implements MinecraftAccess {
 
     @Inject(method={"update"}, at={@At(value="TAIL")})
     private void onCameraUpdate(class_1922 area, class_1297 focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        CameraEvent event = new CameraEvent((class_4184)this, 4.0f, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, tickDelta);
+        CameraEvent event = new CameraEvent((class_4184)(Object)this, 4.0f, this.field_18712.field_1352, this.field_18712.field_1351, this.field_18712.field_1350, this.field_18718, this.field_18717, tickDelta);
         DaamkyClient.method2004().method2072().post((Object)event);
         if (event.method1945() != this.field_18712.field_1352 || event.method0412() != this.field_18712.field_1351 || event.method0354() != this.field_18712.field_1350) {
             this.method_19322(new class_243(event.method1945(), event.method0412(), event.method0354()));

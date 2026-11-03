@@ -42,7 +42,7 @@ implements MinecraftAccess {
 
     @Inject(method={"pushAwayFrom"}, at={@At(value="HEAD")}, cancellable=true)
     public void pushAwayFrom(CallbackInfo ci) {
-        if (this != EntityMixin.field0796.field_1724) {
+        if ((Object)this != EntityMixin.field0796.field_1724) {
             return;
         }
         DaamkyClient arbuz = DaamkyClient.method2004();
@@ -57,7 +57,7 @@ implements MinecraftAccess {
 
     @Inject(method={"isPushedByFluids"}, at={@At(value="RETURN")}, cancellable=true)
     public void isPushedByFluids(CallbackInfoReturnable<Boolean> cir) {
-        if (this != EntityMixin.field0796.field_1724) {
+        if ((Object)this != EntityMixin.field0796.field_1724) {
             return;
         }
         DaamkyClient arbuz = DaamkyClient.method2004();
@@ -66,13 +66,13 @@ implements MinecraftAccess {
         }
         NoPush noPush = arbuz.method1783().method0976(NoPush.class);
         if (noPush != null && noPush.method2195() && noPush.method1755()) {
-            cir.setReturnValue((Object)false);
+            cir.setReturnValue(false);
         }
     }
 
     @Inject(method={"getBoundingBox"}, at={@At(value="HEAD")}, cancellable=true)
     private void getBoundingBox$hitbox(CallbackInfoReturnable<class_238> cir) {
-        class_1297 self = (class_1297)this;
+        class_1297 self = (class_1297)(Object)this;
         if (self == EntityMixin.field0796.field_1724) {
             return;
         }
@@ -81,7 +81,7 @@ implements MinecraftAccess {
         }
         EntityCollisionEvent event = new EntityCollisionEvent(this.field_6005, self);
         DaamkyClient.method2004().method2072().post((Object)event);
-        cir.setReturnValue((Object)event.method1627());
+        cir.setReturnValue(event.method1627());
     }
 
     @ModifyVariable(method={"getRotationVector(FF)Lnet/minecraft/util/math/Vec3d;"}, at=@At(value="HEAD"), ordinal=0, argsOnly=true)
@@ -94,7 +94,7 @@ implements MinecraftAccess {
 
     @ModifyExpressionValue(method={"move"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;isControlledByPlayer()Z")})
     public boolean isControlledByPlayerHook(boolean original) {
-        if (this == EntityMixin.field0796.field_1724) {
+        if ((Object)this == EntityMixin.field0796.field_1724) {
             return false;
         }
         return original;
@@ -102,7 +102,7 @@ implements MinecraftAccess {
 
     @ModifyExpressionValue(method={"updateVelocity"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/Entity;getYaw()F")})
     private float updateVelocityYaw(float original) {
-        class_1297 self = (class_1297)this;
+        class_1297 self = (class_1297)(Object)this;
         if (self != EntityMixin.field0796.field_1724) {
             return original;
         }

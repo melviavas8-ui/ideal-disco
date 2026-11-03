@@ -285,8 +285,8 @@ public class Interface extends Module {
          class_269 var2 = field0796.field_1687.method_8428();
          class_266 var3 = var2.method_1189(class_8646.field_45157);
          if (var3 != null) {
-            Collection var4 = var2.method_1184(var3);
-            List var5 = var4.stream()
+            Collection<class_9011> var4 = var2.method_1184(var3);
+            List<class_9011> var5 = var4.stream()
                .filter(var0 -> var0.comp_2127() != null && !var0.comp_2127().startsWith("#"))
                .sorted(Comparator.comparing(class_9011::comp_2128).reversed().thenComparing(class_9011::comp_2127, String.CASE_INSENSITIVE_ORDER))
                .limit(15L)
@@ -300,7 +300,7 @@ public class Interface extends Module {
             float var12 = 1.0F;
             float var13 = var10 + var12;
             float var14 = var9 ? var10 + 6.0F : 0.0F;
-            List var15 = new ArrayList<>(var5.size());
+            List<class_2561> var15 = new ArrayList<>(var5.size());
             float var16 = var9 ? field0796.field_1772.method_27525(var8) : 0.0F;
 
             for (class_9011 var18 : var5) {

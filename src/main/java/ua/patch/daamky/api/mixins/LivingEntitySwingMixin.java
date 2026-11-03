@@ -25,13 +25,13 @@ public abstract class LivingEntitySwingMixin
 implements MinecraftAccess {
     @Inject(method={"getHandSwingDuration"}, at={@At(value="HEAD")}, cancellable=true)
     private void daamky$swingDuration(CallbackInfoReturnable<Integer> cir) {
-        if (this != LivingEntitySwingMixin.field0796.field_1724) {
+        if ((Object)this != LivingEntitySwingMixin.field0796.field_1724) {
             return;
         }
         SwingDurationEvent event = new SwingDurationEvent();
         DaamkyClient.method2004().method2072().post((Object)event);
         if (event.method2079()) {
-            cir.setReturnValue((Object)Math.max(1, event.method1763()));
+            cir.setReturnValue(Math.max(1, event.method1763()));
         }
     }
 }

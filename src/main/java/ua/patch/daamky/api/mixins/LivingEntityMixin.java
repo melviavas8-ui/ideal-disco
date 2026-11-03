@@ -64,7 +64,7 @@ StaticPlayerEntityAccessor {
 
     @Inject(method={"getHandSwingDuration"}, at={@At(value="HEAD")}, cancellable=true)
     private void onGetHandSwingDuration(CallbackInfoReturnable<Integer> cir) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return;
         }
         SwingDurationEvent event = new SwingDurationEvent();
@@ -76,7 +76,7 @@ StaticPlayerEntityAccessor {
 
     @Redirect(method={"calcGlidingVelocity"}, at=@At(value="INVOKE", target="Lnet/minecraft/entity/LivingEntity;getPitch()F"))
     private float hookModifyFallFlyingPitchRedirect(class_1309 instance) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return instance.method_36455();
         }
         RotationManager rotationManager = RotationManager.field0618;
@@ -90,7 +90,7 @@ StaticPlayerEntityAccessor {
 
     @Redirect(method={"calcGlidingVelocity"}, at=@At(value="INVOKE", target="Lnet/minecraft/entity/LivingEntity;getRotationVector()Lnet/minecraft/util/math/Vec3d;"))
     private class_243 hookModifyFallFlyingRotationVectorRedirect(class_1309 original) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return original.method_5720();
         }
         RotationManager rotationManager = RotationManager.field0618;
@@ -104,7 +104,7 @@ StaticPlayerEntityAccessor {
 
     @ModifyExpressionValue(method={"jump"}, at={@At(value="NEW", target="(DDD)Lnet/minecraft/util/math/Vec3d;")})
     private class_243 hookFixRotation(class_243 original) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return original;
         }
         float yaw = RotationManager.field0618.method1781().method2047() * ((float)Math.PI / 180);
@@ -113,7 +113,7 @@ StaticPlayerEntityAccessor {
 
     @ModifyExpressionValue(method={"calcGlidingVelocity"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/LivingEntity;getPitch()F")})
     private float hookModifyFallFlyingPitch(float original) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return original;
         }
         return RotationManager.field0618.method1781().method1762();
@@ -121,7 +121,7 @@ StaticPlayerEntityAccessor {
 
     @ModifyExpressionValue(method={"calcGlidingVelocity"}, at={@At(value="INVOKE", target="Lnet/minecraft/entity/LivingEntity;getRotationVector()Lnet/minecraft/util/math/Vec3d;")})
     private class_243 hookModifyFallFlyingRotationVector(class_243 original) {
-        if ((Object)this != LivingEntityMixin.field0796.field_1724) {
+        if ((Object)(Object)this != LivingEntityMixin.field0796.field_1724) {
             return original;
         }
         return RotationManager.field0618.method1781().method0024();

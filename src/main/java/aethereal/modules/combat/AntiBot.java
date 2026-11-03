@@ -99,7 +99,7 @@ public class AntiBot extends Module {
 
    private void method1754() {
       if (field0796.field_1687 != null && field0796.field_1724 != null) {
-         for (Iterator var1 = this.field1511.iterator(); var1.hasNext(); var1.remove()) {
+         for (Iterator<UUID> var1 = this.field1511.iterator(); var1.hasNext(); var1.remove()) {
             UUID var2 = var1.next();
             class_1657 var3 = field0796.field_1687.method_18470(var2);
             if (var3 != null) {
@@ -147,7 +147,7 @@ public class AntiBot extends Module {
          return false;
       }
 
-      List var2;
+      List<class_640> var2;
       try {
          var2 = new ArrayList<>(field0796.method_1562().method_2880());
       } catch (Exception var4) {
@@ -169,8 +169,8 @@ public class AntiBot extends Module {
          return true;
       }
 
-      List var3 = StreamSupport.<class_1799>stream(var1.method_5661().spliterator(), false).toList();
-      List var4 = StreamSupport.stream(var2.spliterator(), false).toList();
+      List<class_1799> var3 = StreamSupport.<class_1799>stream(var1.method_5661().spliterator(), false).toList();
+      List<?> var4 = StreamSupport.stream(var2.spliterator(), false).toList();
       return !IntStream.range(0, Math.min(var3.size(), var4.size())).allMatch(var2x -> var3.get(var2x).equals(var4.get(var2x))) || var3.size() != var4.size();
    }
 
