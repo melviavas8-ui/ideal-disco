@@ -1,62 +1,39 @@
 package aethereal;
 
-import java.awt.Color;
 import net.minecraft.class_2561;
+import net.minecraft.class_2583;
+import net.minecraft.class_2960;
 import net.minecraft.class_327;
 import net.minecraft.class_332;
 import net.minecraft.class_429;
 import net.minecraft.class_437;
 import net.minecraft.class_4587;
-import org.lwjgl.opengl.GL11;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import net.minecraft.class_500;
 import net.minecraft.class_526;
 
 /**
- * Main menu ported 1:1 from the forum "velocity." menu (same layout, pills, hover animation,
- * gradient + outline), but using Daamky's own render helpers / MSDF fonts.
- * If the custom shaders are not available, it automatically falls back to a vanilla-only drawing
- * of the same layout, so the menu can never be empty.
+ * Main menu (layout from the forum "velocity." menu).
+ * Uses ONLY vanilla drawing (fills + font providers): no custom shaders, so it works on every
+ * renderer (MobileGlues, Vulkan/Zink, ANGLE, native GL...).
+ * Fonts: Inter Bold / Inter ExtraBold via vanilla TTF font providers
+ * (assets/daamky/font/menu_bold.json, menu_extrabold.json) -> smooth, not the pixel Minecraft font.
  */
 public class DaamkyMainMenu extends class_437 {
    private static final String LOGO = "daamky.";
    private static final String[] LABELS = new String[]{"Одиночная игра", "Сетевая игра", "Настройки", "Прокси", "Выход"};
 
-   private static final Logger LOG = LoggerFactory.getLogger("Daamky/MainMenu");
-   private static Boolean mobileGl = null;
+   private static final class_2583 STYLE_BOLD = class_2583.field_24360.method_27704(class_2960.method_60655("daamky", "menu_bold"));
+   private static final class_2583 STYLE_EXTRABOLD = class_2583.field_24360.method_27704(class_2960.method_60655("daamky", "menu_extrabold"));
+
+   // provider "size" is 10 -> cap height = 0.7275 * 10 px, baseline sits 7 px below the draw y
+   private static final float CAP = 7.275F;
+   private static final float BASE = 7.0F;
 
    private final float[] hov = new float[5];
    private float s = 1.0F;
 
    public DaamkyMainMenu() {
       super(class_2561.method_43470("Daamky"));
-   }
-
-   protected void method_25426() {
-      // shaders can fail at mod init; retry once on the render thread
-      if (!ShaderRegistry.isReady()) {
-         ShaderRegistry.method0578();
-      }
-   }
-
-   /**
-    * MobileGlues (and some other GLES translation layers) draw the custom shaders as garbage
-    * (blue screen), so on them we always use the vanilla-only drawing path.
-    */
-   private static boolean isMobileGlues() {
-      if (mobileGl == null) {
-         String info = "";
-         try {
-            String renderer = GL11.glGetString(GL11.GL_RENDERER);
-            String version = GL11.glGetString(GL11.GL_VERSION);
-            info = ((renderer == null ? "" : renderer) + " | " + (version == null ? "" : version)).toLowerCase();
-         } catch (Throwable ignored) {
-         }
-         mobileGl = info.contains("mobilegl");
-         LOG.info("[Daamky] GL: {} -> {} menu path", info, mobileGl ? "vanilla" : "shader");
-      }
-      return mobileGl;
    }
 
    // renderBackground -> nothing (background is painted in render)
@@ -96,39 +73,43 @@ public class DaamkyMainMenu extends class_437 {
          return;
       }
 
-      ScreenLayoutHelper.method0738(w, h);
-      this.s = Math.max(1.0F, ScreenLayoutHelper.method0530());
+      // same fixed sizes as the forum menu (scale kept as a field in case you want to tweak it)
+      this.s = 1.0F;
 
       this.drawBackground(var1, w, h);
 
-      boolean fancy = ShaderRegistry.isReady() && !isMobileGlues();
-      if (fancy) {
-         Fonts.method0578();
-      }
-
       float[][] b = this.layout();
-      if (fancy) {
-         this.drawLogoFancy(var1.method_51448(), b[0][1]);
-      } else {
-         this.drawLogoVanilla(var1, b[0][1]);
-      }
-
+      this.drawLogo(var1, b[0][1]);
       for (int i = 0; i < 5; i++) {
-         this.updateHover(i, mouseX, mouseY, b[i]);
-         if (fancy) {
-            this.pillFancy(var1.method_51448(), i, b[i], LABELS[i], i == 0);
-         } else {
-            this.pillVanilla(var1, i, b[i], LABELS[i], i == 0);
-         }
+         boolean over = mouseX >= b[i][0] && mouseX <= b[i][0] + b[i][2] && mouseY >= b[i][1] && mouseY <= b[i][1] + b[i][3];
+         this.hov[i] = Math.max(0.0F, Math.min(1.0F, this.hov[i] + (over ? 0.12F : -0.12F)));
+         this.pill(var1, i, b[i], LABELS[i], i == 0);
       }
    }
 
-   private void updateHover(int i, int mx, int my, float[] r) {
-      boolean over = mx >= r[0] && mx <= r[0] + r[2] && my >= r[1] && my <= r[1] + r[3];
-      this.hov[i] = Math.max(0.0F, Math.min(1.0F, this.hov[i] + (over ? 0.12F : -0.12F)));
+   // ---------------------------------------------------------------- text
+   /** draws text with its cap-height centered on (cx, capCenterY); k = size multiplier of the 10px provider font */
+   private void drawCentered(class_332 c, String str, class_2583 style, float cx, float capCenterY, float k, int color) {
+      class_327 tr = this.field_22787.field_1772;
+      class_2561 text = class_2561.method_43470(str).method_10862(style);
+      float width = tr.method_27525(text) * k;
+      class_4587 ms = c.method_51448();
+      ms.method_22903();
+      ms.method_46416(cx - width / 2.0F, capCenterY - (CAP / 2.0F) * k - (BASE - CAP) * k, 0.0F);
+      ms.method_22905(k, k, 1.0F);
+      c.method_51439(tr, text, 0, 0, color, false);
+      ms.method_22909();
    }
 
-   // ---------------------------------------------------------------- background (vanilla fills, always works)
+   private void drawLogo(class_332 c, float row1Y) {
+      float k = 4.4F * this.s;
+      // baseline sits 22*s above the first button row
+      float baseline = row1Y - 22.0F * this.s;
+      float capCenter = baseline - (CAP / 2.0F) * k;
+      this.drawCentered(c, LOGO, STYLE_EXTRABOLD, this.field_22789 / 2.0F, capCenter, k, 0xFFFFFFFF);
+   }
+
+   // ---------------------------------------------------------------- background
    private void drawBackground(class_332 c, int w, int h) {
       double time = System.currentTimeMillis() / 1000.0;
       float shift = (float)(0.5 + 0.5 * Math.sin(time * 0.6));
@@ -147,73 +128,14 @@ public class DaamkyMainMenu extends class_437 {
       }
    }
 
-   // ---------------------------------------------------------------- fancy (Daamky shaders + MSDF fonts)
-   private void drawLogoFancy(class_4587 ms, float row1Y) {
-      // montserrat extrabold is not in the jar -> closest bold font available: Inter Bold
-      FontSize logo = Fonts.field1633.method0654(44.0F * this.s);
-      float lw = logo.method0998(LOGO);
-      float lh = logo.method0530();
-      float x = (this.field_22789 - lw) / 2.0F;
-      float y = row1Y - lh - 12.0F * this.s;
-      GuiRenderHelper.method1491(ms, logo, LOGO, x, y, new Color(255, 255, 255, 255));
-   }
-
-   private void pillFancy(class_4587 ms, int idx, float[] r, String label, boolean active) {
-      float x = r[0];
-      float y = r[1];
-      float w = r[2];
-      float h = r[3];
-      float a = this.hov[idx];
-      float rad = 5.0F * this.s;
-      FontSize font = Fonts.field1258.method0654(8.0F * this.s);
-      Color txt;
-      if (active) {
-         GuiRenderHelper.method1463(ms, x, y, w, h, rad, new Color(242, 242, 246, 255));
-         txt = new Color(18, 18, 24, 255);
-      } else {
-         Color top = new Color(40, 40, 48, 220);
-         Color bottom = new Color(24, 24, 31, 220);
-         // vertical gradient: vertex order is TL, BL, BR, TR
-         RenderCommandFactory.method0548()
-            .method0925(new RenderSize(w, h))
-            .method0824(new CornerRadius(rad))
-            .method0916(new QuadColor(top, bottom, bottom, top))
-            .method0555()
-            .method1551(ms.method_23760().method_23761(), x, y);
-         Color border = new Color(255, 255, 255, (int)(45 + a * 75));
-         GuiRenderHelper.method1461(ms, x, y, w, h, rad, 0.5F, 0.5F, border);
-         txt = a > 0.5F ? new Color(240, 240, 245, 255) : new Color(160, 160, 172, 235);
-      }
-
-      float tw = font.method0998(label);
-      float th = font.method0530();
-      GuiRenderHelper.method1491(ms, font, label, x + (w - tw) / 2.0F, y + (h - th) / 2.0F, txt);
-   }
-
-   // ---------------------------------------------------------------- vanilla fallback (same layout)
-   private void drawLogoVanilla(class_332 c, float row1Y) {
-      class_327 tr = this.field_22787.field_1772;
-      class_2561 logo = class_2561.method_43470(LOGO);
-      float scale = 4.0F * this.s;
-      float lw = tr.method_27525(logo);
-      class_4587 ms = c.method_51448();
-      ms.method_22903();
-      ms.method_46416(this.field_22789 / 2.0F, row1Y - 9.0F * scale - 12.0F * this.s, 0.0F);
-      ms.method_22905(scale, scale, 1.0F);
-      c.method_27535(tr, logo, (int)(-lw / 2.0F), 0, 0xFFFFFFFF);
-      ms.method_46416(0.35F, 0.0F, 0.0F);
-      c.method_27535(tr, logo, (int)(-lw / 2.0F), 0, 0xFFFFFFFF);
-      ms.method_22909();
-   }
-
-   private void pillVanilla(class_332 c, int idx, float[] r, String label, boolean active) {
-      class_327 tr = this.field_22787.field_1772;
+   // ---------------------------------------------------------------- pills
+   private void pill(class_332 c, int idx, float[] r, String label, boolean active) {
       float a = this.hov[idx];
       int ix = Math.round(r[0]);
       int iy = Math.round(r[1]);
       int iw = Math.round(r[2]);
       int ih = Math.round(r[3]);
-      int rad = Math.max(2, Math.round(4.0F * this.s));
+      int rad = Math.max(2, Math.round(5.0F * this.s));
       int textColor;
       if (active) {
          int v = (int)(242 - a * 14);
@@ -226,9 +148,8 @@ public class DaamkyMainMenu extends class_437 {
          textColor = a > 0.5F ? rgb(240, 240, 245) : rgb(165, 165, 177);
       }
 
-      class_2561 t = class_2561.method_43470(label);
-      int tw = tr.method_27525(t);
-      c.method_27535(tr, t, ix + (iw - tw) / 2, iy + (ih - 8) / 2, textColor);
+      float k = 0.85F * this.s;
+      this.drawCentered(c, label, STYLE_BOLD, r[0] + r[2] / 2.0F, r[1] + r[3] / 2.0F, k, textColor);
    }
 
    private static int lerp(int from, int to, float t) {
