@@ -29,7 +29,7 @@ import aethereal.DaamkyClient;
 import aethereal.ClientContext;
 import aethereal.ClientTickEvent;
 import aethereal.GameLoopEvent;
-import aethereal.MainMenuScreen;
+import aethereal.DaamkyMainMenu;
 import aethereal.MultiTask;
 import aethereal.WindowHandleUtil;
 import aethereal.WindowIconManager;
@@ -99,14 +99,14 @@ public class MinecraftClientMixin {
         class_310 self = (class_310)(Object)this;
         if (screen instanceof class_442) {
             daamky$replacingScreen = true;
-            self.method_1507((class_437)new MainMenuScreen());
+            self.method_1507((class_437)new DaamkyMainMenu());
             daamky$replacingScreen = false;
             ci.cancel();
             return;
         }
         if (screen == null && self.field_1687 == null) {
             daamky$replacingScreen = true;
-            self.method_1507((class_437)new MainMenuScreen());
+            self.method_1507((class_437)new DaamkyMainMenu());
             daamky$replacingScreen = false;
             ci.cancel();
         }
