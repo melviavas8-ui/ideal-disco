@@ -7,6 +7,9 @@ import net.minecraft.class_332;
 import net.minecraft.class_429;
 import net.minecraft.class_437;
 import net.minecraft.class_4587;
+import org.lwjgl.opengl.GL11;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.minecraft.class_500;
 import net.minecraft.class_526;
 
@@ -20,6 +23,9 @@ public class DaamkyMainMenu extends class_437 {
    private static final String LOGO = "daamky.";
    private static final String[] LABELS = new String[]{"Одиночная игра", "Сетевая игра", "Настройки", "Прокси", "Выход"};
 
+   private static final Logger LOG = LoggerFactory.getLogger("Daamky/MainMenu");
+   private static Boolean mobileGl = null;
+
    private final float[] hov = new float[5];
    private float s = 1.0F;
 
@@ -32,6 +38,25 @@ public class DaamkyMainMenu extends class_437 {
       if (!ShaderRegistry.isReady()) {
          ShaderRegistry.method0578();
       }
+   }
+
+   /**
+    * MobileGlues (and some other GLES translation layers) draw the custom shaders as garbage
+    * (blue screen), so on them we always use the vanilla-only drawing path.
+    */
+   private static boolean isMobileGlues() {
+      if (mobileGl == null) {
+         String info = "";
+         try {
+            String renderer = GL11.glGetString(GL11.GL_RENDERER);
+            String version = GL11.glGetString(GL11.GL_VERSION);
+            info = ((renderer == null ? "" : renderer) + " | " + (version == null ? "" : version)).toLowerCase();
+         } catch (Throwable ignored) {
+         }
+         mobileGl = info.contains("mobilegl");
+         LOG.info("[Daamky] GL: {} -> {} menu path", info, mobileGl ? "vanilla" : "shader");
+      }
+      return mobileGl;
    }
 
    // renderBackground -> nothing (background is painted in render)
@@ -76,7 +101,7 @@ public class DaamkyMainMenu extends class_437 {
 
       this.drawBackground(var1, w, h);
 
-      boolean fancy = ShaderRegistry.isReady();
+      boolean fancy = ShaderRegistry.isReady() && !isMobileGlues();
       if (fancy) {
          Fonts.method0578();
       }
@@ -196,7 +221,8 @@ public class DaamkyMainMenu extends class_437 {
          textColor = rgb(18, 18, 24);
       } else {
          roundRect(c, ix, iy, iw, ih, rad, rgb(lerp(52, 112, a), lerp(52, 112, a), lerp(60, 124, a)));
-         roundRect(c, ix + 1, iy + 1, iw - 2, ih - 2, rad - 1, rgb(lerp(34, 46, a), lerp(34, 46, a), lerp(42, 56, a)));
+         roundRectGradient(c, ix + 1, iy + 1, iw - 2, ih - 2, rad - 1,
+            rgb(lerp(40, 54, a), lerp(40, 54, a), lerp(48, 64, a)), rgb(lerp(24, 36, a), lerp(24, 36, a), lerp(31, 44, a)));
          textColor = a > 0.5F ? rgb(240, 240, 245) : rgb(165, 165, 177);
       }
 
@@ -225,6 +251,27 @@ public class DaamkyMainMenu extends class_437 {
          c.method_25294(x + inset, y + h - i - 1, x + w - inset, y + h - i, color);
       }
       c.method_25294(x, y + r, x + w, y + h - r, color);
+   }
+
+   /** rounded rectangle with a vertical gradient (top -> bottom), per-row fills */
+   private static void roundRectGradient(class_332 c, int x, int y, int w, int h, int r, int top, int bottom) {
+      if (w <= 0 || h <= 0) {
+         return;
+      }
+      r = Math.max(1, Math.min(r, Math.min(w, h) / 2));
+      for (int i = 0; i < h; i++) {
+         int inset = 0;
+         if (i < r) {
+            double dy = r - i - 0.5;
+            inset = r - (int)Math.round(Math.sqrt(Math.max(0.0, (double)r * r - dy * dy)));
+         } else if (i >= h - r) {
+            double dy = r - (h - i - 1) - 0.5;
+            inset = r - (int)Math.round(Math.sqrt(Math.max(0.0, (double)r * r - dy * dy)));
+         }
+         float t = h <= 1 ? 0.0F : (float)i / (float)(h - 1);
+         int col = rgb(lerp((top >> 16) & 255, (bottom >> 16) & 255, t), lerp((top >> 8) & 255, (bottom >> 8) & 255, t), lerp(top & 255, bottom & 255, t));
+         c.method_25294(x + inset, y + i, x + w - inset, y + i + 1, col);
+      }
    }
 
    // ---------------------------------------------------------------- input
