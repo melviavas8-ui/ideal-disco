@@ -1,5 +1,7 @@
 package aethereal;
 
+import net.minecraft.class_310;
+
 public final class Session {
    private Session() {
    }
@@ -9,7 +11,17 @@ public final class Session {
    }
 
    public static String username() {
-      return "@extjni";
+      try {
+         class_310 mc = class_310.method_1551();
+         if (mc != null && mc.method_1548() != null) {
+            String name = mc.method_1548().method_1676();
+            if (name != null && !name.isBlank()) {
+               return name;
+            }
+         }
+      } catch (Throwable ignored) {
+      }
+      return "Daamky";
    }
 
    public static String hwid() {
@@ -21,11 +33,11 @@ public final class Session {
    }
 
    public static String role() {
-      return "local";
+      return "user";
    }
 
    public static String expire() {
-      return "never";
+      return "lifetime";
    }
 
    public static void hideWindow() {

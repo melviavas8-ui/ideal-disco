@@ -100,36 +100,41 @@ public class ModuleCategoryPanel extends GuiElement {
       RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, var11);
       float var31 = this.method0530()
          + (this.method2047() - (field0055.method0998(this.field1004.methodDisplayName()) + field0624.method0998(this.field1004.method0557()) + 4.0F)) / 2.0F;
-      // Frosted glass panel: background blur + liquid glass fill + glass border
       float gx = this.method0530();
       float gy = this.method0002();
       float gw = this.method2047();
       float gh = this.method1762();
-      float gRadius = 10.0F;
-      float blurStr = Math.max(ThemePalette.field0367.get(), 28.0F);
-      GuiRenderHelper.method1462(
-         var1.method_51448(), gx, gy, gw, gh, gRadius, blurStr, ThemePalette.field0134
-      );
-      // translucent glass body (slightly tinted from theme)
-      Color glassFill = ThemePalette.field0930.get();
-      if (glassFill != null) {
-         glassFill = new Color(glassFill.getRed(), glassFill.getGreen(), glassFill.getBlue(), Math.min(180, Math.max(90, glassFill.getAlpha())));
+      if (ClickGUI.methodIsGlass()) {
+         // Стекло (beta)
+         float gRadius = 10.0F;
+         float blurStr = Math.max(ThemePalette.field0367.get(), 28.0F);
+         GuiRenderHelper.method1462(var1.method_51448(), gx, gy, gw, gh, gRadius, blurStr, ThemePalette.field0134);
+         Color glassFill = ThemePalette.field0930.get();
+         if (glassFill != null) {
+            glassFill = new Color(glassFill.getRed(), glassFill.getGreen(), glassFill.getBlue(), Math.min(180, Math.max(90, glassFill.getAlpha())));
+         } else {
+            glassFill = new Color(20, 22, 30, 140);
+         }
+         GuiRenderHelper.method2170(var1.method_51448(), gx, gy, gw, gh, gRadius, blurStr * 0.55F, 0.35F, glassFill);
+         Color edge = ThemePalette.field1210;
+         if (edge == null) {
+            edge = new Color(255, 255, 255, 70);
+         } else {
+            edge = new Color(edge.getRed(), edge.getGreen(), edge.getBlue(), Math.max(edge.getAlpha(), 70));
+         }
+         GuiRenderHelper.method1871(var1.method_51448(), gx, gy, gw, gh, gRadius, 1.2F, 0.6F, edge);
       } else {
-         glassFill = new Color(20, 22, 30, 140);
+         // Обычный
+         GuiRenderHelper.method1462(
+            var1.method_51448(), gx, gy, gw, gh, 8.0F, ThemePalette.field0367.get(), ThemePalette.field0134
+         );
+         GuiRenderHelper.method1463(
+            var1.method_51448(), gx, gy, gw, gh, 8.0F, ThemePalette.field0930.get()
+         );
+         GuiRenderHelper.method1461(
+            var1.method_51448(), gx, gy, gw, gh, 8.0F, 0.5F, 0.5F, ThemePalette.field1210
+         );
       }
-      GuiRenderHelper.method2170(
-         var1.method_51448(), gx, gy, gw, gh, gRadius, blurStr * 0.55F, 0.35F, glassFill
-      );
-      // glass edge highlight
-      Color edge = ThemePalette.field1210;
-      if (edge == null) {
-         edge = new Color(255, 255, 255, 70);
-      } else {
-         edge = new Color(edge.getRed(), edge.getGreen(), edge.getBlue(), Math.max(edge.getAlpha(), 70));
-      }
-      GuiRenderHelper.method1871(
-         var1.method_51448(), gx, gy, gw, gh, gRadius, 1.2F, 0.6F, edge
-      );
       GuiRenderHelper.method1491(
          var1.method_51448(), field0624, this.field1004.method0557(), var31, this.method0002() + 8.0F, ThemePalette.field1514.get()
       );

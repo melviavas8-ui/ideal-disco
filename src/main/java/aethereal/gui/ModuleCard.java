@@ -95,24 +95,28 @@ public class ModuleCard extends GuiElement {
       boolean var5 = MathHelper.method0689(this.method0530(), this.method0002(), this.method2047(), 20.0F, var2, var3);
       this.field1312 = var5;
       Color var6 = ColorHelper.method0966(new Color(ThemePalette.field0567), (int)(2.55F * (2.0F + 2.0F * this.field1635.method0002())));
-      // glass module row
       float cx = this.method0530();
       float cy = this.method0002();
       float cw = this.method2047();
       float ch = this.method1762();
-      float cr = 6.0F;
-      Color glass = var6;
-      if (glass != null) {
-         int a = Math.min(160, Math.max(70, glass.getAlpha() > 0 ? glass.getAlpha() : 120));
-         glass = new Color(glass.getRed(), glass.getGreen(), glass.getBlue(), a);
+      if (ClickGUI.methodIsGlass()) {
+         float cr = 6.0F;
+         Color glass = var6;
+         if (glass != null) {
+            int a = Math.min(160, Math.max(70, glass.getAlpha() > 0 ? glass.getAlpha() : 120));
+            glass = new Color(glass.getRed(), glass.getGreen(), glass.getBlue(), a);
+         } else {
+            glass = new Color(18, 20, 28, 120);
+         }
+         if (ThemePalette.field0367.get() > 0.5F) {
+            GuiRenderHelper.method1462(var1.method_51448(), cx, cy, cw, ch, cr, Math.min(24.0F, ThemePalette.field0367.get() * 0.4F), ThemePalette.field0134);
+         }
+         GuiRenderHelper.method2170(var1.method_51448(), cx, cy, cw, ch, cr, 12.0F, 0.28F, glass);
+         GuiRenderHelper.method1871(var1.method_51448(), cx, cy, cw, ch, cr, 0.9F, 0.45F, new Color(255, 255, 255, 55));
       } else {
-         glass = new Color(18, 20, 28, 120);
+         GuiRenderHelper.method1463(var1.method_51448(), cx, cy, cw, ch, 4.0F, var6);
+         GuiRenderHelper.method1461(var1.method_51448(), cx, cy, cw, ch, 4.0F, 0.5F, 0.5F, var6);
       }
-      if (ThemePalette.field0367.get() > 0.5F) {
-         GuiRenderHelper.method1462(var1.method_51448(), cx, cy, cw, ch, cr, Math.min(24.0F, ThemePalette.field0367.get() * 0.4F), ThemePalette.field0134);
-      }
-      GuiRenderHelper.method2170(var1.method_51448(), cx, cy, cw, ch, cr, 12.0F, 0.28F, glass);
-      GuiRenderHelper.method1871(var1.method_51448(), cx, cy, cw, ch, cr, 0.9F, 0.45F, new Color(255, 255, 255, 55));
       float var7 = 4.0F + field0055.method1016(this.field0480.method2259().toString(), 0.05F);
       boolean var8 = this.field0480.method2259() != null && this.field0480.method2259().method2048() != -1;
       if (var8 || this.field1218) {

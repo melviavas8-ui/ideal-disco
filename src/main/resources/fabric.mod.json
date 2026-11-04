@@ -2,10 +2,11 @@
   "schemaVersion": 1,
   "id": "daamky",
   "version": "${version}",
-  "name": "daamky",
-  "description": "Recovered offline source tree for daamky",
+  "name": "Daamky",
+  "icon": "assets/daamky/icon.png",
+  "description": "Daamky Rage 2.0",
   "authors": [
-    "skidname"
+    "klodovka and forestmorn"
   ],
   "contact": {},
   "license": "All-Rights-Reserved",
@@ -20,9 +21,9 @@
     "daamky.mixins.json"
   ],
   "depends": {
-    "fabricloader": "\u003e\u003d0.16.14",
+    "fabricloader": ">=0.16.14",
     "fabric": "*",
     "minecraft": "1.21.4",
-    "mixinextras": "\u003e\u003d0.4.0"
+    "mixinextras": ">=0.4.0"
   }
 }

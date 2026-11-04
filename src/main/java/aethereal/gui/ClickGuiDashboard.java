@@ -110,7 +110,7 @@ public class ClickGuiDashboard extends GuiElement {
       }
 
       GuiRenderHelper.method1488(
-         var1.method_51448(), field1713, "till " + this.field0841, this.method0530() + 24.0F, this.method0002() + 12.5F, 0.005F, ThemePalette.field0486
+         var1.method_51448(), field1713, "Daamky", this.method0530() + 24.0F, this.method0002() + 12.5F, 0.005F, ThemePalette.field0486
       );
       GuiRenderHelper.method1488(
          var1.method_51448(),
@@ -159,7 +159,7 @@ public class ClickGuiDashboard extends GuiElement {
    }
 
    private String method2224() {
-      return " [" + this.field0872 + "]";
+      return "";  // no cracker uid badge
    }
 
    private void method1409(class_332 var1, float var2, float var3, float var4, String var5) {
