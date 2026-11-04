@@ -15,6 +15,7 @@ import net.minecraft.class_332;
 import net.minecraft.class_3532;
 import net.minecraft.class_429;
 import net.minecraft.class_437;
+import net.minecraft.class_4185;
 import net.minecraft.class_4587;
 import net.minecraft.class_500;
 import net.minecraft.class_526;
@@ -46,6 +47,7 @@ public class MainMenuScreen extends class_437 {
    private final MediaStatusWidget field1380 = new MediaStatusWidget();
    private final ClientContext field0390 = new ClientContext();
    private boolean field0369 = true;
+   private boolean daamky$fallbackMenu = false;
    private float field0423 = 0.0F;
    private float field0255 = 0.0F;
    private int field0227;
@@ -154,6 +156,21 @@ public class MainMenuScreen extends class_437 {
       this.field1678 = new MainMenuCard(
          "QUIT", "Exit the game\nand return to your desktop", () -> this.field_22787.method_1592(), MainMenuCard.CardStyle.field0073, 85.0F
       );
+      // Shaders may fail to load at mod init; retry once here (render thread, GL is ready)
+      if (!ShaderRegistry.isReady()) {
+         ShaderRegistry.method0578();
+      }
+      this.daamky$fallbackMenu = !ShaderRegistry.isReady();
+      if (this.daamky$fallbackMenu) {
+         // Custom shaders unavailable -> plain vanilla buttons so the menu is always usable
+         int bw = 200;
+         int bx = this.field_22789 / 2 - bw / 2;
+         int by = this.field_22790 / 2 - 40;
+         this.method_37063(class_4185.method_46430(class_2561.method_43470("Singleplayer"), b -> this.field_22787.method_1507(new class_526(this))).method_46434(bx, by, bw, 20).method_46431());
+         this.method_37063(class_4185.method_46430(class_2561.method_43470("Multiplayer"), b -> this.field_22787.method_1507(new class_500(this))).method_46434(bx, by + 24, bw, 20).method_46431());
+         this.method_37063(class_4185.method_46430(class_2561.method_43470("Settings"), b -> this.field_22787.method_1507(new class_429(this, this.field_22787.field_1690))).method_46434(bx, by + 48, bw, 20).method_46431());
+         this.method_37063(class_4185.method_46430(class_2561.method_43470("Quit"), b -> this.field_22787.method_1592()).method_46434(bx, by + 72, bw, 20).method_46431());
+      }
    }
 
    public void method_25420(class_332 var1, int var2, int var3, float var4) {
@@ -174,6 +191,9 @@ public class MainMenuScreen extends class_437 {
       this.method1634();
       this.method1973();
       super.method_25394(var1, var2, var3, var4);
+      if (this.daamky$fallbackMenu) {
+         return;
+      }
       float var8 = this.field_22790 / 2.0F - 40.0F * var7 - this.field0423 * this.field_22790;
       float var9 = this.method0645(var8);
       if (var9 > 0.01F) {
@@ -516,6 +536,9 @@ public class MainMenuScreen extends class_437 {
    }
 
    public boolean method_25402(double var1, double var3, int var5) {
+      if (this.daamky$fallbackMenu) {
+         return super.method_25402(var1, var3, var5);
+      }
       if (var5 == 0 && this.method0616(var1, var3)) {
          this.field0255 = 1.0F;
          return true;

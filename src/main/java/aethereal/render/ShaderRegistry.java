@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.class_10141;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.minecraft.class_10149;
 import net.minecraft.class_10156;
 import net.minecraft.class_10157;
@@ -19,7 +21,14 @@ import ua.patch.daamky.api.mixins.accessors.ShaderLoaderInvoker;
 public final class ShaderRegistry {
    private static final Map<class_10156, class_5944> field0720 = new HashMap<>();
 
+   private static final Logger DAAMKY_LOG = LoggerFactory.getLogger("Daamky/Shaders");
+
    private ShaderRegistry() {
+   }
+
+   /** true if the custom GUI shaders (rectangle + msdf_font) were created successfully */
+   public static boolean isReady() {
+      return field0720.size() >= 2;
    }
 
    public static class_5944 method1112(class_10156 var0) {
@@ -37,6 +46,7 @@ public final class ShaderRegistry {
          class_2960 var1 = var0.comp_3113();
          String var2 = method1010("/assets/" + var1.method_12836() + "/shaders/" + var1.method_12832() + ".json");
          if (var2 == null) {
+            DAAMKY_LOG.error("[Daamky] shader json NOT FOUND in jar: /assets/{}/shaders/{}.json", var1.method_12836(), var1.method_12832());
             return;
          }
 
@@ -45,12 +55,15 @@ public final class ShaderRegistry {
          class_10141 var5 = method1394(var3.comp_3116(), class_282.field_1530, var4);
          class_10141 var6 = method1394(var3.comp_3117(), class_282.field_1531, var4);
          if (var5 == null || var6 == null) {
+            DAAMKY_LOG.error("[Daamky] shader source (vsh/fsh) NOT FOUND or failed for {}", var1);
             return;
          }
 
          class_5944 var7 = ShaderLoaderInvoker.invokeCreateProgram(var0, var3, var5, var6);
          field0720.put(var0, var7);
+         DAAMKY_LOG.info("[Daamky] shader loaded OK: {}", var1);
       } catch (Throwable var8) {
+         DAAMKY_LOG.error("[Daamky] shader load FAILED: " + var0.comp_3113(), var8);
       }
    }
 
