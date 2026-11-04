@@ -7,7 +7,7 @@ public class ThemeColorManager {
    private static final ThemeColorManager field0640 = new ThemeColorManager();
    private ThemeColorManager.PalettePreset field0071 = ThemeColorManager.PalettePreset.field1256;
    private boolean field1527 = true;
-   private Color field1026 = new Color(4904608);
+   private Color field1026 = new Color(74, 158, 255);                              // ← ИЗМЕНЕНО (было: new Color(4904608))
    private float field0758;
    private float field1242;
    private float field0314;
@@ -234,7 +234,7 @@ public class ThemeColorManager {
       field1458(new Color(16751865), "Yellow"),
       field0993(new Color(3492151), "Green"),
       field0772(new Color(10022143), "Cyan"),
-      field1256(new Color(4904608), "Blue"),
+      field1256(new Color(74, 158, 255), "Blue"),                                  // ← ИЗМЕНЕНО (было: new Color(4904608))
       field0323(new Color(6632321), "Purple"),
       field0195(new Color(608842), "White"),
       field0474(new Color(9864191), "Violet"),
