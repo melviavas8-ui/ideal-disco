@@ -2,7 +2,7 @@
   "providers": [
     {
       "type": "ttf",
-      "file": "daamky:inter_extrabold.otf",
+      "file": "daamky:inter_extrabold.ttf",
       "shift": [0.0, 0.0],
       "size": 10.0,
       "oversample": 8.0
